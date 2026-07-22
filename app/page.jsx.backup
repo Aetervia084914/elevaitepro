@@ -1,0 +1,43 @@
+
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { AppState, getTierPrices } from '../datastore.js';
+
+// Landing Page Components
+import { NavbarSection } from '../components/NavbarSection.jsx';
+import { DiscoverySection } from '../components/DiscoverySection.jsx';
+import { PlatformSection } from '../components/PlatformSection.jsx';
+import { FooterSection } from '../components/FooterSection.jsx';
+
+const Home = () => {
+  const [appState, setAppState] = useState(AppState.LANDING);
+  const [userProfile, setUserProfile] = useState(null);
+
+  useEffect(() => {
+    setUserProfile(null);
+    setAppState(AppState.LANDING);
+  }, []);
+
+  const handleLogout = () => {
+    setUserProfile(null);
+    setAppState(AppState.LANDING);
+  };
+
+  const prices = getTierPrices('UK');
+
+  return (
+    <div className="w-full overflow-hidden bg-white selection:bg-slate-900 selection:text-white">
+      <NavbarSection />
+      
+      <main>
+        <DiscoverySection prices={prices} />
+        <PlatformSection />
+      </main>
+
+      <FooterSection />
+    </div>
+  );
+};
+
+export default Home;

@@ -1,0 +1,445 @@
+const prompt = `You are a world-class career strategist, ATS optimization expert, and labor market intelligence analyst.
+Analyze the provided candidate profile against EACH suggested future role in the specified region and produce a separate, complete career transition intelligence report for every role.
+
+Be concise, factual, and decision-focused.
+
+YEARS OF EXPERIENCE:
+${yearsOfExperience}
+
+INDUSTRY:
+${industry}
+
+CURRENT ROLES IDENTIFIED:
+${currentRoles}
+
+TOOLS AND TECHNOLOGIES:
+${tools}
+
+CERTIFICATIONS:
+${certifications}
+
+SKILLS:
+${skills}
+
+SUGGESTED FUTURE ROLES:
+${suggestedFutureRoles}
+
+REGION:
+${region}
+
+COMPARISON ROLES:
+${comparisonCareerGoals?.join(", ") || "None"}
+
+IMPORTANT: Perform the full analysis below SEPARATELY for EACH suggested future role listed above. Each role must receive its own complete, independent analysis section in the output JSON.
+
+For each suggested future role, perform a deep analysis to identify:
+
+1. Skill Gaps
+Identify the most important skills missing from the candidate's profile for the target role.
+Include the best recommended missing AI, machine learning, and emerging technology skills relevant to the role.
+
+You MUST include gaps from ALL THREE categories:
+- Technical: hard skills, tools, frameworks, languages, platforms (at least 5 items)
+- Soft: communication, leadership, collaboration, stakeholder management (at least 3 items)
+- Domain: industry knowledge, regulatory awareness, business context (at least 2 items)
+
+For EACH skill gap:
+- category MUST be exactly one of: "Technical", "Soft", "Domain"
+- learningPath MUST be a specific, actionable 1-sentence recommendation (e.g. "Complete the Stanford CS229 course and build 2 supervised learning projects"). NEVER leave learningPath empty.
+- priority MUST be one of: "High", "Medium", "Low"
+
+1b. AI Skills Required
+Identify AI/ML/GenAI/data-intelligence skills specifically required to perform the target role successfully.
+Focus on AI skills only — do NOT duplicate generic technical/soft/domain skills already covered in Skill Gaps.
+Mix:
+- Foundational AI/ML concepts
+- Applied AI tooling (LLM prompt engineering, RAG, vector DBs, fine-tuning)
+- AI platforms (Azure OpenAI, AWS Bedrock, Vertex AI, Hugging Face)
+- Responsible / governance AI
+
+For EACH AI skill:
+- skill, description, category (Foundational | Applied | Platform | Governance), priority (High | Medium | Low), learningPath
+- learningPath MUST be a specific actionable 1-sentence recommendation, NEVER empty.
+Provide at least 5 AI skills.
+
+2. Missing Competencies
+Higher-level behavioral and professional competencies required.
+
+3. Required Certifications
+Suggest industry-standard certifications valuable for this role in ${region}.
+
+For EACH certification provide:
+
+A. Structured Preparation Path
+
+Include:
+
+• eligibility prerequisites  
+• foundation knowledge  
+• learning sequence  
+• hands-on projects  
+• exam preparation strategy  
+• mock tests & revision  
+• exam registration & attempt  
+• post-certification application  
+
+Also include:
+
+• total preparation duration  
+• step-by-step progression  
+• milestones & outcomes  
+
+IMPORTANT for EACH certification step:
+- duration MUST be a realistic time estimate (e.g. "1-2 weeks", "3-5 days"), NEVER empty
+- resources MUST contain 2-3 specific learning resources (official docs, courses, books), NEVER empty
+- milestones MUST contain 1-2 measurable outcomes that indicate step completion, NEVER empty
+
+B. Certification Pathway Roadmap (REQUIRED)
+
+Generate an exact certification progression roadmap showing how the certification fits within the provider ecosystem.
+
+The roadmap must:
+
+• show prerequisite certifications when applicable  
+• include foundation → associate → professional → specialty progression  
+• include branching role paths where relevant  
+• include specialization tracks  
+• include governance/security extensions when relevant  
+• use official certification names  
+• reflect the real certification ecosystem  
+
+Flow Diagram Rules:
+
+• use ASCII box-style layout  
+• show top → bottom progression  
+• show branching where relevant  
+• align diagram for readability  
+
+Example style:
+
+┌───────────────────────────┐
+│ Foundation Certification  │
+└─────────────┬─────────────┘
+              ▼
+┌───────────────────────────┐
+│ Associate Certification   │
+└─────────────┬─────────────┘
+              ▼
+   ┌──────────────┬──────────────┐
+   ▼              ▼              ▼
+Specialization   Role Track    Role Track
+              │
+              ▼
+┌───────────────────────────┐
+│ Professional Certification│
+└─────────────┬─────────────┘
+              ▼
+┌───────────────────────────┐
+│ Specialty / Governance    │
+└───────────────────────────┘
+
+Return provider-accurate pathways.
+Do NOT generate generic diagrams.
+
+4. ATS Scoring
+Provide realistic match scores.
+You MUST include:
+- strengths: list of specific profile strengths that match the target role
+- gaps: list of specific weaknesses or missing evidence hurting ATS score
+- recommendations: actionable steps to improve the ATS match score
+- keywordRecommendations: list of 5-10 high-impact ATS keywords the candidate should add to their resume for this role
+
+5. Fit Summary
+Provide an honest assessment of how well the candidate fits this target role.
+You MUST include:
+- overallFit: one of "Strong", "Moderate", or "Weak" with a brief qualifier
+- seniorityTarget: the target seniority level (e.g. Junior, Mid-Level, Senior)
+- transitionFeasibility: e.g. "High feasibility", "Moderate feasibility", "Low feasibility"
+- rationale: 2-4 sentence explanation of why the candidate fits or does not fit this role
+
+6. Career Roadmap Timeline
+Provide a structured 4-phase upskilling roadmap with concrete actions per phase:
+- phase1 (0-3 months): Foundation & quick wins
+- phase2 (3-6 months): Skill building & certification
+- phase3 (6-12 months): Deepening & specialisation
+- phase4 (12-18 months): Leadership & advancement
+Each phase MUST contain at least 3 actionable items.
+
+7. Transition Comparison
+Provide a transition difficulty assessment.
+You MUST include:
+- transitionDifficulty: one of "Easy", "Moderate", or "Hard" with brief qualifier
+- reason: 1-2 sentence explanation of the difficulty
+- estimatedTransitionDuration: e.g. "6-12 months"
+- notes: 2-4 key transition considerations as an array of strings
+
+8. Market Intelligence (United Kingdom Job Market)
+
+Provide concise, factual labour market insights using very simple English.
+
+IMPORTANT:
+Return ONLY market signals.
+
+DO NOT include:
+- learning advice
+- certifications
+- skill guidance
+- career suggestions
+
+Include:
+
+• demand growth  
+• demand drivers  
+• top hiring cities  
+• median salary  
+• salary range  
+• contract rates  
+• remote demand  
+• top remote hiring regions  
+• automation risk  
+• automation insight  
+• hiring signals  
+• top companies  
+• industry momentum  
+• future outlook  
+• global opportunities  
+• overall market insight
+`;
+
+method: 'POST',
+headers: {
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${process.env.API_KEY}`
+},
+body: JSON.stringify({
+  prompt: prompt,
+  generationConfig: {
+    responseMimeType: "application/json",
+    responseSchema: {
+      type: "object",
+      properties: {
+
+        roleAnalyses: {
+          type: "array",
+          items: {
+            type: "object",
+            required: [
+              "suggestedRole",
+              "whySuggested",
+              "skillGaps",
+              "aiSkills",
+              "competencies",
+              "certifications",
+              "atsScore",
+              "fitSummary",
+              "careerRoadmap",
+              "comparisonInfo",
+              "marketIntelligence"
+            ],
+            properties: {
+
+              suggestedRole: { type: "string" },
+              whySuggested: { type: "string" },
+
+              skillGaps: {
+                type: "array",
+                items: {
+                  type: "object",
+                  required: ["gap","description","category","priority","learningPath"],
+                  properties: {
+                    gap: { type: "string" },
+                    description: { type: "string", description: "1-2 sentence explanation of why this skill is needed" },
+                    category: { type: "string", description: "Exactly one of: Technical, Soft, Domain. You MUST include items from all three categories." },
+                    priority: { type: "string", description: "One of: High, Medium, Low" },
+                    learningPath: { type: "string", description: "Specific actionable learning recommendation, NEVER empty. Example: Complete fast.ai course and build 2 projects" }
+                  }
+                }
+              },
+
+              aiSkills: {
+                type: "array",
+                items: {
+                  type: "object",
+                  required: ["skill","description","category","priority","learningPath"],
+                  properties: {
+                    skill: { type: "string" },
+                    description: { type: "string", description: "1-2 sentence explanation of why this AI skill matters for the target role" },
+                    category: { type: "string", description: "One of: Foundational, Applied, Platform, Governance" },
+                    priority: { type: "string", description: "One of: High, Medium, Low" },
+                    learningPath: { type: "string", description: "Specific actionable learning recommendation, NEVER empty" }
+                  }
+                }
+              },
+
+              competencies: {
+                type: "array",
+                items: {
+                  type: "object",
+                  required: ["competency","description","importance"],
+                  properties: {
+                    competency: { type: "string" },
+                    description: { type: "string" },
+                    importance: { type: "string" },
+                    timeToAcquire: { type: "string" },
+                    resources: { type: "array", items: { type: "string" } }
+                  }
+                }
+              },
+
+              certifications: {
+                type: "array",
+                items: {
+                  type: "object",
+                  required: [
+                    "name",
+                    "provider",
+                    "description",
+                    "difficulty",
+                    "duration",
+                    "marketValue",
+                    "totalDuration",
+                    "steps",
+                    "flowDiagram"
+                  ],
+                  properties: {
+                    name: { type: "string" },
+                    provider: { type: "string" },
+                    description: { type: "string" },
+                    difficulty: { type: "string", description: "One of: Beginner, Medium, Advanced" },
+                    duration: { type: "string" },
+                    marketValue: { type: "string", description: "One of: High, Medium, Low" },
+                    totalDuration: { type: "string" },
+
+                    steps: {
+                      type: "array",
+                      items: {
+                        type: "object",
+                        required: ["stepNumber","title","description","duration","resources","milestones"],
+                        properties: {
+                          stepNumber: { type: "number" },
+                          title: { type: "string" },
+                          description: { type: "string", description: "Detailed 1-2 sentence description of what this step involves" },
+                          duration: { type: "string", description: "Realistic time estimate e.g. '1-2 weeks' or '3-4 days'" },
+                          resources: { type: "array", items: { type: "string" }, description: "2-3 specific learning resources such as official docs, courses, or books" },
+                          milestones: { type: "array", items: { type: "string" }, description: "1-2 measurable outcomes that indicate step completion" }
+                        }
+                      }
+                    },
+
+                    flowDiagram: { type: "string" }
+                  }
+                }
+              },
+
+              atsScore: {
+                type: "object",
+                required: ["overallScore", "strengths", "gaps", "recommendations", "keywordRecommendations"],
+                properties: {
+                  overallScore: { type: "number" },
+                  skillsScore: { type: "number" },
+                  competenciesScore: { type: "number" },
+                  certificationsScore: { type: "number" },
+                  strengths: { type: "array", items: { type: "string" } },
+                  gaps: { type: "array", items: { type: "string" } },
+                  recommendations: { type: "array", items: { type: "string" } },
+                  keywordRecommendations: { type: "array", items: { type: "string" }, description: "High-impact ATS keywords to add to resume" }
+                }
+              },
+
+              fitSummary: {
+                type: "object",
+                required: ["overallFit", "rationale"],
+                properties: {
+                  overallFit: { type: "string", description: "One of: Strong, Moderate, Weak with brief qualifier" },
+                  seniorityTarget: { type: "string", description: "Target seniority level e.g. Mid-Level, Senior" },
+                  transitionFeasibility: { type: "string", description: "e.g. High feasibility, Moderate feasibility" },
+                  rationale: { type: "string", description: "2-4 sentence explanation of role fit" }
+                }
+              },
+
+              comparisonInfo: {
+                type: "object",
+                required: ["transitionDifficulty", "estimatedTransitionDuration"],
+                properties: {
+                  transitionDifficulty: { type: "string", description: "e.g. Easy, Moderate, Hard with brief qualifier" },
+                  reason: { type: "string", description: "1-2 sentence explanation of difficulty" },
+                  estimatedTransitionDuration: { type: "string", description: "e.g. 6-12 months" },
+                  notes: { type: "array", items: { type: "string" }, description: "Key transition considerations" }
+                }
+              },
+
+              comparisonMatrix: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    role: { type: "string" },
+                    score: { type: "number" },
+                    durationMonths: { type: "number" },
+                    difficulty: { type: "string" }
+                  }
+                }
+              },
+
+              careerRoadmap: {
+                type: "object",
+                required: ["phase1", "phase2", "phase3", "phase4"],
+                properties: {
+                  phase1: { type: "array", items: { type: "string" }, description: "0-3 months: Foundation & quick wins. MUST contain at least 3 actionable items, NEVER empty." },
+                  phase2: { type: "array", items: { type: "string" }, description: "3-6 months: Skill building & certification. MUST contain at least 3 actionable items, NEVER empty." },
+                  phase3: { type: "array", items: { type: "string" }, description: "6-12 months: Deepening & specialisation. MUST contain at least 3 actionable items, NEVER empty." },
+                  phase4: { type: "array", items: { type: "string" }, description: "12-18 months: Leadership & advancement. MUST contain at least 3 actionable items, NEVER empty." }
+                }
+              },
+
+              marketIntelligence: {
+                type: "object",
+                properties: {
+                  demandGrowth: { type: "string" },
+                  demandDrivers: { type: "string" },
+                  topCities: { type: "array", items: { type: "string" } },
+                  medianSalary: { type: "string" },
+                  salaryRange: { type: "string" },
+                  contractRates: { type: "string" },
+                  remoteDemand: { type: "string" },
+                  topRemoteHiringRegions: { type: "array", items: { type: "string" } },
+                  automationRisk: { type: "string" },
+                  automationInsight: { type: "string" },
+                  hiringSignals: { type: "array", items: { type: "string" } },
+                  topCompanies: { type: "array", items: { type: "string" } },
+                  industryMomentum: { type: "array", items: { type: "string" } },
+                  futureOutlook: { type: "string" },
+                  globalOpportunities: { type: "array", items: { type: "string" } },
+                  marketInsight: { type: "string" }
+                },
+                required: [
+                  "demandGrowth",
+                  "demandDrivers",
+                  "topCities",
+                  "medianSalary",
+                  "salaryRange",
+                  "contractRates",
+                  "remoteDemand",
+                  "topRemoteHiringRegions",
+                  "automationRisk",
+                  "automationInsight",
+                  "hiringSignals",
+                  "topCompanies",
+                  "industryMomentum",
+                  "futureOutlook",
+                  "globalOpportunities",
+                  "marketInsight"
+                ]
+              }
+
+            }
+          }
+        }
+
+      },
+      required: [
+        "roleAnalyses"
+      ]
+    }
+  }
+});

@@ -1,0 +1,98 @@
+canonical_section,heading_variant,frequency_band,confidence_prior,priority_rank,notes
+summary,professional summary,very_common,0.98,3,Strong standalone heading
+summary,summary,very_common,0.95,3,Common but needs standalone-line check
+summary,profile,common,0.82,3,Can collide with non-heading text
+summary,career summary,common,0.90,3,Professional CV variant
+summary,career profile,common,0.88,3,Common in executive resumes
+summary,career objective,common,0.85,3,Traditional resume format
+summary,objective,common,0.80,3,US resume standard
+summary,personal statement,uncommon,0.75,3,UK/academic CV variant
+summary,about me,uncommon,0.70,3,Modern/creative resume style
+summary,executive summary,uncommon,0.92,3,Senior-level resumes
+summary,professional synopsis,rare,0.65,3,Formal variant
+skills,core skills,very_common,0.99,1,High-value section for extraction
+skills,skills,very_common,0.94,1,Require standalone heading pattern
+skills,technical skills,very_common,0.98,1,Very reliable technical heading
+skills,competencies,common,0.78,1,May need alias support
+skills,key skills,very_common,0.96,1,UK CV standard
+skills,technical proficiencies,common,0.89,1,Engineering resume variant
+skills,professional skills,common,0.85,1,Broad skills heading
+skills,skillset,common,0.82,1,Alternative spelling
+skills,skill set,common,0.82,1,Alternative spelling
+skills,technical competencies,uncommon,0.80,1,Formal variant
+skills,capabilities,uncommon,0.72,1,Business-oriented variant
+skills,areas of expertise,uncommon,0.85,1,Senior-level resumes
+tools,tools & technologies,very_common,0.99,1,Best tools heading
+tools,tools,common,0.74,1,High ambiguity unless standalone
+tools,technologies,common,0.84,1,Reliable if standalone
+tools,tech stack,common,0.92,1,High signal for engineering resumes
+tools,platforms,uncommon,0.68,1,Needs context
+tools,software,uncommon,0.66,1,Can be ambiguous
+tools,technology stack,common,0.90,1,Formal variant
+tools,technical tools,uncommon,0.78,1,Engineering-specific
+tools,programming tools,uncommon,0.82,1,Developer-focused
+tools,development tools,uncommon,0.80,1,Developer-focused
+experience,professional experience,very_common,0.99,2,Best experience heading
+experience,work experience,very_common,0.98,2,Strong heading
+experience,experience,very_common,0.90,2,Needs standalone check
+experience,employment history,common,0.94,2,Traditional formal variant
+experience,career history,common,0.92,2,UK variant
+experience,work history,common,0.88,2,Informal variant
+experience,job history,uncommon,0.82,2,Conversational style
+experience,career profile,uncommon,0.78,2,Can overlap with summary
+experience,professional background,uncommon,0.85,2,Senior-level variant
+experience,positions held,uncommon,0.80,2,Academic CV style
+experience,work background,uncommon,0.75,2,Alternative phrasing
+projects,projects,common,0.90,2,Usually reliable
+projects,key projects,common,0.95,2,Strong heading
+projects,selected projects,common,0.93,2,Curated project list
+projects,project experience,uncommon,0.88,2,Experience-focused variant
+projects,notable projects,uncommon,0.91,2,Highlight variant
+projects,academic projects,uncommon,0.85,2,Student/recent-grad CV
+projects,personal projects,uncommon,0.82,2,Self-directed work
+projects,portfolio,uncommon,0.78,2,Creative/design field
+projects,case studies,uncommon,0.80,2,Consulting/business variant
+education,education,very_common,0.99,4,Very reliable
+education,academic background,common,0.89,4,Good alias
+education,educational background,common,0.87,4,Formal variant
+education,qualifications,common,0.91,4,UK standard
+education,academic qualifications,common,0.90,4,UK formal variant
+education,degrees,uncommon,0.82,4,US informal variant
+education,training,uncommon,0.75,4,Can be ambiguous
+education,education & training,common,0.88,4,Combined section
+education,academic credentials,uncommon,0.85,4,Formal US variant
+education,academic history,uncommon,0.83,4,Alternative phrasing
+education,educational qualifications,uncommon,0.86,4,UK formal variant
+contact,contact information,very_common,0.95,5,Standard heading
+contact,contact details,common,0.93,5,UK variant
+contact,contact,common,0.88,5,Minimal variant
+contact,personal information,uncommon,0.80,5,Can be broader than contact
+contact,personal details,uncommon,0.78,5,UK variant
+contact,get in touch,rare,0.70,5,Modern/creative style
+certifications,certifications,common,0.96,3,Reliable heading
+certifications,licenses & certifications,common,0.97,3,Strong heading
+certifications,professional certifications,common,0.94,3,Formal variant
+certifications,certificates,uncommon,0.85,3,Alternative spelling
+certifications,credentials,uncommon,0.82,3,Broader term
+certifications,professional credentials,uncommon,0.88,3,Formal variant
+certifications,licenses,common,0.90,3,US standard for regulated professions
+certifications,licences,common,0.90,3,UK spelling variant
+certifications,accreditations,uncommon,0.83,3,Professional bodies
+certifications,professional licenses,uncommon,0.87,3,Regulated profession variant
+certifications,certifications & training,uncommon,0.89,3,Combined section
+additional_information,additional information,common,0.92,4,Reliable tail section
+additional_information,languages,common,0.76,4,Sometimes standalone sub-section
+additional_information,interests,uncommon,0.72,4,Personal touch section
+additional_information,hobbies,uncommon,0.68,4,Personal section
+additional_information,volunteer experience,uncommon,0.80,4,Community involvement
+additional_information,volunteer work,uncommon,0.78,4,Alternative phrasing
+additional_information,extracurricular activities,uncommon,0.75,4,Student CV variant
+additional_information,awards,uncommon,0.82,4,Achievement-focused
+additional_information,achievements,uncommon,0.80,4,Success highlights
+additional_information,honors,uncommon,0.78,4,US spelling
+additional_information,honours,uncommon,0.78,4,UK spelling
+additional_information,publications,uncommon,0.85,4,Academic/research CV
+additional_information,references,uncommon,0.70,4,Sometimes separate section
+additional_information,other information,uncommon,0.75,4,Catch-all variant
+additional_information,supplementary information,rare,0.68,4,Formal variant
+

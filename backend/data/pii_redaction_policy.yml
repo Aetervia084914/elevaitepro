@@ -1,0 +1,240 @@
+version: "1.0"
+name: "pii_redaction_policy"
+description: >-
+  Production-grade PII detection and redaction policy for resume, CV, and
+  profile-text processing systems. This policy governs what to detect, how to
+  redact it, thresholds for action, and how to handle ambiguous cases.
+owner: "data-platform"
+last_updated: "2026-04-08"
+policy_mode: "strict"
+fail_closed: true
+redact_before_persist: true
+redact_before_human_review: true
+
+pipeline_behavior:
+  detect_on:
+    - raw_text
+    - cleaned_text
+    - structured_sections
+    - evidence_windows
+  redact_on:
+    - persistence
+    - logging
+    - analytics_exports
+    - human_review_queue
+  do_not_redact_on:
+    - in_memory_rule_processing
+    - in_memory_entity_extraction
+
+engines:
+  primary:
+    name: "presidio"
+    type: "rule_ner_hybrid"
+  secondary:
+    name: "regex_custom_patterns"
+    type: "deterministic"
+  optional_tertiary:
+    name: "spacy_ner"
+    type: "contextual"
+    preferred_model: "en_core_web_trf"
+
+entity_thresholds:
+  PERSON: 0.85
+  EMAIL_ADDRESS: 0.95
+  PHONE_NUMBER: 0.92
+  LOCATION: 0.88
+  DATE_TIME: 0.90
+  URL: 0.90
+  IP_ADDRESS: 0.98
+  CREDIT_CARD: 0.99
+  CRYPTO: 0.99
+  IBAN_CODE: 0.99
+  US_SSN: 0.99
+  PASSPORT: 0.97
+  DRIVER_LICENSE: 0.97
+  NATIONAL_ID: 0.97
+
+redaction_actions:
+  PERSON:
+    action: "replace"
+    replacement: "[REDACTED_NAME]"
+  EMAIL_ADDRESS:
+    action: "replace"
+    replacement: "[REDACTED_EMAIL]"
+  PHONE_NUMBER:
+    action: "replace"
+    replacement: "[REDACTED_PHONE]"
+  LOCATION:
+    action: "replace"
+    replacement: "[REDACTED_LOCATION]"
+    notes:
+      - "Do not redact country or broad region if downstream role/location matching needs coarse geography."
+  DATE_TIME:
+    action: "replace"
+    replacement: "[REDACTED_DATE]"
+    applies_to:
+      - birth_date
+      - exact personal date
+    exclusions:
+      - employment_year_only
+      - certification_year_only
+  URL:
+    action: "replace"
+    replacement: "[REDACTED_URL]"
+    exclusions:
+      - official_vendor_docs_in_internal_seed_data
+  IP_ADDRESS:
+    action: "replace"
+    replacement: "[REDACTED_IP]"
+  CREDIT_CARD:
+    action: "replace"
+    replacement: "[REDACTED_FINANCIAL]"
+  CRYPTO:
+    action: "replace"
+    replacement: "[REDACTED_FINANCIAL]"
+  IBAN_CODE:
+    action: "replace"
+    replacement: "[REDACTED_FINANCIAL]"
+  US_SSN:
+    action: "replace"
+    replacement: "[REDACTED_GOV_ID]"
+  PASSPORT:
+    action: "replace"
+    replacement: "[REDACTED_GOV_ID]"
+  DRIVER_LICENSE:
+    action: "replace"
+    replacement: "[REDACTED_GOV_ID]"
+  NATIONAL_ID:
+    action: "replace"
+    replacement: "[REDACTED_GOV_ID]"
+
+keep_exceptions:
+  coarse_location:
+    description: "City, state, country, or region may be kept only when business need exists."
+    allowed_values:
+      - city
+      - state
+      - country
+      - region
+    conditions:
+      - "must not include street address"
+      - "must not include postal code if not necessary"
+      - "must not include apartment or building details"
+
+  career_entities:
+    description: "These are not redacted because they are core to resume understanding."
+    allowed_entity_types:
+      - employer_name
+      - job_title
+      - skill_name
+      - technology_name
+      - certification_name
+      - education_institution
+      - degree_name
+
+custom_regex_patterns:
+  aadhaar_like:
+    pattern: "\\b[2-9][0-9]{3}\\s?[0-9]{4}\\s?[0-9]{4}\\b"
+    entity_type: "NATIONAL_ID"
+  pan_like:
+    pattern: "\\b[A-Z]{5}[0-9]{4}[A-Z]\\b"
+    entity_type: "NATIONAL_ID"
+  passport_generic:
+    pattern: "\\b[A-Z0-9]{6,9}\\b"
+    entity_type: "PASSPORT"
+    disabled_by_default: true
+    notes:
+      - "Too broad for global use; enable only with contextual validators."
+  phone_generic_international:
+    pattern: "(?:(?:\\+|00)\\d{1,3}[ -]?)?(?:\\(?\\d{2,5}\\)?[ -]?)?[\\d -]{6,14}\\d"
+    entity_type: "PHONE_NUMBER"
+  linkedin_url:
+    pattern: "https?://(www\\.)?linkedin\\.com/[^\\s]+"
+    entity_type: "URL"
+  github_url:
+    pattern: "https?://(www\\.)?github\\.com/[^\\s]+"
+    entity_type: "URL"
+
+contextual_safeguards:
+  do_not_redact_if_likely_technology:
+    examples:
+      - "R"
+      - "Go"
+      - "Java"
+      - "Spring"
+      - "Oracle"
+      - "Access"
+      - "Teams"
+      - "Word"
+    rule: >-
+      If ambiguous token appears in technical section or is surrounded by verbs,
+      nouns, or modifiers indicating software usage, do not treat it as PII.
+
+  do_not_redact_if_likely_employer_or_institution:
+    rule: >-
+      Capitalized organization names near employment, education, certification,
+      or project contexts should be classified as business/career entities, not person names.
+
+  escalate_if_ambiguous_person_vs_product:
+    examples:
+      - "Oracle"
+      - "Ruby"
+      - "Jordan"
+      - "R"
+    action: "review"
+
+redaction_scope_rules:
+  full_text_exports:
+    use_redacted_text: true
+  debug_logs:
+    use_redacted_text: true
+    include_entity_counts_only: true
+  feature_store:
+    allow_only_non_pii_features: true
+  llm_prompts:
+    send_redacted_context_only: true
+    maximum_context_chars: 1200
+  analyst_review_ui:
+    use_redacted_context_only: true
+
+replacement_format:
+  preserve_offsets_when_possible: false
+  preserve_readability: true
+  token_style: "bracketed_uppercase"
+
+quality_controls:
+  minimum_precision_target: 0.98
+  minimum_recall_target_for_high_risk_entities: 0.97
+  sample_review_rate_percent: 5
+  mandatory_review_for_new_regex_patterns: true
+  mandatory_review_for_threshold_changes: true
+
+retention_and_audit:
+  store_original_raw_text: false
+  store_redacted_text: true
+  store_entity_type_counts: true
+  store_entity_values: false
+  store_rule_version: true
+  store_detector_scores: true
+  retention_days_redacted_text: 30
+  retention_days_audit_logs: 90
+
+defaults:
+  unknown_entity_action: "redact_if_identifier_like_else_review"
+  low_confidence_action: "review"
+  detector_failure_action: "block_persistence"
+
+review_queue_rules:
+  send_to_review_if:
+    - "entity score is within 0.05 of threshold"
+    - "regex and NER disagree on entity type"
+    - "replacement would remove too much technical context"
+    - "high-risk ID pattern is matched"
+    - "new unseen structured identifier is found"
+
+operational_controls:
+  require_versioned_policy_files: true
+  require_dual_approval_for_production_changes: true
+  require_policy_hash_logging: true
+  require_test_suite_before_deploy: true
+  require_canary_rollout: true

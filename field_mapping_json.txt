@@ -1,0 +1,6 @@
+Can you Safely map analysisdashboard component with response_received.json
+1:Skills Tab should be mapped with  skill_gaps
+2:competencies Tab should be mapped with  missing_competencies
+3:certifications Tab should be mapped with required_certifications
+4:ATS Matrix  Tab should be mapped with ats_scoring
+6:Timeline Tab should be mapped with career_roadmap_timeline

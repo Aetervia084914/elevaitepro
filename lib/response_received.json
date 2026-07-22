@@ -1,0 +1,639 @@
+{
+  "result": {
+    "skillGaps": [
+      {
+        "gap": "Budgeting and P&L management",
+        "description": "Operations Manager roles commonly require ownership of budgets, cost control, margin improvement, forecasting, and profit accountability. The CV shows finance exposure but not end-to-end budget ownership.",
+        "category": "Domain",
+        "priority": "High",
+        "learningPath": "Learn budgeting, variance analysis, forecasting, and unit economics; practice building operating budgets and monthly performance reviews; apply by tracking costs, revenue drivers, and service KPIs in current operations."
+      },
+      {
+        "gap": "Process improvement methodology application",
+        "description": "Although Six Sigma is listed, the CV does not show measurable use of Lean, Kaizen, DMAIC, or process redesign in live operations environments.",
+        "category": "Technical",
+        "priority": "High",
+        "learningPath": "Study Lean and DMAIC tools, map current processes, identify bottlenecks, run one improvement project, and document baseline vs improved cycle time, quality, and cost outcomes."
+      },
+      {
+        "gap": "Operations KPI design and dashboarding",
+        "description": "Operations Managers are expected to define, monitor, and act on KPIs such as SLA, occupancy, throughput, CSAT, cost per transaction, productivity, and quality. The CV lacks KPI ownership evidence.",
+        "category": "Technical",
+        "priority": "High",
+        "learningPath": "Learn KPI frameworks and dashboard design using Excel, Power BI, or Google Sheets; build weekly operational scorecards; track trends and present corrective actions."
+      },
+      {
+        "gap": "Supply chain and vendor management",
+        "description": "Many global operations roles require procurement, supplier performance management, contract oversight, and service delivery governance, which are not demonstrated in the CV.",
+        "category": "Domain",
+        "priority": "Medium",
+        "learningPath": "Learn sourcing basics, vendor SLAs, procurement workflows, and supplier scorecards; support one vendor review cycle and document service, cost, and risk metrics."
+      },
+      {
+        "gap": "Workforce planning and resource allocation",
+        "description": "The CV shows supervision but not formal staffing models, rota optimization, capacity planning, or labor productivity management.",
+        "category": "Domain",
+        "priority": "High",
+        "learningPath": "Study demand forecasting, shift planning, utilization, and capacity models; create staffing plans tied to demand patterns and service targets."
+      },
+      {
+        "gap": "Project management delivery",
+        "description": "Operations Managers often lead cross-functional projects, implementations, and change initiatives with timelines, risks, stakeholders, and deliverables. The CV lacks formal project delivery examples.",
+        "category": "Technical",
+        "priority": "High",
+        "learningPath": "Learn project planning, RAID logs, stakeholder mapping, and milestone tracking; lead a small operational improvement project from scope to closure."
+      },
+      {
+        "gap": "ERP and operations systems proficiency",
+        "description": "Only Microsoft Office is listed. Many operations roles require ERP, CRM, ticketing, WFM, or service management systems such as SAP, Oracle, Salesforce, ServiceNow, or Opera/PMS depth.",
+        "category": "Technical",
+        "priority": "Medium",
+        "learningPath": "Gain hands-on exposure to one major operations platform relevant to target sector; complete sandbox exercises and document workflows, reporting, and exception handling."
+      },
+      {
+        "gap": "Advanced data analysis for operations",
+        "description": "The degree supports analytical potential, but the CV does not show practical use of SQL, Excel modeling, Power BI, or statistical analysis for operational decision-making.",
+        "category": "Technical",
+        "priority": "High",
+        "learningPath": "Build skills in Excel, SQL, and Power BI; analyze service volumes, wait times, defects, and staffing efficiency; present findings with recommendations."
+      },
+      {
+        "gap": "Risk management and compliance operations",
+        "description": "Operations leadership often includes operational risk controls, audit readiness, policy adherence, health and safety, data protection, and business continuity. These are not clearly evidenced.",
+        "category": "Domain",
+        "priority": "High",
+        "learningPath": "Learn risk registers, control frameworks, incident management, GDPR basics, H&S, and continuity planning; participate in audits or compliance checks."
+      },
+      {
+        "gap": "Change management",
+        "description": "The CV shows adaptability but not structured change leadership, stakeholder adoption planning, communications, or transition management during process or system changes.",
+        "category": "Soft",
+        "priority": "Medium",
+        "learningPath": "Study change frameworks such as ADKAR or Kotter; support one process change with communication plans, training, and adoption tracking."
+      },
+      {
+        "gap": "Executive reporting and stakeholder communication",
+        "description": "Operations Managers must communicate performance, risks, and decisions to senior leaders using concise business reporting. The CV does not show board-level or executive reporting.",
+        "category": "Soft",
+        "priority": "Medium",
+        "learningPath": "Practice writing weekly business reviews, incident summaries, and KPI updates; present operational insights with actions, risks, and expected outcomes."
+      },
+      {
+        "gap": "Commercial acumen",
+        "description": "The CV shows sales and service experience, but not clear evidence of pricing, margin, cost-to-serve, business case development, or ROI-based operational decisions.",
+        "category": "Domain",
+        "priority": "High",
+        "learningPath": "Learn contribution margin, ROI, cost-to-serve, and business case basics; build simple cases for staffing, tooling, or process investments."
+      },
+      {
+        "gap": "People performance management",
+        "description": "Supervision is present, but the CV does not show structured coaching, performance reviews, disciplinary handling, succession planning, or team development metrics.",
+        "category": "Soft",
+        "priority": "High",
+        "learningPath": "Learn goal setting, 1:1 coaching, performance improvement plans, and team capability matrices; manage a small team with documented outcomes."
+      },
+      {
+        "gap": "Service level management",
+        "description": "Operations roles often require formal SLA design, monitoring, escalation management, and root-cause actioning. The CV implies service quality but not SLA ownership.",
+        "category": "Domain",
+        "priority": "Medium",
+        "learningPath": "Study SLA/OLA structures, escalation paths, and service review methods; create and monitor service targets for response time, resolution time, and quality."
+      },
+      {
+        "gap": "Cross-border and multi-site operations exposure",
+        "description": "For global operations roles, employers value experience across regions, time zones, distributed teams, and standardized operating models. The CV has remote work but limited multi-site operations evidence.",
+        "category": "Domain",
+        "priority": "Medium",
+        "learningPath": "Seek projects involving remote teams, multiple locations, or international stakeholders; document standardization, communication cadence, and governance practices."
+      }
+    ],
+    "missingCompetencies": [
+      {
+        "competency": "Operational leadership",
+        "description": "Ability to run day-to-day operations, set priorities, allocate resources, and maintain service quality while improving efficiency.",
+        "importance": "Critical",
+        "timeToAcquire": "6-12 months",
+        "resources": [
+          "Lean operations courses",
+          "Operations management case studies",
+          "Shadowing current operations managers",
+          "Weekly KPI review practice"
+        ]
+      },
+      {
+        "competency": "Financial management for operations",
+        "description": "Ability to manage budgets, control costs, forecast demand, and link operational decisions to financial outcomes.",
+        "importance": "Critical",
+        "timeToAcquire": "4-8 months",
+        "resources": [
+          "Managerial finance fundamentals",
+          "Budgeting and forecasting templates",
+          "P&L interpretation workshops",
+          "Excel financial modeling practice"
+        ]
+      },
+      {
+        "competency": "Continuous improvement leadership",
+        "description": "Ability to identify inefficiencies, prioritize improvement opportunities, and deliver measurable gains in quality, speed, and cost.",
+        "importance": "Critical",
+        "timeToAcquire": "4-6 months",
+        "resources": [
+          "Lean Six Sigma project guides",
+          "DMAIC toolkits",
+          "Process mapping software",
+          "Root cause analysis templates"
+        ]
+      },
+      {
+        "competency": "Data-driven decision making",
+        "description": "Ability to use operational data, dashboards, and trend analysis to make timely and evidence-based decisions.",
+        "importance": "Important",
+        "timeToAcquire": "3-6 months",
+        "resources": [
+          "Excel advanced analytics",
+          "Power BI learning paths",
+          "SQL basics for analysts",
+          "Operations KPI libraries"
+        ]
+      },
+      {
+        "competency": "People management",
+        "description": "Ability to coach teams, manage performance, resolve conflict, and build accountability across frontline and supervisory staff.",
+        "importance": "Critical",
+        "timeToAcquire": "6-9 months",
+        "resources": [
+          "People management training",
+          "Coaching conversation frameworks",
+          "Performance review templates",
+          "Employment relations basics"
+        ]
+      },
+      {
+        "competency": "Project and change delivery",
+        "description": "Ability to lead operational projects, manage stakeholders, control risks, and embed new processes or systems successfully.",
+        "importance": "Important",
+        "timeToAcquire": "4-8 months",
+        "resources": [
+          "PRINCE2 or CAPM materials",
+          "Change management frameworks",
+          "RAID log templates",
+          "Stakeholder communication plans"
+        ]
+      },
+      {
+        "competency": "Risk, compliance, and governance",
+        "description": "Ability to maintain controls, manage incidents, support audits, and ensure operational compliance with policy and regulation.",
+        "importance": "Important",
+        "timeToAcquire": "3-6 months",
+        "resources": [
+          "Operational risk management guides",
+          "GDPR and data handling basics",
+          "Health and safety awareness",
+          "Business continuity planning resources"
+        ]
+      },
+      {
+        "competency": "Vendor and service management",
+        "description": "Ability to manage third parties, monitor service levels, and improve supplier performance against cost and quality targets.",
+        "importance": "Beneficial",
+        "timeToAcquire": "3-5 months",
+        "resources": [
+          "Supplier scorecard templates",
+          "Contract and SLA basics",
+          "Procurement fundamentals",
+          "Service review meeting frameworks"
+        ]
+      }
+    ],
+    "requiredCertifications": [
+      {
+        "certification": "Lean Six Sigma Green Belt",
+        "provider": "IASSC or CSSC-aligned training providers",
+        "valueForRole": "Strong fit for operations improvement, waste reduction, quality control, and measurable process optimization across industries globally.",
+        "preparationPath": {
+          "eligibilityPrerequisites": [
+            "No formal prerequisite for most providers",
+            "Basic understanding of business processes recommended"
+          ],
+          "foundationKnowledge": [
+            "Process mapping",
+            "Basic statistics",
+            "Root cause analysis",
+            "Variation and quality concepts",
+            "Lean waste categories"
+          ],
+          "learningSequence": [
+            "Lean fundamentals",
+            "Six Sigma fundamentals",
+            "DMAIC phases",
+            "Statistical tools",
+            "Control plans and sustainment"
+          ],
+          "handsOnProjects": [
+            "Map a front-desk or service workflow",
+            "Reduce guest check-in time or service turnaround time",
+            "Build a defect log and Pareto analysis",
+            "Create a control chart for service quality"
+          ],
+          "examPreparationStrategy": [
+            "Use official body of knowledge",
+            "Study formula sheets and tool selection logic",
+            "Practice scenario-based questions",
+            "Review DMAIC deliverables by phase"
+          ],
+          "mockTestsAndRevision": [
+            "Take 3-5 timed mock exams",
+            "Revise weak areas in statistics and hypothesis testing",
+            "Rework case-study questions"
+          ],
+          "examRegistrationAndAttempt": [
+            "Choose accredited provider",
+            "Register exam",
+            "Schedule attempt after mock scores consistently exceed pass threshold"
+          ],
+          "postCertificationApplication": [
+            "Lead one measurable improvement project",
+            "Quantify cycle time, cost, quality, or CSAT gains",
+            "Add project outcomes to CV and LinkedIn"
+          ],
+          "totalPreparationDuration": "8-12 weeks",
+          "milestonesAndOutcomes": [
+            "Week 2: Understand Lean and DMAIC basics",
+            "Week 5: Complete process mapping and data collection exercises",
+            "Week 8: Finish project case and mock exams",
+            "Week 10-12: Pass exam and document one improvement project"
+          ]
+        },
+        "certificationPathwayRoadmap": "┌───────────────────────────────┐\n│ Lean Fundamentals / White Belt│\n└──────────────┬────────────────┘\n               │\n┌──────────────▼───────────────┐\n│ Lean Six Sigma Yellow Belt   │\n└──────────────┬───────────────┘\n               │\n┌──────────────▼───────────────┐\n│ Lean Six Sigma Green Belt    │\n└──────────────┬───────────────┘\n               │\n┌──────────────▼───────────────┐\n│ Lean Six Sigma Black Belt    │\n└──────────────┬───────────────┘\n               │\n┌──────────────▼───────────────┐\n│ Lean Six Sigma Master Black  │\n│ Belt                         │\n└──────────────────────────────┘"
+      },
+      {
+        "certification": "PRINCE2 Practitioner",
+        "provider": "PeopleCert",
+        "valueForRole": "Useful for operations managers leading process changes, service implementations, and cross-functional delivery in UK and international employers.",
+        "preparationPath": {
+          "eligibilityPrerequisites": [
+            "PRINCE2 Foundation required before Practitioner"
+          ],
+          "foundationKnowledge": [
+            "Project lifecycle basics",
+            "Business case concept",
+            "Roles and responsibilities",
+            "Risk, issue, and change control"
+          ],
+          "learningSequence": [
+            "PRINCE2 Foundation syllabus",
+            "Principles",
+            "Practices",
+            "Processes",
+            "Scenario application for Practitioner"
+          ],
+          "handsOnProjects": [
+            "Create a simple project initiation document",
+            "Build a RAID log for an operational change",
+            "Plan a service improvement rollout",
+            "Draft stage plans and exception responses"
+          ],
+          "examPreparationStrategy": [
+            "Master terminology first",
+            "Use official manual for scenario application",
+            "Practice objective testing with time control",
+            "Focus on tailoring PRINCE2 to operational environments"
+          ],
+          "mockTestsAndRevision": [
+            "Complete 4-6 Foundation and Practitioner mocks",
+            "Revise process interactions and management products",
+            "Use weak-topic flashcards"
+          ],
+          "examRegistrationAndAttempt": [
+            "Book accredited course or exam package",
+            "Pass Foundation",
+            "Schedule Practitioner within 2-6 weeks"
+          ],
+          "postCertificationApplication": [
+            "Lead a small operational project",
+            "Use stage controls, risk logs, and lessons learned",
+            "Show delivery outcomes on CV"
+          ],
+          "totalPreparationDuration": "6-10 weeks",
+          "milestonesAndOutcomes": [
+            "Week 2: Foundation concepts understood",
+            "Week 4: Foundation exam passed",
+            "Week 6: Practitioner scenario practice completed",
+            "Week 8-10: Practitioner passed and applied to one live project"
+          ]
+        },
+        "certificationPathwayRoadmap": "┌───────────────────────────────┐\n│ PRINCE2 Foundation           │\n└──────────────┬───────────────┘\n               │\n┌──────────────▼───────────────┐\n│ PRINCE2 Practitioner         │\n└──────────────┬───────────────┘\n               │\n     ┌─────────▼─────────┐\n     │ PRINCE2 Agile     │\n     │ Foundation        │\n     └─────────┬─────────┘\n               │\n     ┌─────────▼─────────┐\n     │ PRINCE2 Agile     │\n     │ Practitioner      │\n     └───────────────────┘"
+      },
+      {
+        "certification": "APICS Certified in Planning and Inventory Management (CPIM)",
+        "provider": "ASCM",
+        "valueForRole": "Highly valuable for operations roles involving planning, inventory, production, supply chain coordination, and process control in global organizations.",
+        "preparationPath": {
+          "eligibilityPrerequisites": [
+            "No mandatory prerequisite",
+            "Basic operations or supply chain exposure helpful"
+          ],
+          "foundationKnowledge": [
+            "Operations planning",
+            "Inventory concepts",
+            "Demand management",
+            "Capacity planning",
+            "Supply chain basics"
+          ],
+          "learningSequence": [
+            "Supply chain fundamentals",
+            "Demand and supply planning",
+            "Inventory management",
+            "Detailed scheduling",
+            "Execution and control",
+            "Strategic resource management"
+          ],
+          "handsOnProjects": [
+            "Build a simple demand forecast",
+            "Create reorder point and safety stock models",
+            "Map order-to-fulfillment process",
+            "Analyze stockouts and service-level tradeoffs"
+          ],
+          "examPreparationStrategy": [
+            "Use ASCM learning system",
+            "Study terminology and formulas daily",
+            "Apply concepts to service and retail operations examples",
+            "Review planning scenarios and tradeoffs"
+          ],
+          "mockTestsAndRevision": [
+            "Take chapter quizzes weekly",
+            "Complete 3 full-length mocks",
+            "Revise weak areas in inventory and planning logic"
+          ],
+          "examRegistrationAndAttempt": [
+            "Purchase exam and learning system",
+            "Schedule exam after consistent mock performance",
+            "Sit exam at Pearson VUE or approved center"
+          ],
+          "postCertificationApplication": [
+            "Support planning, scheduling, or inventory optimization work",
+            "Quantify service level, stock, or throughput improvements"
+          ],
+          "totalPreparationDuration": "3-5 months",
+          "milestonesAndOutcomes": [
+            "Month 1: Core planning concepts mastered",
+            "Month 2: Inventory and scheduling practice completed",
+            "Month 3-4: Mock exams and case application",
+            "Month 4-5: Exam passed and concepts applied to operations metrics"
+          ]
+        },
+        "certificationPathwayRoadmap": "┌───────────────────────────────┐\n│ ASCM Foundations Courses     │\n│ (Supply Chain / Planning)    │\n└──────────────┬───────────────┘\n               │\n┌──────────────▼───────────────┐\n│ CPIM                         │\n└───────┬───────────────┬──────┘\n        │               │\n┌───────▼───────┐ ┌─────▼──────┐\n│ CSCP          │ │ CLTD       │\n└───────┬───────┘ └─────┬──────┘\n        │               │\n┌───────▼────────────────▼──────┐\n│ Supply Chain Leadership /     │\n│ End-to-End Operations Roles   │\n└───────────────────────────────┘"
+      },
+      {
+        "certification": "Certified Manager (CM)",
+        "provider": "Institute of Certified Professional Managers",
+        "valueForRole": "Directly relevant for first-line to mid-level management capability in planning, organizing, leading, and controlling operations teams.",
+        "preparationPath": {
+          "eligibilityPrerequisites": [
+            "No strict prerequisite for many candidates",
+            "Management exposure recommended"
+          ],
+          "foundationKnowledge": [
+            "Management functions",
+            "Communication",
+            "Decision-making",
+            "Team leadership",
+            "Performance management"
+          ],
+          "learningSequence": [
+            "Planning",
+            "Organizing",
+            "Leading",
+            "Controlling",
+            "Integrating management practices"
+          ],
+          "handsOnProjects": [
+            "Create a team performance plan",
+            "Run a weekly operations review",
+            "Develop a staffing and escalation matrix",
+            "Document a coaching and feedback process"
+          ],
+          "examPreparationStrategy": [
+            "Study management framework terminology",
+            "Use scenario-based practice",
+            "Link concepts to current supervisory experience"
+          ],
+          "mockTestsAndRevision": [
+            "Complete module quizzes",
+            "Take 2-3 full practice exams",
+            "Revise leadership and control topics"
+          ],
+          "examRegistrationAndAttempt": [
+            "Register through provider",
+            "Complete required modules",
+            "Schedule exam when practice scores are stable"
+          ],
+          "postCertificationApplication": [
+            "Formalize team management routines",
+            "Show improvements in attendance, service quality, or productivity"
+          ],
+          "totalPreparationDuration": "6-8 weeks",
+          "milestonesAndOutcomes": [
+            "Week 2: Core management functions understood",
+            "Week 4: Team leadership scenarios practiced",
+            "Week 6: Mock exams completed",
+            "Week 8: Certification achieved and management routines implemented"
+          ]
+        },
+        "certificationPathwayRoadmap": "┌───────────────────────────────┐\n│ ICPM Foundational Management │\n│ Learning                     │\n└──────────────┬───────────────┘\n               │\n┌──────────────▼───────────────┐\n│ Certified Manager (CM)       │\n└──────────────┬───────────────┘\n               │\n┌──────────────▼───────────────┐\n│ Advanced leadership /        │\n│ organizational management    │\n│ development programs         │\n└──────────────────────────────┘"
+      }
+    ],
+    "atsScoring": {
+      "matchScore": 61,
+      "strengths": [
+        "Direct supervisory experience in hospitality operations",
+        "Strong customer service and conflict resolution background",
+        "Experience coordinating daily operations and staff activity",
+        "BSc in Computer and Data Science supports analytical potential",
+        "Multilingual capability is valuable for global operations environments"
+      ],
+      "gaps": [
+        "Limited evidence of budget ownership and financial accountability",
+        "No clear KPI dashboard, SLA, or operational reporting ownership",
+        "Lack of formal project management and change delivery examples",
+        "Minimal proof of process improvement results with quantified metrics",
+        "No clear exposure to vendor management, procurement, or supply chain operations"
+      ],
+      "recommendations": [
+        "Rewrite experience bullets to show measurable operational outcomes such as service speed, CSAT, occupancy, cost, and team productivity",
+        "Add a targeted Operations Manager summary with keywords like KPI management, workforce planning, process improvement, and budget control",
+        "Show examples of team leadership including training, scheduling, coaching, and performance management",
+        "Include tools beyond Microsoft Office such as Excel advanced functions, Power BI, CRM, PMS, or ticketing systems if used",
+        "Quantify any improvement initiatives using percentages, time saved, error reduction, or revenue impact"
+      ],
+      "feedback": [
+        "The profile is credible for junior operations management or operations coordinator pathways, but not yet strongly competitive for broad Operations Manager roles globally.",
+        "Hospitality supervision gives relevant frontline operations credibility.",
+        "Remote AI and sales experience adds stakeholder management and analytical adaptability, but needs clearer translation into operations language.",
+        "The CV currently reads more as customer service plus supervision than full operations leadership.",
+        "ATS performance will improve significantly if role titles and bullets are aligned to operations keywords used in job descriptions.",
+        "Certifications listed should be validated and only retained if genuinely earned and recognized by employers.",
+        "A stronger skills section should prioritize operations planning, KPI reporting, process improvement, scheduling, compliance, and team leadership."
+      ]
+    },
+    "careerRoadmapTimeline": [
+      {
+        "phase": "Phase 1",
+        "duration": "0-3 months",
+        "focus": "Reposition CV and build core operations evidence",
+        "actions": [
+          "Rewrite CV for Operations Manager target with quantified results",
+          "Build examples of KPI tracking, scheduling, service quality, and issue resolution",
+          "Strengthen Excel and reporting capability",
+          "Document one process improvement case from current or prior work"
+        ],
+        "outcomes": [
+          "ATS-ready operations CV",
+          "Clear evidence of supervisory and operational ownership",
+          "Improved interview readiness for coordinator or assistant manager roles"
+        ]
+      },
+      {
+        "phase": "Phase 2",
+        "duration": "3-6 months",
+        "focus": "Develop formal operations management capability",
+        "actions": [
+          "Complete Lean Six Sigma Green Belt or equivalent",
+          "Lead a small improvement project with measurable outcomes",
+          "Create operational dashboards and weekly review routines",
+          "Gain exposure to rota planning, capacity planning, and service levels"
+        ],
+        "outcomes": [
+          "Demonstrable process improvement experience",
+          "Stronger data-driven operations profile",
+          "Better fit for Operations Supervisor or Assistant Operations Manager roles"
+        ]
+      },
+      {
+        "phase": "Phase 3",
+        "duration": "6-12 months",
+        "focus": "Expand into full management scope",
+        "actions": [
+          "Take ownership of budget tracking or cost control activities",
+          "Lead cross-functional project or service rollout",
+          "Manage team performance reviews and coaching routines",
+          "Gain exposure to compliance, risk, and audit processes"
+        ],
+        "outcomes": [
+          "Evidence of broader management accountability",
+          "Readiness for Operations Manager interviews in service-led sectors",
+          "Stronger internal promotion or external transition potential"
+        ]
+      },
+      {
+        "phase": "Phase 4",
+        "duration": "12-24 months",
+        "focus": "Scale to global and multi-site operations readiness",
+        "actions": [
+          "Pursue multi-site, regional, or remote team coordination opportunities",
+          "Build vendor management and service governance experience",
+          "Develop advanced reporting and executive communication capability",
+          "Add project or planning certification if role demands it"
+        ],
+        "outcomes": [
+          "Competitive profile for broader Operations Manager roles",
+          "Improved fit for international and cross-functional operations environments",
+          "Pathway toward Senior Operations Manager over time"
+        ]
+      }
+    ],
+    "comparison": [
+      {
+        "role": "Operations Coordinator",
+        "difficultyVsTarget": "Lower",
+        "transitionDurationVsTarget": "Shorter",
+        "estimatedTransitionTime": "0-3 months",
+        "comparisonInsight": "Most achievable immediate step. Current CV already aligns with coordination, service oversight, and team support."
+      },
+      {
+        "role": "Assistant Operations Manager",
+        "difficultyVsTarget": "Slightly Lower",
+        "transitionDurationVsTarget": "Shorter",
+        "estimatedTransitionTime": "3-6 months",
+        "comparisonInsight": "Strong bridge role. Requires clearer KPI, scheduling, and process ownership but is realistic with CV repositioning."
+      },
+      {
+        "role": "Operations Manager",
+        "difficultyVsTarget": "Baseline",
+        "transitionDurationVsTarget": "Baseline",
+        "estimatedTransitionTime": "6-12 months",
+        "comparisonInsight": "Achievable, but stronger evidence is needed in budgeting, KPI ownership, process improvement, and people management."
+      },
+      {
+        "role": "Project Manager",
+        "difficultyVsTarget": "Similar to Slightly Higher",
+        "transitionDurationVsTarget": "Similar",
+        "estimatedTransitionTime": "6-12 months",
+        "comparisonInsight": "Transferable communication and coordination skills exist, but formal project delivery methodology is currently underdeveloped."
+      },
+      {
+        "role": "Supply Chain Manager",
+        "difficultyVsTarget": "Higher",
+        "transitionDurationVsTarget": "Longer",
+        "estimatedTransitionTime": "12-18 months",
+        "comparisonInsight": "Requires planning, inventory, procurement, and supplier management experience not currently shown."
+      }
+    ],
+    "marketIntelligence": {
+      "demandGrowth": "Steady to strong demand in the UK, especially in logistics, hospitality, retail, healthcare, manufacturing, and business services.",
+      "demandDrivers": [
+        "Cost control pressure",
+        "Need for service efficiency",
+        "Supply chain resilience",
+        "Digital transformation",
+        "Expansion of multi-site operations",
+        "Customer experience improvement"
+      ],
+      "topHiringCities": [
+        "London",
+        "Birmingham",
+        "Manchester",
+        "Leeds",
+        "Bristol",
+        "Edinburgh",
+        "Glasgow"
+      ],
+      "medianSalary": "About GBP 42,000-48,000 per year",
+      "salaryRange": "About GBP 32,000-70,000+ depending on sector, scale, and location",
+      "contractRates": "Commonly about GBP 250-450 per day, higher in transformation-heavy or specialist sectors",
+      "remoteDemand": "Moderate. Many roles are hybrid. Fully remote operations manager roles are less common than remote support or project roles.",
+      "topRemoteHiringRegions": [
+        "London and South East",
+        "West Midlands",
+        "North West England",
+        "Scotland"
+      ],
+      "automationRisk": "Medium",
+      "automationInsight": "Routine reporting, scheduling, and admin tasks can be automated, but leadership, decision-making, escalation handling, and cross-team coordination remain human-led.",
+      "hiringSignals": [
+        "Frequent demand for KPI ownership",
+        "Strong preference for people management experience",
+        "High value placed on process improvement",
+        "Budget and cost control often required",
+        "Sector-specific systems knowledge improves hiring chances"
+      ],
+      "topCompanies": [
+        "Amazon",
+        "DHL",
+        "Compass Group",
+        "NHS trusts",
+        "Tesco",
+        "Sainsbury's",
+        "Mitie",
+        "Hilton",
+        "Marriott",
+        "Unilever"
+      ],
+      "industryMomentum": "Strongest momentum is in logistics, healthcare operations, facilities management, e-commerce, and business process outsourcing. Hospitality remains active but more cost-sensitive.",
+      "futureOutlook": "Positive over the next 3-5 years. Employers are expected to keep hiring managers who can improve efficiency, manage teams, and use data well.",
+      "globalOpportunities": "Good global mobility across hospitality, logistics, shared services, customer operations, and support functions. Multilingual candidates have an advantage in international service environments.",
+      "overallMarketInsight": "The UK market is active for operations talent, but employers want proof of measurable results, team leadership, and cost or process control. Candidates with frontline supervision alone face more competition than those with KPI and improvement evidence."
+    }
+  },
+  "model": "gpt-5.4"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Rahul Verma",
+  "email": "rachitvermamca1986@gmail.com",
+  "password": "1234567",
+  "target_job_title": "",
+  "career_aspirations": "",
+  "selected_tier": "Starter",
+  "last_payment_date": 1782031204,
+  "created_payment_date": 1782031204
+}

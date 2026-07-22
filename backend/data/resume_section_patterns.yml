@@ -1,0 +1,205 @@
+version: 1.0
+description: Production-grade baseline regex and rules for resume section detection.
+
+canonical_sections:
+  summary:
+    priority_rank: 3
+    aliases:
+      - summary
+      - professional summary
+      - profile
+      - professional profile
+      - career summary
+      - executive summary
+      - overview
+      - summary of qualifications
+      - career profile
+      - career objective
+      - objective
+      - personal statement
+      - about me
+      - professional synopsis
+    patterns:
+      - '(?im)^\s*(professional\s+summary|career\s+summary|executive\s+summary|summary\s+of\s+qualifications|career\s+profile|career\s+objective|professional\s+synopsis|personal\s+statement|about\s+me|summary|profile|professional\s+profile|overview|objective)\s*:?[ \t]*$'
+
+  skills:
+    priority_rank: 1
+    aliases:
+      - skills
+      - skill
+      - core skills
+      - key skills
+      - technical skills
+      - tech skill
+      - tech skills
+      - competencies
+      - core competencies
+      - areas of expertise
+      - expertise
+      - technical proficiencies
+      - professional skills
+      - skillset
+      - skill set
+      - capabilities
+      - qualifications
+      - technical competencies
+    patterns:
+      - '(?im)^\s*(core\s+skills|key\s+skills|technical\s+skills|professional\s+skills|skills\s+summary|tech\s+skills?|technical\s+proficiencies|technical\s+competencies|core\s+competencies|skills?|skill\s+?set|competencies|areas\s+of\s+expertise|expertise|capabilities)\s*:?[ \t]*$'
+
+  tools:
+    priority_rank: 1
+    aliases:
+      - tools
+      - tools & technologies
+      - technologies
+      - technology
+      - tech stack
+      - technical stack
+      - platforms
+      - software
+      - software & tools
+      - applications
+      - systems
+      - technology stack
+      - technical tools
+      - programming tools
+      - development tools
+    patterns:
+      - '(?im)^\s*(tools\s*&\s*technologies|tools\s+and\s+technologies|software\s*&\s*tools|software\s+and\s+tools|technical\s+proficiencies|software\s+proficiency|technology\s+stack|technical\s+stack|tech\s+stack|programming\s+tools|development\s+tools|technical\s+tools|technologies|technology|platforms|applications|systems|tools|software)\s*:?[ \t]*$'
+
+  experience:
+    priority_rank: 2
+    aliases:
+      - professional experience
+      - relevant professional experience
+      - relevant work experience
+      - professional work experience
+      - work experience
+      - experience
+      - employment history
+      - career history
+      - work history
+      - relevant experience
+      - job history
+      - career profile
+      - professional background
+      - employment
+      - positions held
+      - work background
+    patterns:
+      - '(?im)^\s*(relevant\s+professional\s+experience|professional\s+work\s+experience|relevant\s+work\s+experience|professional\s+experience|professional\s+background|work\s+experience|employment\s+history|career\s+history|work\s+history|work\s+background|job\s+history|career\s+profile|positions\s+held|relevant\s+experience|experience|employment)\s*:?[ \t]*$'
+
+  projects:
+    priority_rank: 2
+    aliases:
+      - projects
+      - key projects
+      - selected projects
+      - project experience
+      - notable projects
+      - project highlights
+      - academic projects
+      - personal projects
+      - portfolio
+      - case studies
+    patterns:
+      - '(?im)^\s*(key\s+projects|selected\s+projects|project\s+experience|notable\s+projects|project\s+highlights|academic\s+projects|personal\s+projects|portfolio|projects|case\s+studies)\s*:?[ \t]*$'
+
+  education:
+    priority_rank: 4
+    aliases:
+      - education
+      - academic background
+      - educational background
+      - qualifications
+      - academic qualifications
+      - degrees
+      - training
+      - education & training
+      - academic credentials
+      - academic history
+      - educational qualifications
+      - education and training
+    patterns:
+      - '(?im)^\s*(academic\s+background|educational\s+background|education\s*&\s*training|education\s+and\s+training|education\s+and\s+qualifications|education\s*&\s*qualifications|academic\s+qualifications|educational\s+qualifications|academic\s+credentials|academic\s+history|qualifications|degrees|training|education)\s*:?[ \t]*$'
+
+  contact:
+    priority_rank: 5
+    aliases:
+      - contact
+      - contact information
+      - contact details
+      - contact info
+      - personal information
+      - personal details
+      - get in touch
+    patterns:
+      - '(?im)^\s*(contact\s+information|contact\s+details|contact\s+info|personal\s+information|personal\s+details|get\s+in\s+touch|contact)\s*:?[ \t]*$'
+
+  certifications:
+    priority_rank: 3
+    aliases:
+      - certifications
+      - licenses
+      - licenses & certifications
+      - professional certifications
+      - certificates
+      - credentials
+      - accreditations
+      - certifications & training
+      - professional credentials
+      - professional licenses
+      - licences
+      - licences & certifications
+    patterns:
+      - '(?im)^\s*(licenses\s*&\s*certifications|licences\s*&\s*certifications|licenses\s+and\s+certifications|licences\s+and\s+certifications|certifications\s*&\s*training|certifications\s+and\s+training|professional\s+certifications|professional\s+credentials|professional\s+licenses|certifications|licenses|licences|certificates|credentials|accreditations)\s*[&]?\s*$'
+
+  additional_information:
+    priority_rank: 4
+    aliases:
+      - additional information
+      - other information
+      - supplementary information
+      - personal details
+      - languages
+      - interests
+      - hobbies
+      - volunteer experience
+      - volunteer work
+      - extracurricular activities
+      - awards
+      - achievements
+      - honors
+      - honours
+      - publications
+      - references
+    patterns:
+      - '(?im)^\s*(additional\s+information|other\s+information|supplementary\s+information|personal\s+details|extracurricular\s+activities|volunteer\s+experience|volunteer\s+work|languages|interests|hobbies|awards|achievements|honors|honours|publications|references|miscellaneous)\s*:?[ \t]*$'
+
+negative_rules:
+  reject_if_line_contains:
+    - '@'
+    - 'www.'
+    - 'http://'
+    - 'https://'
+    - '|'
+  reject_if_matches:
+    - '(?i)\b\+?\d[\d\-\s()]{6,}\b'
+    - '(?i)\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}\b'
+    - '(?i)^\s*[A-Za-z .,-]+\|\s*[A-Za-z .,-]+\|\s*\+?\d'
+    - '(?i)^\s*[A-Za-z .,-]+\|\s*[A-Za-z .,-]+@'
+    - '(?i)^\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)\b'
+    - '(?i)^\s*\d{4}\s*[-–]\s*(present|current|\d{4})\s*$'
+  reject_if_too_long_chars: 48
+  reject_if_word_count_gt: 6
+
+body_rules:
+  min_body_non_whitespace_chars: 12
+  trim_leading_trailing_whitespace: true
+  collapse_duplicate_sections: true
+  merge_adjacent_same_section: true
+  require_non_empty_body: true
+
+offset_rules:
+  require_start_lt_end: true
+  require_body_within_document: true

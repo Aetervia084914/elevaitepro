@@ -1,0 +1,206 @@
+{
+  "endpoint": "getresume_futureroles",
+  "session_id": "d27bac8f-b7d1-455d-862a-12ae4fe81aa8",
+  "written_at": "2026-07-22T15:23:49.659418+00:00",
+  "raw_response": {
+    "result": {
+      "best_fit_industry": "Information Technology",
+      "possible_job_titles": [
+        "IT Support Technician",
+        "IT Support Analyst",
+        "Helpdesk Support Technician",
+        "Cyber Security Technician"
+      ],
+      "core_skills": {
+        "Excellent communication skills, both written and verbal": "Communication",
+        "installation": "Technical",
+        "preventative maintenance": "Technical",
+        "networking": "Technical",
+        "security": "Compliance & Legal",
+        "troubleshooting": "Technical",
+        "type at 80 words per minute": "Soft Skill"
+      },
+      "tools_and_technologies": {
+        "Microsoft Office": "Productivity & Office",
+        "Access": "Productivity & Office",
+        "Excel": "Productivity & Office",
+        "Word": "Productivity & Office",
+        "PowerPoint": "Productivity & Office"
+      },
+      "profile_summary": "A committed and adaptable IT professional seeking an IT Support role. Eager to embrace new challenges, learn from experiences, and stay updated on the latest trends and technologies in the fast-paced IT landscape.",
+      "education": [
+        "Netcom Training \u2013 Birmingham (2023 - 2024) Networking Infrastructure & Cyber Security Technician",
+        "Sharjah University (2017- 2021) BA",
+        "9 GCSE\u2019s Grade C or above including English and Maths"
+      ],
+      "certifications": [
+        "CompTIA A+ certified",
+        "CompTIA Security+ certified",
+        "Certified Networking Infrastructure & Cyber Security Technician"
+      ],
+      "work_experience": [
+        {
+          "job_title": "operations",
+          "company": "Vital Rail",
+          "dates": "Nov 2022 \u2013 Present",
+          "responsibilities": [
+            "Prioritized industry-leading health and safety standards for a highly experienced workforce in P-way maintenance, track renewals, and S&C renewals.",
+            "Positioned Vital as a leader in tailored Rail Security solutions.",
+            "Recognized as Network Rail\u2019s supplier of choice for Trespass, contributing to enhanced rail security measures."
+          ]
+        },
+        {
+          "job_title": "Security Officer and SIA Door Supervisor",
+          "company": "PES Security - Manchester",
+          "dates": "Oct 2021 \u2013 Nov 2022",
+          "responsibilities": [
+            "Worked as a Security Officer and SIA Door Supervisor, managing security and crowd control."
+          ]
+        },
+        {
+          "job_title": null,
+          "company": "Sharjah Investment and Development Authority SHOROOQ - UAE",
+          "dates": "Nov 2011 \u2013 Sep 2021",
+          "responsibilities": [
+            "Supervised & supported the design team through different project phases.",
+            "Conducted periodic site inspections.",
+            "Coordinated with clients."
+          ]
+        },
+        {
+          "job_title": null,
+          "company": "Sharjah Investment and Development Authority (SHUROOQ)",
+          "dates": "Nov 2010 \u2013 Sep 2021; October 2007 \u2013 May 2010",
+          "responsibilities": [
+            "Maintaining and organising the company filing system",
+            "Answering incoming calls",
+            "Typing all necessary documents and correspondence as required",
+            "Printing any supplementary notes as required",
+            "Running professional errands"
+          ]
+        }
+      ],
+      "projects": [],
+      "achievements": [],
+      "inferred_seniority": "Junior",
+      "all_plausible_future_roles": [
+        "IT Support Technician",
+        "IT Support Analyst",
+        "Helpdesk Support Technician",
+        "Cyber Security Technician"
+      ],
+      "confidence_scores": {
+        "IT Support Technician": 0.84,
+        "IT Support Analyst": 0.72,
+        "Helpdesk Support Technician": 0.68,
+        "Cyber Security Technician": 0.46
+      },
+      "why_suggested": {
+        "IT Support Technician": "The resume directly states that the candidate is \"seeking an IT Support role,\" which strongly aligns with the title IT Support Technician. Tool evidence supports this direction through explicit proficiency in Microsoft Office, including Access, Excel, Word, and PowerPoint, which are commonly relevant in end-user support environments. Skill evidence is also present through the named areas in CompTIA A+ certified, including installation, preventative maintenance, networking, security, and troubleshooting, alongside excellent communication skills, both written and verbal. The certifications CompTIA A+ certified and CompTIA Security+ certified strengthen the case by showing validated foundational IT and security knowledge, while the inferred Junior seniority fits an entry-level to early-career support role in the United Kingdom market. This role is a realistic progression because it matches the candidate\u2019s stated target role, technical foundation, and support-oriented communication profile.",
+        "IT Support Analyst": "IT Support Analyst is supported by the candidate\u2019s explicit objective of pursuing an IT Support role and by the technical areas named under CompTIA A+ certified. The resume provides relevant tool evidence through Microsoft Office, Access, Excel, Word, and PowerPoint, which are frequently used in support and user-facing IT environments. Skill evidence includes troubleshooting, networking, installation, preventative maintenance, and excellent communication skills, both written and verbal, all of which align with analysing and resolving user issues. CompTIA A+ certified provides direct support for baseline support capability, while CompTIA Security+ certified adds useful security awareness without overstating hands-on analyst experience. Given the absence of prior formal IT job titles, Junior seniority remains the most defensible level, making IT Support Analyst a realistic and conservative next-step role rather than an inflated progression.",
+        "Helpdesk Support Technician": "Helpdesk Support Technician is a plausible future role because it closely matches the candidate\u2019s stated aim of obtaining an IT Support role and fits an entry-level support pathway in the United Kingdom. The resume includes explicit tool familiarity with Microsoft Office, Access, Excel, Word, and PowerPoint, which supports common helpdesk tasks involving end-user software assistance. The strongest skill evidence comes from CompTIA A+ certified, which names installation, preventative maintenance, networking, security, and troubleshooting, and from the resume\u2019s statement of excellent communication skills, both written and verbal. Previous responsibilities such as answering incoming calls and typing documents also support a user-facing support environment, although they do not by themselves establish IT experience. The role is therefore a realistic adjacent entry point that aligns with the candidate\u2019s certifications, communication profile, and stated career direction.",
+        "Cyber Security Technician": "Cyber Security Technician is supported more cautiously than the support roles because the resume includes explicit security-focused certifications and training but limited direct cybersecurity work experience. The strongest evidence comes from CompTIA Security+ certified and Certified Networking Infrastructure & Cyber Security Technician, supported by the education entry \"Networking Infrastructure & Cyber Security Technician\" and the named technical areas of networking and security. The candidate also has a background in security-related work titles, including Security Officer and SIA Door Supervisor, but those titles indicate physical security rather than IT security, so they only provide limited title alignment. CompTIA A+ certified adds foundational technical support knowledge that can be relevant in junior cyber support environments, and the inferred Junior seniority fits a technician-level rather than advanced security role. This makes Cyber Security Technician a realistic but lower-confidence future role because it is supported by certifications and technical training, yet lacks direct hands-on IT security employment evidence."
+      }
+    },
+    "model": "gpt-5.4"
+  },
+  "parsed_output": {
+    "best_fit_industry": "Information Technology",
+    "possible_job_titles": [
+      "IT Support Technician",
+      "IT Support Analyst",
+      "Helpdesk Support Technician",
+      "Cyber Security Technician"
+    ],
+    "core_skills": {
+      "Excellent communication skills, both written and verbal": "Communication",
+      "installation": "Technical",
+      "preventative maintenance": "Technical",
+      "networking": "Technical",
+      "security": "Compliance & Legal",
+      "troubleshooting": "Technical",
+      "type at 80 words per minute": "Soft Skill"
+    },
+    "tools_and_technologies": {
+      "Microsoft Office": "Productivity & Office",
+      "Access": "Productivity & Office",
+      "Excel": "Productivity & Office",
+      "Word": "Productivity & Office",
+      "PowerPoint": "Productivity & Office"
+    },
+    "profile_summary": "A committed and adaptable IT professional seeking an IT Support role. Eager to embrace new challenges, learn from experiences, and stay updated on the latest trends and technologies in the fast-paced IT landscape.",
+    "education": [
+      "Netcom Training \u2013 Birmingham (2023 - 2024) Networking Infrastructure & Cyber Security Technician",
+      "Sharjah University (2017- 2021) BA",
+      "9 GCSE\u2019s Grade C or above including English and Maths"
+    ],
+    "certifications": [
+      "CompTIA A+ certified",
+      "CompTIA Security+ certified",
+      "Certified Networking Infrastructure & Cyber Security Technician"
+    ],
+    "work_experience": [
+      {
+        "job_title": "operations",
+        "company": "Vital Rail",
+        "dates": "Nov 2022 \u2013 Present",
+        "responsibilities": [
+          "Prioritized industry-leading health and safety standards for a highly experienced workforce in P-way maintenance, track renewals, and S&C renewals.",
+          "Positioned Vital as a leader in tailored Rail Security solutions.",
+          "Recognized as Network Rail\u2019s supplier of choice for Trespass, contributing to enhanced rail security measures."
+        ]
+      },
+      {
+        "job_title": "Security Officer and SIA Door Supervisor",
+        "company": "PES Security - Manchester",
+        "dates": "Oct 2021 \u2013 Nov 2022",
+        "responsibilities": [
+          "Worked as a Security Officer and SIA Door Supervisor, managing security and crowd control."
+        ]
+      },
+      {
+        "job_title": null,
+        "company": "Sharjah Investment and Development Authority SHOROOQ - UAE",
+        "dates": "Nov 2011 \u2013 Sep 2021",
+        "responsibilities": [
+          "Supervised & supported the design team through different project phases.",
+          "Conducted periodic site inspections.",
+          "Coordinated with clients."
+        ]
+      },
+      {
+        "job_title": null,
+        "company": "Sharjah Investment and Development Authority (SHUROOQ)",
+        "dates": "Nov 2010 \u2013 Sep 2021; October 2007 \u2013 May 2010",
+        "responsibilities": [
+          "Maintaining and organising the company filing system",
+          "Answering incoming calls",
+          "Typing all necessary documents and correspondence as required",
+          "Printing any supplementary notes as required",
+          "Running professional errands"
+        ]
+      }
+    ],
+    "projects": [],
+    "achievements": [],
+    "inferred_seniority": "Junior",
+    "all_plausible_future_roles": [
+      "IT Support Technician",
+      "IT Support Analyst",
+      "Helpdesk Support Technician",
+      "Cyber Security Technician"
+    ],
+    "confidence_scores": {
+      "IT Support Technician": 0.84,
+      "IT Support Analyst": 0.72,
+      "Helpdesk Support Technician": 0.68,
+      "Cyber Security Technician": 0.46
+    },
+    "why_suggested": {
+      "IT Support Technician": "The resume directly states that the candidate is \"seeking an IT Support role,\" which strongly aligns with the title IT Support Technician. Tool evidence supports this direction through explicit proficiency in Microsoft Office, including Access, Excel, Word, and PowerPoint, which are commonly relevant in end-user support environments. Skill evidence is also present through the named areas in CompTIA A+ certified, including installation, preventative maintenance, networking, security, and troubleshooting, alongside excellent communication skills, both written and verbal. The certifications CompTIA A+ certified and CompTIA Security+ certified strengthen the case by showing validated foundational IT and security knowledge, while the inferred Junior seniority fits an entry-level to early-career support role in the United Kingdom market. This role is a realistic progression because it matches the candidate\u2019s stated target role, technical foundation, and support-oriented communication profile.",
+      "IT Support Analyst": "IT Support Analyst is supported by the candidate\u2019s explicit objective of pursuing an IT Support role and by the technical areas named under CompTIA A+ certified. The resume provides relevant tool evidence through Microsoft Office, Access, Excel, Word, and PowerPoint, which are frequently used in support and user-facing IT environments. Skill evidence includes troubleshooting, networking, installation, preventative maintenance, and excellent communication skills, both written and verbal, all of which align with analysing and resolving user issues. CompTIA A+ certified provides direct support for baseline support capability, while CompTIA Security+ certified adds useful security awareness without overstating hands-on analyst experience. Given the absence of prior formal IT job titles, Junior seniority remains the most defensible level, making IT Support Analyst a realistic and conservative next-step role rather than an inflated progression.",
+      "Helpdesk Support Technician": "Helpdesk Support Technician is a plausible future role because it closely matches the candidate\u2019s stated aim of obtaining an IT Support role and fits an entry-level support pathway in the United Kingdom. The resume includes explicit tool familiarity with Microsoft Office, Access, Excel, Word, and PowerPoint, which supports common helpdesk tasks involving end-user software assistance. The strongest skill evidence comes from CompTIA A+ certified, which names installation, preventative maintenance, networking, security, and troubleshooting, and from the resume\u2019s statement of excellent communication skills, both written and verbal. Previous responsibilities such as answering incoming calls and typing documents also support a user-facing support environment, although they do not by themselves establish IT experience. The role is therefore a realistic adjacent entry point that aligns with the candidate\u2019s certifications, communication profile, and stated career direction.",
+      "Cyber Security Technician": "Cyber Security Technician is supported more cautiously than the support roles because the resume includes explicit security-focused certifications and training but limited direct cybersecurity work experience. The strongest evidence comes from CompTIA Security+ certified and Certified Networking Infrastructure & Cyber Security Technician, supported by the education entry \"Networking Infrastructure & Cyber Security Technician\" and the named technical areas of networking and security. The candidate also has a background in security-related work titles, including Security Officer and SIA Door Supervisor, but those titles indicate physical security rather than IT security, so they only provide limited title alignment. CompTIA A+ certified adds foundational technical support knowledge that can be relevant in junior cyber support environments, and the inferred Junior seniority fits a technician-level rather than advanced security role. This makes Cyber Security Technician a realistic but lower-confidence future role because it is supported by certifications and technical training, yet lacks direct hands-on IT security employment evidence."
+    }
+  }
+}

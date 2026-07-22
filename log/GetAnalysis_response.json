@@ -1,0 +1,290 @@
+{
+  "roleAnalyses": [
+    {
+      "suggestedRole": "Cyber Security Technician",
+      "fitSummary": {
+        "overallFit": "Moderate - credible adjacent transition candidate",
+        "seniorityTarget": "Junior to Mid-Level",
+        "transitionFeasibility": "High feasibility",
+        "rationale": "The candidate has strong adjacent foundations in networking, security concepts, operating systems, and Azure basics, which align well with entry or early mid-level cyber technician roles. The main limitation is the lack of explicit hands-on security operations evidence, tools, and measurable cyber outcomes. In the UK market, this is still a realistic transition if the profile is repositioned and supported with practical labs or certifications."
+      },
+      "skillGaps": [
+        {
+          "skill": "SIEM operations and log analysis using Microsoft Sentinel or Splunk",
+          "category": "Technical",
+          "priority": "High",
+          "learningPath": "Complete the Microsoft Sentinel learning path and build a home lab that ingests Windows, Linux, and Azure logs to create 5 detection rules."
+        },
+        {
+          "skill": "Endpoint detection and response (EDR/XDR) tooling such as Microsoft Defender for Endpoint",
+          "category": "Technical",
+          "priority": "High",
+          "learningPath": "Use Microsoft Learn for Defender for Endpoint and simulate endpoint alerts in a lab to document triage and containment workflows."
+        },
+        {
+          "skill": "Vulnerability assessment and remediation with Nessus or OpenVAS",
+          "category": "Technical",
+          "priority": "High",
+          "learningPath": "Install OpenVAS or use a Nessus trial, scan a small lab network, and produce a remediation report with risk prioritisation."
+        },
+        {
+          "skill": "Incident response processes and ticket-driven security operations",
+          "category": "Technical",
+          "priority": "High",
+          "learningPath": "Study NIST incident response guidance and run 3 tabletop scenarios covering phishing, malware, and credential compromise."
+        },
+        {
+          "skill": "Identity and access management including Entra ID, MFA, conditional access, and privileged access",
+          "category": "Technical",
+          "priority": "High",
+          "learningPath": "Complete Entra ID administrator labs and configure MFA, conditional access, and role-based access controls in a test tenant."
+        },
+        {
+          "skill": "Scripting for security automation with Python or PowerShell",
+          "category": "Technical",
+          "priority": "Medium",
+          "learningPath": "Take a beginner Python or PowerShell automation course and build 3 scripts for log parsing, IOC matching, and user audit checks."
+        },
+        {
+          "skill": "Cloud security monitoring in Azure including Defender for Cloud",
+          "category": "Technical",
+          "priority": "Medium",
+          "learningPath": "Use Azure trial resources to configure Defender for Cloud recommendations and document secure baseline controls for 2 workloads."
+        },
+        {
+          "skill": "Security reporting to non-technical stakeholders",
+          "category": "Soft",
+          "priority": "High",
+          "learningPath": "Practice writing weekly one-page security summaries from lab incidents and present them to a peer or mentor for feedback."
+        },
+        {
+          "skill": "Cross-functional collaboration with IT operations, service desk, and compliance teams",
+          "category": "Soft",
+          "priority": "Medium",
+          "learningPath": "Join a cross-team project or simulation and document responsibilities, escalation paths, and communication checkpoints."
+        },
+        {
+          "skill": "Prioritisation under pressure during live incidents",
+          "category": "Soft",
+          "priority": "Medium",
+          "learningPath": "Use incident simulation exercises with timed triage decisions and review outcomes against severity and business impact."
+        },
+        {
+          "skill": "UK cyber regulatory awareness including UK GDPR, Data Protection Act 2018, and NIS principles",
+          "category": "Domain",
+          "priority": "High",
+          "learningPath": "Study ICO guidance and NCSC materials, then map 3 common security incidents to UK reporting and data handling obligations."
+        },
+        {
+          "skill": "SOC operating model knowledge including alert triage, escalation, SLAs, and evidence handling",
+          "category": "Domain",
+          "priority": "High",
+          "learningPath": "Review SOC analyst workflows from Microsoft and Splunk resources and create a sample triage-to-escalation playbook."
+        }
+      ],
+      "aiSkills": [
+        {
+          "skill": "AI-assisted threat detection concepts",
+          "description": "Understand how supervised and unsupervised models support anomaly detection, phishing detection, and alert prioritisation in security operations.",
+          "category": "Foundational",
+          "priority": "Medium",
+          "learningPath": "Complete an introductory ML for cybersecurity course and summarise 3 use cases where models improve SOC detection quality."
+        },
+        {
+          "skill": "LLM prompt engineering for security investigations",
+          "description": "Use structured prompts to summarise alerts, generate incident timelines, and draft investigation notes safely.",
+          "category": "Applied",
+          "priority": "High",
+          "learningPath": "Practice prompt templates in Azure OpenAI or ChatGPT using sample security logs and compare outputs for accuracy and completeness."
+        },
+        {
+          "skill": "Retrieval-augmented generation (RAG) for security knowledge search",
+          "description": "Apply RAG patterns to query internal playbooks, threat intel, and policy documents during investigations.",
+          "category": "Applied",
+          "priority": "Medium",
+          "learningPath": "Build a simple RAG prototype with a vector database and a small set of security playbooks using Azure AI Search or an open-source stack."
+        },
+        {
+          "skill": "Azure OpenAI and Microsoft Security Copilot awareness",
+          "description": "Understand Microsoft AI security tooling used for analyst productivity, investigation support, and summarisation.",
+          "category": "Platform",
+          "priority": "High",
+          "learningPath": "Complete Microsoft Learn modules on Azure OpenAI and Security Copilot and test 5 analyst workflows in a sandbox or demo environment."
+        },
+        {
+          "skill": "Vector databases and embeddings for threat intelligence retrieval",
+          "description": "Know how embeddings and vector search improve retrieval of indicators, procedures, and prior incidents.",
+          "category": "Applied",
+          "priority": "Medium",
+          "learningPath": "Follow a hands-on tutorial using FAISS, Pinecone, or Azure AI Search to index threat reports and query them with semantic search."
+        },
+        {
+          "skill": "Responsible AI and security governance",
+          "description": "Apply controls for privacy, hallucination risk, prompt injection, data leakage, and human review in AI-assisted security workflows.",
+          "category": "Governance",
+          "priority": "High",
+          "learningPath": "Study the NCSC and Microsoft responsible AI guidance and create a one-page control checklist for secure AI use in a SOC."
+        }
+      ],
+      "competencies": [
+        {
+          "competency": "Structured incident triage and evidence-based decision making",
+          "description": "Structured incident triage and evidence-based decision making",
+          "importance": "High"
+        },
+        {
+          "competency": "Risk-based prioritisation aligned to business impact",
+          "description": "Risk-based prioritisation aligned to business impact",
+          "importance": "High"
+        },
+        {
+          "competency": "Security documentation discipline and chain-of-custody awareness",
+          "description": "Security documentation discipline and chain-of-custody awareness",
+          "importance": "High"
+        },
+        {
+          "competency": "Stakeholder communication during incidents",
+          "description": "Stakeholder communication during incidents",
+          "importance": "High"
+        },
+        {
+          "competency": "Operational ownership of recurring security tasks and SLAs",
+          "description": "Operational ownership of recurring security tasks and SLAs",
+          "importance": "High"
+        }
+      ],
+      "certifications": [
+        {
+          "name": "CompTIA Security+",
+          "provider": "CompTIA",
+          "description": "",
+          "difficulty": "Medium",
+          "duration": "8-12 weeks",
+          "marketValue": "High",
+          "totalDuration": "8-12 weeks",
+          "steps": [],
+          "flowDiagram": "┌──────────────────────────────┐\n│ CompTIA IT Fundamentals+    │\n│ (optional foundation)       │\n└──────────────┬───────────────┘\n               ▼\n┌──────────────────────────────┐\n│ CompTIA A+                  │\n│ (optional support pathway)  │\n└──────────────┬───────────────┘\n               ▼\n┌──────────────────────────────┐\n│ CompTIA Network+            │\n└──────────────┬───────────────┘\n               ▼\n┌──────────────────────────────┐\n│ CompTIA Security+           │\n└───────┬───────────┬──────────┘\n        ▼           ▼\n┌──────────────┐  ┌────────────────┐\n│ CySA+        │  │ PenTest+       │\n│ (defence)    │  │ (offensive)    │\n└──────┬───────┘  └──────┬─────────┘\n       ▼                 ▼\n┌──────────────────────────────┐\n│ CASP+                       │\n│ (advanced practitioner)     │\n└──────────────┬───────────────┘\n               ▼\n┌──────────────────────────────┐\n│ SecurityX                   │\n│ (expert-level evolution)    │\n└──────────────────────────────┘"
+        },
+        {
+          "name": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+          "provider": "Microsoft",
+          "description": "",
+          "difficulty": "Medium",
+          "duration": "4-6 weeks",
+          "marketValue": "High",
+          "totalDuration": "4-6 weeks",
+          "steps": [],
+          "flowDiagram": "┌──────────────────────────────────────────────┐\n│ Microsoft Certified: Azure Fundamentals      │\n│ (optional cloud foundation)                  │\n└──────────────────────┬───────────────────────┘\n                       ▼\n┌──────────────────────────────────────────────┐\n│ Microsoft Certified: Security, Compliance,   │\n│ and Identity Fundamentals                    │\n└──────────────────────┬───────────────────────┘\n                       ▼\n┌──────────────────────────────────────────────┐\n│ Microsoft Certified: Identity and Access     │\n│ Administrator Associate                      │\n└───────────────┬──────────────────────────────┘\n                ▼\n   ┌──────────────────────────┬──────────────────────────┐\n   ▼                          ▼                          ▼\n┌──────────────────────┐ ┌──────────────────────┐ ┌──────────────────────────┐\n│ Azure Security       │ │ Information Security │ │ Security Operations /    │\n│ Engineer Associate   │ │ Administrator        │ │ Defender specialisation  │\n└──────────┬───────────┘ └──────────┬───────────┘ └──────────┬───────────────┘\n           ▼                        ▼                        ▼\n┌────────────────────────────────────────────────────────────┐\n│ Microsoft Certified: Cybersecurity Architect Expert        │\n└──────────────────────┬─────────────────────────────────────┘\n                       ▼\n┌────────────────────────────────────────────────────────────┐\n│ Governance / Compliance extensions via Purview, Entra,    │\n│ Defender, and Sentinel product specialisation             │\n└────────────────────────────────────────────────────────────┘"
+        },
+        {
+          "name": "CompTIA CySA+",
+          "provider": "CompTIA",
+          "description": "",
+          "difficulty": "Medium",
+          "duration": "10-14 weeks",
+          "marketValue": "High",
+          "totalDuration": "10-14 weeks",
+          "steps": [],
+          "flowDiagram": "┌──────────────────────────────┐\n│ CompTIA Network+            │\n└──────────────┬───────────────┘\n               ▼\n┌──────────────────────────────┐\n│ CompTIA Security+           │\n└───────┬───────────┬──────────┘\n        ▼           ▼\n┌──────────────┐  ┌────────────────┐\n│ CompTIA      │  │ CompTIA        │\n│ CySA+        │  │ PenTest+       │\n└──────┬───────┘  └──────┬─────────┘\n       ▼                 ▼\n┌──────────────────────────────┐\n│ CompTIA CASP+               │\n└──────────────┬───────────────┘\n               ▼\n┌──────────────────────────────┐\n│ Governance / advanced blue   │\n│ team / architecture tracks   │\n└──────────────────────────────┘"
+        }
+      ],
+      "atsScore": {
+        "overallScore": 58,
+        "skillsScore": 58,
+        "competenciesScore": 58,
+        "certificationsScore": 58,
+        "strengths": [
+          "Directly relevant networking and cyber security training reference",
+          "Knowledge of common attack types including DoS, DDoS, XSS, password attacks, and SQL attacks",
+          "Understanding of encryption, hashing, and networking security concepts",
+          "Windows, Linux, and Azure fundamentals exposure",
+          "Long overall IT experience and customer-facing support capability"
+        ],
+        "gaps": [
+          "No explicit job title showing hands-on cyber security operations experience",
+          "No evidence of SIEM, EDR, vulnerability management, or incident response tooling",
+          "No scripting or automation evidence for security tasks",
+          "No measurable security achievements or incident metrics",
+          "Limited UK regulatory and compliance evidence on the profile"
+        ],
+        "recommendations": [
+          "Add a targeted cyber security summary with SOC, incident response, and security monitoring language",
+          "Include hands-on lab projects using Sentinel, Defender, vulnerability scanning, and IAM controls",
+          "Quantify any security-related tasks, such as patching, access reviews, or risk reduction outcomes",
+          "Add UK compliance keywords such as UK GDPR, Data Protection Act, and NCSC-aligned controls",
+          "Reframe networking and support experience to highlight security responsibilities and escalation handling"
+        ],
+        "keywordRecommendations": [
+          "SIEM",
+          "Microsoft Sentinel",
+          "Defender for Endpoint",
+          "Incident Response",
+          "Vulnerability Management",
+          "Identity and Access Management",
+          "Threat Detection",
+          "SOC",
+          "Entra ID",
+          "UK GDPR"
+        ],
+        "projectedScore": null
+      },
+      "comparisonMatrix": [],
+      "comparisonInfo": {
+        "transitionDifficulty": "",
+        "reason": "",
+        "estimatedTransitionDuration": "",
+        "notes": []
+      },
+      "marketIntelligence": {
+        "demandGrowth": "Strong and still rising across the UK.",
+        "demandDrivers": "More cyber attacks on businesses and public services, More cloud adoption, More regulation and audit pressure, Ongoing shortage of cyber talent",
+        "topCities": [],
+        "medianSalary": "About £38,000-£45,000 for technician and junior analyst level roles.",
+        "salaryRange": "Roughly £30,000-£55,000 depending on location, clearance, and tool experience.",
+        "contractRates": "Often around £200-£350 per day for junior to mid-level contract work.",
+        "remoteDemand": "Moderate to high, but many employers prefer hybrid for security operations roles.",
+        "topRemoteHiringRegions": [
+          "London",
+          "South East England",
+          "North West England",
+          "Scotland"
+        ],
+        "automationRisk": "Low to moderate.",
+        "automationInsight": "Routine alert handling is becoming more automated, but human investigation, escalation, and business judgement are still needed.",
+        "hiringSignals": [
+          "High volume of SOC, security operations, and cloud security support vacancies",
+          "Many roles ask for Microsoft security stack exposure",
+          "Managed security service providers continue to hire"
+        ],
+        "topCompanies": [
+          "BT",
+          "BAE Systems",
+          "Capgemini",
+          "Accenture",
+          "Deloitte",
+          "NCC Group",
+          "KPMG",
+          "IBM",
+          "Vodafone",
+          "NHS and public sector suppliers"
+        ],
+        "industryMomentum": [
+          "Positive across finance, defence, consulting, telecoms, healthcare, and government."
+        ],
+        "futureOutlook": "Very positive over the next 3-5 years, especially in cloud security and security operations.",
+        "globalOpportunities": [
+          "Good, because cyber security skills transfer well to EU, Middle East, and remote international roles."
+        ],
+        "marketInsight": ""
+      },
+      "careerRoadmap": {
+        "phase1": [],
+        "phase2": [],
+        "phase3": [],
+        "phase4": []
+      }
+    }
+  ],
+  "failedRoles": [],
+  "timestamp": "2026-05-11T04:59:39.266Z"
+}

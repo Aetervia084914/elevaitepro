@@ -1,0 +1,101 @@
+# escape=`
+
+FROM mcr.microsoft.com/windows/servercore:ltsc2022
+
+SHELL ["powershell", "-Command"]
+
+# -----------------------------------------------------------------------------
+# Environment
+# -----------------------------------------------------------------------------
+
+ENV PYTHON_VERSION=3.11.9
+ENV PYTHONUTF8=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR C:\app
+
+# -----------------------------------------------------------------------------
+# Install Microsoft Visual C++ Runtime
+# -----------------------------------------------------------------------------
+
+RUN $ErrorActionPreference = 'Stop'; `
+    $ProgressPreference = 'SilentlyContinue'; `
+    Invoke-WebRequest "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile vc_redist.exe ; `
+    $p = Start-Process .\vc_redist.exe -ArgumentList '/install','/quiet','/norestart' -Wait -PassThru ; `
+    if ($p.ExitCode -ne 0) { throw "vc_redist install failed with exit code $($p.ExitCode)" } ; `
+    Remove-Item vc_redist.exe
+
+# -----------------------------------------------------------------------------
+# Install Python directly for the Playwright-based PDF export flow
+# -----------------------------------------------------------------------------
+
+RUN $ErrorActionPreference = 'Stop'; `
+    $ProgressPreference = 'SilentlyContinue'; `
+    Invoke-WebRequest "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe" -OutFile python-installer.exe ; `
+    $p = Start-Process .\python-installer.exe -ArgumentList '/quiet','InstallAllUsers=1','PrependPath=1','Include_test=0' -Wait -PassThru ; `
+    if ($p.ExitCode -ne 0) { throw "Python install failed with exit code $($p.ExitCode)" } ; `
+    Remove-Item python-installer.exe
+
+RUN python --version
+
+# -----------------------------------------------------------------------------
+# Upgrade pip
+# -----------------------------------------------------------------------------
+
+RUN python -m pip install --upgrade pip setuptools wheel
+
+# -----------------------------------------------------------------------------
+# Copy requirements first
+# -----------------------------------------------------------------------------
+
+COPY requirements.txt .
+
+# -----------------------------------------------------------------------------
+# Install Python packages
+# -----------------------------------------------------------------------------
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install Playwright Chromium browser
+RUN python -m playwright install chromium
+
+# -----------------------------------------------------------------------------
+# Verify installation
+# -----------------------------------------------------------------------------
+
+RUN Set-Content -Path check.py -Value 'import numpy', 'print(''NumPy OK:'', numpy.__version__)' ; `
+    python check.py ; `
+    Remove-Item check.py
+RUN Set-Content -Path check.py -Value 'import thinc', 'print(''Thinc OK:'', thinc.__version__)' ; `
+    python check.py ; `
+    Remove-Item check.py
+RUN Set-Content -Path check.py -Value 'import spacy', 'print(''spaCy OK:'', spacy.__version__)' ; `
+    python check.py ; `
+    Remove-Item check.py
+
+# -----------------------------------------------------------------------------
+# Download spaCy models
+# -----------------------------------------------------------------------------
+
+RUN python -m spacy download en_core_web_sm
+
+RUN python -m spacy download en_core_web_md
+
+# -----------------------------------------------------------------------------
+# Copy project
+# -----------------------------------------------------------------------------
+
+COPY . .
+
+# -----------------------------------------------------------------------------
+# Expose FastAPI port
+# -----------------------------------------------------------------------------
+
+EXPOSE 8002
+
+# -----------------------------------------------------------------------------
+# Start application
+# -----------------------------------------------------------------------------
+
+CMD ["python","run.py"]

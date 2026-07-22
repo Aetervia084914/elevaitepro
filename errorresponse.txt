@@ -1,0 +1,6 @@
+{
+  "success": true,
+  "candidateId": "fbb0c408-b944-456d-b3d4-85dedf751fa6",
+  "sessionId": "fbb0c408-b944-456d-b3d4-85dedf751fa6",
+  "sessionToken": "8c651584-10fd-4333-bccd-1ec5abc19f49"
+}

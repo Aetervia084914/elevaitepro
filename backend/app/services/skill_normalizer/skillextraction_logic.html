@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Extraction API — Full Logic Diagram</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --surface2: #273548;
+    --border: #334155;
+    --accent: #38bdf8;
+    --accent2: #818cf8;
+    --green: #34d399;
+    --orange: #fb923c;
+    --red: #f87171;
+    --pink: #f472b6;
+    --yellow: #fbbf24;
+    --teal: #2dd4bf;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --white: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 30px 20px;
+    line-height: 1.55;
+  }
+  h1 { text-align: center; font-size: 2rem; color: var(--white); margin-bottom: 6px; letter-spacing: -0.5px; }
+  .subtitle { text-align: center; color: var(--muted); font-size: 0.95rem; margin-bottom: 36px; }
+  .subtitle code { background: var(--surface2); padding: 2px 8px; border-radius: 4px; color: var(--accent); font-size: 0.9rem; }
+
+  /* ── Flow container ── */
+  .flow { max-width: 1200px; margin: 0 auto; position: relative; }
+
+  /* Connector line */
+  .arrow-down {
+    display: flex; justify-content: center; padding: 6px 0;
+  }
+  .arrow-down::after {
+    content: '▼';
+    font-size: 1.3rem;
+    color: var(--accent);
+  }
+  .arrow-down.branch::after { content: '▼ (conditional)'; font-size: 0.85rem; color: var(--orange); }
+  .arrow-down.cache::after { content: '▼ cache hit → skip to Stage 7'; font-size: 0.85rem; color: var(--green); }
+
+  /* ── Stage box ── */
+  .stage-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 4px;
+    position: relative;
+    transition: border-color .2s;
+  }
+  .stage-box:hover { border-color: var(--accent); }
+
+  .stage-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .stage-badge {
+    background: var(--accent);
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 3px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .stage-badge.db { background: var(--accent2); }
+  .stage-badge.redis { background: var(--red); }
+  .stage-badge.model { background: var(--teal); color: #0f172a; }
+  .stage-badge.llm { background: var(--pink); color: #0f172a; }
+  .stage-badge.file { background: var(--orange); color: #0f172a; }
+  .stage-badge.persist { background: var(--yellow); color: #0f172a; }
+  .stage-title { font-size: 1.2rem; font-weight: 700; color: var(--white); }
+
+  .stage-body { display: flex; gap: 20px; flex-wrap: wrap; }
+  .stage-col { flex: 1; min-width: 280px; }
+  .stage-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px; }
+
+  /* Step list */
+  .steps { list-style: none; }
+  .steps li {
+    padding: 5px 0 5px 18px;
+    position: relative;
+    font-size: 0.92rem;
+  }
+  .steps li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .steps li.db::before { background: var(--accent2); }
+  .steps li.redis::before { background: var(--red); }
+  .steps li.model::before { background: var(--teal); }
+  .steps li.llm::before { background: var(--pink); }
+  .steps li.persist::before { background: var(--yellow); }
+
+  /* Table reference box */
+  .table-ref {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+  }
+  .table-ref.redis-ref { border-left-color: var(--red); }
+  .table-ref.model-ref { border-left-color: var(--teal); }
+  .table-ref.llm-ref { border-left-color: var(--pink); }
+  .table-ref.persist-ref { border-left-color: var(--yellow); }
+
+  .table-ref code {
+    background: rgba(56,189,248,0.12);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.84rem;
+    color: var(--accent);
+  }
+  .table-ref.redis-ref code { color: var(--red); background: rgba(248,113,113,0.12); }
+  .table-ref.persist-ref code { color: var(--yellow); background: rgba(251,191,36,0.12); }
+
+  .tbl-row { display: flex; gap: 6px; margin: 3px 0; align-items: baseline; flex-wrap: wrap; }
+  .tbl-name { font-weight: 600; color: var(--accent2); min-width: 200px; }
+  .tbl-desc { color: var(--muted); font-size: 0.82rem; }
+
+  /* Annotation */
+  .note {
+    background: rgba(251,191,36,0.08);
+    border: 1px dashed var(--yellow);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 0.88rem;
+    color: var(--yellow);
+  }
+  .note strong { color: var(--orange); }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+    margin-bottom: 30px; padding: 14px 20px;
+    background: var(--surface); border-radius: 10px; border: 1px solid var(--border);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.84rem; }
+  .legend-dot {
+    width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ── Response box ── */
+  .response-box {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
+    border: 2px solid var(--green);
+    border-radius: 12px;
+    padding: 22px 26px;
+  }
+  .response-box .stage-title { color: var(--green); }
+
+  /* ── Summary table ── */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 0.88rem;
+  }
+  .summary-table th {
+    text-align: left;
+    padding: 8px 12px;
+    background: var(--surface2);
+    color: var(--accent);
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+  }
+  .summary-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .summary-table tr:hover td { background: rgba(56,189,248,0.04); }
+
+  /* ── Cache hit shortcut ── */
+  .cache-shortcut {
+    border: 2px dashed var(--green);
+    background: rgba(52,211,153,0.06);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 4px;
+  }
+  .cache-shortcut .stage-title { color: var(--green); }
+
+  /* ── Section divider ── */
+  .section-divider {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    padding: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 700px) {
+    .stage-body { flex-direction: column; }
+    .stage-col { min-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<h1>POST /extract-skills — Full Execution Logic</h1>
+<p class="subtitle">
+  Endpoint: <code>http://localhost:8002/extract-skills</code>&nbsp; |&nbsp;
+  File: <code>app/api/routes/skill_normalizer.py</code>&nbsp; →&nbsp;
+  Orchestrator: <code>app/services/skill_normalizer/pipeline.py</code>
+</p>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Pipeline Logic</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div> PostgreSQL Table</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Redis Cache</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--teal)"></div> ML Model</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--pink)"></div> LLM (External API)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> DB Write / Persist</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> File I/O</div>
+</div>
+
+<div class="flow">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     API ENTRY POINT
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">API ENTRY</span>
+    <span class="stage-title">POST /extract-skills</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Request</h4>
+      <ul class="steps">
+        <li>Client uploads a file via <code>multipart/form-data</code> (field: <code>file</code>)</li>
+        <li>Accepted formats: <strong>.docx, .pdf, .doc, .odt, .ods, .txt</strong> — max 10 MB</li>
+        <li>FastAPI reads full file bytes: <code>file_bytes = await file.read()</code></li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Dependencies Injected</h4>
+      <ul class="steps">
+        <li class="db"><strong>conn</strong> — async psycopg connection from <code>AsyncConnectionPool</code> (min 2, max 10 conns to PostgreSQL)</li>
+        <li class="redis"><strong>redis_client</strong> — async Redis client from <code>app.state.redis</code> (<code>redis://localhost:6379/0</code>)</li>
+      </ul>
+      <div class="table-ref">
+        <strong>Connection pool:</strong> <code>psycopg_pool.AsyncConnectionPool</code><br>
+        <strong>Database:</strong> <code>postgresql://admin:admin@localhost:5432/elevaite</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 1
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 1</span>
+    <span class="stage-badge file">FILE I/O</span>
+    <span class="stage-badge redis">REDIS</span>
+    <span class="stage-title">File Upload, Format Detection &amp; Cache Check</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Logic Steps</h4>
+      <ul class="steps">
+        <li><strong>1a. Size validation:</strong> reject if 0 bytes or &gt; 10 MB (413 error)</li>
+        <li class="file"><strong>1b. Format detection:</strong> <code>python-magic</code> detects MIME type from first 8 KB. Falls back to file extension mapping if magic fails</li>
+        <li><strong>1c. Content hash:</strong> <code>SHA-256(file_bytes)</code> → 64-char hex digest stored as <code>ctx.content_hash</code></li>
+        <li class="redis"><strong>1d. Redis cache lookup:</strong> <code>GET skills:{content_hash}</code> — if hit, loads <code>ctx.final_skills[]</code> and short-circuits to cache-hit path</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Redis Key Details</h4>
+      <div class="table-ref redis-ref">
+        <strong>Key:</strong> <code>skills:{content_hash}</code><br>
+        <strong>Value:</strong> JSON array of canonical skill names — e.g. <code>["Python","SQL","Docker"]</code><br>
+        <strong>TTL:</strong> 86 400 seconds (24 hours, from <code>CACHE_TTL</code> env var)<br>
+        <strong>Serializer:</strong> <code>orjson.dumps / orjson.loads</code>
+      </div>
+      <h4 style="margin-top:14px">Output</h4>
+      <ul class="steps">
+        <li>Creates <code>PipelineContext</code> with <code>request_id</code> (UUID4), <code>content_hash</code>, <code>file_format</code>, <code>file_size_bytes</code>, <code>cache_hit</code></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down cache"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CACHE HIT PATH
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="cache-shortcut">
+  <div class="stage-header">
+    <span class="stage-badge" style="background:var(--green);color:#0f172a">CACHE HIT</span>
+    <span class="stage-title">Short-Circuit Path (skip Stages 3–6)</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Logic</h4>
+      <ul class="steps">
+        <li>Run <strong>Stage 2</strong> text extraction anyway (non-fatal) so <code>ctx.raw_text</code> is available for Stage 7 title-based industry detection</li>
+        <li class="db">If <code>ctx.final_skill_ids</code> is empty, fetch from DB: <code>SELECT skill_ids FROM skill_detections WHERE content_hash = %s</code></li>
+        <li>Build synthetic <code>SkillCandidate[]</code> from cached skill names + DB skill IDs (confidence = 0.9, source = "cache")</li>
+        <li>Jump directly to <strong>Stage 7</strong> for profile enrichment → persist profile → return response</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Tables Read</h4>
+      <div class="table-ref">
+        <div class="tbl-row"><span class="tbl-name"><code>skill_detections</code></span><span class="tbl-desc">Retrieve previously persisted <code>skill_ids[]</code> for this content hash</span></div>
+      </div>
+      <div class="note">
+        <strong>Why run Stage 2 on cache hit?</strong> Stage 7 uses the first 500 chars of <code>raw_text</code> to detect the job title and infer the industry domain. Without it, title-based boosting is lost.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+<div class="section-divider">— normal path (cache miss) —</div>
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SESSION CREATE
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge persist">DB WRITE</span>
+    <span class="stage-title">Create Session Row</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <ul class="steps">
+        <li class="persist"><code>INSERT INTO sessions (content_hash, file_format, file_size_bytes, pipeline_status) VALUES (..., 'started') RETURNING id</code></li>
+        <li>Stores <code>ctx.session_id</code> — used as FK for all <code>stage_results</code> rows</li>
+      </ul>
+      <div class="table-ref persist-ref">
+        <div class="tbl-row"><span class="tbl-name"><code>sessions</code></span><span class="tbl-desc">Audit trail — one row per API call. Tracks pipeline_status, alias_count, error_message, completed_at</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 2
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 2</span>
+    <span class="stage-badge file">FILE I/O</span>
+    <span class="stage-title">Document → Raw Text Extraction &amp; Language Gate</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Extraction Handlers</h4>
+      <ul class="steps">
+        <li class="file"><strong>.docx</strong> → <code>python-docx</code> (paragraphs + table cells)</li>
+        <li class="file"><strong>.doc</strong> → <code>docx2txt</code> first, fallback to LibreOffice <code>soffice --headless</code></li>
+        <li class="file"><strong>.pdf</strong> → <code>pdfminer</code> (text layer), fallback to <code>PyMuPDF/fitz</code></li>
+        <li class="file"><strong>.odt/.ods</strong> → <code>odfpy</code></li>
+        <li class="file"><strong>.txt</strong> → UTF-8 decode with BOM strip</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Post-Processing</h4>
+      <ul class="steps">
+        <li><strong>Clean text:</strong> <code>ftfy.fix_text()</code> → strip control chars → normalize bullets → collapse whitespace</li>
+        <li><strong>Truncate:</strong> cap at 50 000 chars</li>
+        <li><strong>Language gate:</strong> <code>langdetect</code> on first 2 000 chars — rejects non-English with HTTP 400</li>
+      </ul>
+      <h4 style="margin-top:14px">Output</h4>
+      <ul class="steps">
+        <li><code>ctx.raw_text</code> — cleaned text for all downstream stages</li>
+        <li><code>ctx.detected_language</code> — must be "en"</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 3A
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 3A</span>
+    <span class="stage-badge db">PostgreSQL</span>
+    <span class="stage-title">Exact Match &amp; Alias Resolution (Primary Extraction)</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Algorithm</h4>
+      <ul class="steps">
+        <li><strong>Tokenise:</strong> regex <code>[A-Za-z0-9#\+\.]+</code> with hyphen/slash joining</li>
+        <li><strong>N-grams:</strong> build 1-to-4-gram windows from tokens (skip single-char tokens)</li>
+        <li><strong>Deduplicate:</strong> keep first (start, end, original) per lowered n-gram</li>
+        <li class="db"><strong>Batch DB lookup:</strong> n-grams batched in 2 000-row chunks against <code>taxonomy_aliases</code></li>
+        <li><strong>Confidence:</strong> exact match → 1.0, alias match → 0.92 + <code>confidence_modifier</code> from alias row</li>
+        <li>Short aliases ≤3 chars filtered unless exact match or literally found in text</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Tables Read</h4>
+      <div class="table-ref">
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_aliases</code></span>
+          <span class="tbl-desc">Maps lowered alias strings → skill_id. Columns: alias_lower, skill_id, confidence_modifier</span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skills</code></span>
+          <span class="tbl-desc">JOIN to retrieve <code>canonical_name</code> for each matched skill_id</span>
+        </div>
+      </div>
+      <h4 style="margin-top:14px">SQL Query</h4>
+      <div class="table-ref">
+<pre style="color:var(--accent);font-size:0.82rem;white-space:pre-wrap;margin:0">SELECT ta.alias_lower,
+       ta.skill_id,
+       ts.canonical_name,
+       ta.confidence_modifier
+FROM taxonomy_aliases ta
+JOIN taxonomy_skills ts USING (skill_id)
+WHERE ta.alias_lower = ANY(%s)</pre>
+      </div>
+      <h4 style="margin-top:14px">Output</h4>
+      <ul class="steps">
+        <li><code>ctx.candidates[]</code> — SkillCandidate with source_stage="3A"</li>
+        <li><code>ctx.matched_spans[]</code> — (start, end) positions consumed by 3A</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 3B
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 3B</span>
+    <span class="stage-badge db">PostgreSQL</span>
+    <span class="stage-title">Phrase Pattern Matching (Secondary Extraction)</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Algorithm</h4>
+      <ul class="steps">
+        <li>Patterns are <strong>pre-loaded at startup</strong> from <code>taxonomy_phrase_patterns</code> → stored on <code>app.state.phrase_patterns</code></li>
+        <li>Each pattern is a compiled regex with skill_id, base_confidence, kaggle_frequency, domain_hint, priority</li>
+        <li>For each pattern: search <code>ctx.raw_text</code> → on match, compute confidence</li>
+        <li><strong>Low-frequency penalty:</strong> −0.05 if kaggle_frequency &lt; 50</li>
+        <li class="db"><strong>Co-occurrence boost:</strong> +0.03 if matched skill co-occurs with existing candidates (via <code>taxonomy_skill_cooccurrence</code>)</li>
+        <li class="db">Look up <code>canonical_name</code> from <code>taxonomy_skills</code> for each matched skill_id</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Tables Read</h4>
+      <div class="table-ref">
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_phrase_patterns</code></span>
+          <span class="tbl-desc">Regex patterns → skill_id. Pre-loaded at startup. Cols: pattern_id, pattern_regex, skill_id, base_confidence, kaggle_frequency, domain_hint, priority</span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skill_cooccurrence</code></span>
+          <span class="tbl-desc">Pairwise skill co-occurrence counts. Queried per candidate to boost confidence if co-occurring skills already detected</span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skills</code></span>
+          <span class="tbl-desc">Canonical name lookup for each matched skill_id</span>
+        </div>
+      </div>
+      <h4 style="margin-top:14px">Output</h4>
+      <ul class="steps">
+        <li>Appends new SkillCandidates (source="3B") or upgrades confidence of existing ones</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 3C
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 3C</span>
+    <span class="stage-badge db">PostgreSQL + pgvector</span>
+    <span class="stage-badge model">ML MODEL</span>
+    <span class="stage-title">Semantic Embedding Similarity (Tertiary Extraction)</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Algorithm</h4>
+      <ul class="steps">
+        <li><strong>Build unmatched windows:</strong> 120-char sliding windows (step 60) over text regions NOT covered by 3A/3B matched_spans. Skip windows with &gt;50% overlap. Max 200 windows</li>
+        <li class="model"><strong>Encode windows:</strong> <code>sentence-transformers/all-MiniLM-L6-v2</code> (384-dim) — batch_size=32, normalize_embeddings=True</li>
+        <li class="db"><strong>pgvector nearest-neighbour:</strong> for each window vector, query <code>taxonomy_skill_embeddings</code> using cosine distance operator <code>&lt;=&gt;</code></li>
+        <li><strong>Threshold:</strong> cosine distance ≤ 0.18 (i.e. similarity ≥ 0.82)</li>
+        <li><strong>Cap:</strong> max 10 semantic candidates total (MAX_SEMANTIC_CANDIDATES)</li>
+        <li>Base confidence: 0.65 for all semantic matches</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Tables Read</h4>
+      <div class="table-ref">
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skill_embeddings</code></span>
+          <span class="tbl-desc">Pre-computed 384-dim vectors for each skill. Column: <code>embedding vector(384)</code>. Uses pgvector <code>&lt;=&gt;</code> cosine distance operator</span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skills</code></span>
+          <span class="tbl-desc">JOIN to retrieve canonical_name for matched skill_id</span>
+        </div>
+      </div>
+      <h4 style="margin-top:14px">SQL Query</h4>
+      <div class="table-ref">
+<pre style="color:var(--accent);font-size:0.82rem;white-space:pre-wrap;margin:0">SELECT tse.skill_id,
+       ts.canonical_name,
+       tse.embedding <=> %s::vector AS dist
+FROM taxonomy_skill_embeddings tse
+JOIN taxonomy_skills ts USING (skill_id)
+WHERE tse.embedding <=> %s::vector <= 0.18
+ORDER BY dist LIMIT 3  -- per window</pre>
+      </div>
+      <div class="table-ref model-ref" style="margin-top:8px">
+        <strong>Model:</strong> <code>sentence-transformers/all-MiniLM-L6-v2</code><br>
+        <strong>Dim:</strong> 384 &nbsp;|&nbsp; <strong>Loaded at:</strong> startup via <code>init_encoder(app)</code> → stored on <code>app.state.encoder</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 4
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 4</span>
+    <span class="stage-badge db">PostgreSQL</span>
+    <span class="stage-title">Confidence Scoring, Dedup &amp; Demand Signal Boost</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Filtering Pipeline</h4>
+      <ul class="steps">
+        <li><strong>Step 1 — Blacklist:</strong> remove candidates whose <code>canonical_name</code> appears in blacklist (pre-loaded from <code>taxonomy_skill_blacklist</code>)</li>
+        <li><strong>Step 1b — Dedup:</strong> keep highest-confidence candidate per <code>skill_id</code></li>
+        <li class="db"><strong>Step 2 — Fetch signals:</strong> batch-query <code>taxonomy_skills</code> + <code>taxonomy_skill_signals</code> for ONET importance, BLS growth, CEDEFOP demand, skill_type, category_flags</li>
+        <li><strong>Step 2b — Type filter:</strong> remove "Common Skill", "skill_group", and "transversal" flagged candidates</li>
+        <li><strong>Step 3 — Demand bonus:</strong> +0.05 if ONET importance ≥ 4.0, +0.03 if BLS growth &gt; 10%, +0.02 if shortage_flag</li>
+        <li><strong>Step 4 — Floor filter:</strong> remove candidates below per-skill <code>confidence_floor</code> (default 0.62)</li>
+        <li><strong>Step 5 — Sort &amp; cap:</strong> sort by confidence descending, keep top 30 (MAX_SKILLS)</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Tables Read</h4>
+      <div class="table-ref">
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skills</code></span>
+          <span class="tbl-desc">onet_importance, confidence_floor, skill_type, skill_category_flags</span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skill_signals</code></span>
+          <span class="tbl-desc">bls_growth_rate, cedefop_demand_score, shortage_flag</span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skill_blacklist</code></span>
+          <span class="tbl-desc">Pre-loaded at startup. Cols: term_lower, whitelist_override. Filters noise terms</span>
+        </div>
+      </div>
+      <h4 style="margin-top:14px">SQL Query (signals)</h4>
+      <div class="table-ref">
+<pre style="color:var(--accent);font-size:0.82rem;white-space:pre-wrap;margin:0">SELECT ts.skill_id,
+       ts.onet_importance,
+       ts.confidence_floor,
+       tss.bls_growth_rate,
+       tss.cedefop_demand_score,
+       tss.shortage_flag,
+       ts.skill_type,
+       ts.skill_category_flags
+FROM taxonomy_skills ts
+LEFT JOIN taxonomy_skill_signals tss
+  USING (skill_id)
+WHERE ts.skill_id = ANY(%s)</pre>
+      </div>
+      <h4 style="margin-top:14px">Output</h4>
+      <ul class="steps">
+        <li><code>ctx.final_skills[]</code> — canonical names</li>
+        <li><code>ctx.final_skill_ids[]</code> — integer skill IDs</li>
+        <li><code>ctx.skill_count</code> — 0–30</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down branch"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 5
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 5</span>
+    <span class="stage-badge llm">LLM API</span>
+    <span class="stage-badge redis">REDIS</span>
+    <span class="stage-badge db">PostgreSQL</span>
+    <span class="stage-title">LLM Fallback (Conditional: &lt; 3 skills detected)</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Trigger Condition</h4>
+      <ul class="steps">
+        <li><strong>Only if <code>ctx.skill_count &lt; 3</code></strong> — otherwise this stage is SKIPPED</li>
+      </ul>
+      <h4 style="margin-top:14px">Algorithm</h4>
+      <ul class="steps">
+        <li class="redis"><strong>LLM cache check:</strong> <code>GET llm_skills:{content_hash}</code> — avoids re-calling the LLM for the same document</li>
+        <li class="llm"><strong>LLM call:</strong> POST to <code>{LLM_BASE_URL}{LLM_ENDPOINT}</code> with system+user prompt</li>
+        <li>Prompt injects top-500 canonical skills (pre-loaded at startup from <code>taxonomy_skills ORDER BY onet_importance DESC</code>) as grounding</li>
+        <li>LLM returns <code>{"skills": ["name1", "name2", ...]}</code></li>
+        <li class="redis"><strong>Cache result:</strong> <code>SETEX llm_skills:{content_hash} 86400 [json]</code></li>
+        <li class="db"><strong>Validate:</strong> look up LLM-returned names against <code>taxonomy_skills</code> to get valid skill_ids</li>
+        <li>Merge new LLM candidates (confidence 0.75, source="5_llm") into existing set, re-run Stage 4 scoring</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>LLM Configuration</h4>
+      <div class="table-ref llm-ref">
+        <strong>Endpoint:</strong> <code>http://localhost:8005/openchat</code> (configurable via <code>LLM_BASE_URL</code> + <code>LLM_ENDPOINT</code>)<br>
+        <strong>Model:</strong> <code>gpt-5.4</code> (configurable via <code>LLM_MODEL</code>)<br>
+        <strong>Auth:</strong> <code>Bearer {OPENAI_API_KEY}</code><br>
+        <strong>Max tokens:</strong> 400 &nbsp;|&nbsp; <strong>Temperature:</strong> 0.0<br>
+        <strong>HTTP client:</strong> <code>httpx.AsyncClient</code> (timeout 30s)
+      </div>
+      <h4 style="margin-top:14px">Redis Keys</h4>
+      <div class="table-ref redis-ref">
+        <strong>Key:</strong> <code>llm_skills:{content_hash}</code><br>
+        <strong>Value:</strong> JSON array of LLM-extracted skill names<br>
+        <strong>TTL:</strong> 86 400 seconds (24 hours)
+      </div>
+      <h4 style="margin-top:14px">Tables Read</h4>
+      <div class="table-ref">
+        <div class="tbl-row">
+          <span class="tbl-name"><code>taxonomy_skills</code></span>
+          <span class="tbl-desc">Validate LLM names: <code>WHERE lower(canonical_name) = ANY(%s)</code></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 6
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 6</span>
+    <span class="stage-badge persist">DB WRITE</span>
+    <span class="stage-badge redis">REDIS WRITE</span>
+    <span class="stage-title">Validation, Persistence &amp; Cache</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Logic</h4>
+      <ul class="steps">
+        <li><strong>Validation:</strong> strip candidates with null <code>skill_id</code> or empty <code>canonical_name</code></li>
+        <li class="persist"><strong>Persist skill_detections:</strong> INSERT/upsert final skills, skill_ids, extraction_method, skill_count keyed by <code>request_id</code></li>
+        <li class="persist"><strong>Persist trace:</strong> one row per candidate in <code>skill_detection_trace</code> with accepted/rejected status and confidence</li>
+        <li class="redis"><strong>Cache to Redis:</strong> <code>SET skills:{content_hash} [json] EX 86400</code></li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Tables Written</h4>
+      <div class="table-ref persist-ref">
+        <div class="tbl-row">
+          <span class="tbl-name"><code>skill_detections</code></span>
+          <span class="tbl-desc">Final output row. Cols: request_id (PK), content_hash, file_format, detected_language, skills[], skill_ids[], extraction_method, skill_count, completed_at. <code>ON CONFLICT (request_id) DO UPDATE</code></span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>skill_detection_trace</code></span>
+          <span class="tbl-desc">One row per candidate. Cols: request_id, skill_id, source_stage, matched_text, confidence, accepted (bool), reject_reason</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STAGE 7
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge">STAGE 7</span>
+    <span class="stage-badge db">PostgreSQL (5 tables)</span>
+    <span class="stage-badge file">CSV FILE</span>
+    <span class="stage-badge persist">DB WRITE</span>
+    <span class="stage-title">Industry, Occupation Group &amp; Job Level Profiling</span>
+  </div>
+  <div class="stage-body" style="flex-direction:column; gap:18px">
+
+    <!-- 7 — Data fetch -->
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div class="stage-col">
+        <h4>Step 1 — Fetch All Signals</h4>
+        <ul class="steps">
+          <li class="db"><strong>Industry rows:</strong> <code>taxonomy_skill_industry</code> — industry_name, career_area, occupation_group, weight for each final skill_id</li>
+          <li class="db"><strong>ONET signals:</strong> <code>taxonomy_skills</code> — onet_importance, skill_type, skill_category_flags</li>
+          <li class="db"><strong>Lightcast occupations:</strong> JOIN <code>taxonomy_skills</code> → <code>skill_occupations</code> → <code>occupations</code> via lightcast_id</li>
+          <li class="db"><strong>Breadth &amp; count:</strong> per-occupation skill breadth from <code>skill_occupations</code>, total occupation count from <code>occupations</code></li>
+          <li class="file"><strong>ISCO labels:</strong> loaded from <code>data/ESCO/ISCOGroups_en.csv</code> (cached on first call)</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <h4>Tables Read</h4>
+        <div class="table-ref">
+          <div class="tbl-row">
+            <span class="tbl-name"><code>taxonomy_skill_industry</code></span>
+            <span class="tbl-desc">33 112 rows. Maps skill_id → industry_name, career_area, occupation_group, weight. PRIMARY signal for both industry + occupation group</span>
+          </div>
+          <div class="tbl-row">
+            <span class="tbl-name"><code>taxonomy_skills</code></span>
+            <span class="tbl-desc">ONET importance, skill type, category flags for job level inference</span>
+          </div>
+          <div class="tbl-row">
+            <span class="tbl-name"><code>skill_occupations</code></span>
+            <span class="tbl-desc">Lightcast skill→occupation links. Used for ENRICHMENT (nested occupation detail), not primary grouping</span>
+          </div>
+          <div class="tbl-row">
+            <span class="tbl-name"><code>occupations</code></span>
+            <span class="tbl-desc">Lightcast occupations (id, name, isco_code). Total count used for IDF calculation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 — Industry aggregation -->
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div class="stage-col">
+        <h4>Step 2 — Industry Aggregation</h4>
+        <ul class="steps">
+          <li><strong>Weighted vote:</strong> for each skill's industry row: <code>vote = skill_confidence × weight</code>. Sum votes per normalised industry name</li>
+          <li><strong>Industry normalisation:</strong> maps raw labels (e.g. "it", "engineering", ISCO group names) to clean display names (14 industries)</li>
+          <li><strong>Title detection:</strong> first 500 chars of <code>raw_text</code> matched against 40+ regex patterns → industry hint</li>
+          <li><strong>Title boost:</strong> 8× on title-detected industry, 0.3× dampening on current top if it differs, extra 0.4× dampening on IT if title is non-IT</li>
+          <li><strong>Softmax:</strong> <code>confidence = score / total_scores</code> → top 5 industries returned</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <h4>Step 3 — Occupation Aggregation</h4>
+        <ul class="steps">
+          <li><strong>Primary (architecture-aligned):</strong> weighted vote across <code>taxonomy_skill_industry.occupation_group</code></li>
+          <li><strong>Enrichment:</strong> <code>skill_occupations → occupations</code> for nested per-occupation detail within each top group</li>
+          <li><strong>Scoring:</strong> TF-IDF (IDF = log(N / (1+df))), overlap × 10 + tfidf × (1 + 0.5 × coverage)</li>
+          <li><strong>Softmax:</strong> log1p-scaled softmax with temperature=0.8 for per-occupation confidence</li>
+          <li>Top 5 occupation groups, each with up to 5 nested occupations + matching_skills</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7 — Job level -->
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div class="stage-col">
+        <h4>Step 4 — Job Level Inference</h4>
+        <ul class="steps">
+          <li><strong>Signal 0 (highest priority):</strong> title keywords in first 500 chars → regex patterns for lead/senior/mid/entry</li>
+          <li><strong>Signal 1:</strong> seniority tokens in occupation group names (architect, principal → lead; senior, expert → senior)</li>
+          <li><strong>Signal 2:</strong> ONET importance average. Bands: lead ≥ 4.2, senior ≥ 3.4, mid ≥ 2.2, entry ≥ 0. Requires ≥ 30% non-zero coverage</li>
+          <li><strong>Signal 3:</strong> career-area diversity count. ≥ 6 areas → senior, ≥ 3 → mid, else entry</li>
+          <li><strong>Combine:</strong> title keyword overrides all; otherwise max rank of remaining signals</li>
+          <li><strong>Confidence:</strong> 0.45 + 0.30 × signal_agreement + 0.10 × ONET coverage + 0.10 if title found</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <h4>Tables Written</h4>
+        <div class="table-ref persist-ref">
+          <div class="tbl-row">
+            <span class="tbl-name"><code>skill_profile_detections</code></span>
+            <span class="tbl-desc">Stores industries (JSONB), occupation_groups (JSONB), job_level, job_level_confidence, job_level_onet_avg, job_level_evidence (TEXT[]). Keyed by request_id. <code>ON CONFLICT DO NOTHING</code></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     BEST MATCH + FINALIZE
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stage-box">
+  <div class="stage-header">
+    <span class="stage-badge persist">FINALIZE</span>
+    <span class="stage-title">compute_best_match() + Persist Audit Trail + Return Response</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Best-Match Post-Processing</h4>
+      <ul class="steps">
+        <li><strong>Best industry:</strong> highest-confidence <code>IndustryMatch</code></li>
+        <li><strong>Best occupation:</strong> industry-aware scoring across all nested occupations — boost 1.8× overlap + 0.20 conf bonus if occupation group aligns with top industry, penalise 0.65× if not aligned (non-IT)</li>
+        <li><strong>Best job level:</strong> directly from <code>ctx.job_level</code></li>
+        <li>Composed into <code>BestMatch</code> object (single top-1 pick for industry, occupation, level)</li>
+      </ul>
+    </div>
+    <div class="stage-col">
+      <h4>Persistence</h4>
+      <ul class="steps">
+        <li class="persist"><strong>stage_results:</strong> all accumulated <code>StageResultRow</code> objects (stages 1–7 + output) written to <code>stage_results</code> table</li>
+        <li class="persist"><strong>sessions:</strong> updated to <code>pipeline_status='completed'</code> with alias_count, completed_at</li>
+      </ul>
+      <div class="table-ref persist-ref">
+        <div class="tbl-row">
+          <span class="tbl-name"><code>stage_results</code></span>
+          <span class="tbl-desc">Per-stage audit. Cols: session_id (FK), stage_number, stage_name, status, execution_time_ms, stageoutput (JSONB), error_message, extraction_type='skill'</span>
+        </div>
+        <div class="tbl-row">
+          <span class="tbl-name"><code>sessions</code></span>
+          <span class="tbl-desc">Updated: pipeline_status → 'completed', alias_count, completed_at</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     RESPONSE
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="response-box">
+  <div class="stage-header">
+    <span class="stage-badge" style="background:var(--green);color:#0f172a">HTTP 200</span>
+    <span class="stage-title">ExtractSkillsResponse (JSON)</span>
+  </div>
+  <div class="stage-body">
+    <div class="stage-col">
+      <h4>Response Fields</h4>
+<pre style="color:var(--green);font-size:0.85rem;white-space:pre-wrap;margin:0">{
+  "skills":            ["Python", "SQL", "Docker", ...],
+  "request_id":        "uuid4",
+  "skill_count":       18,
+  "extraction_method": "deterministic" | "llm_fallback",
+  "cache_hit":         false,
+  "best_match": {
+    "best_industry":       "Information Technology",
+    "industry_confidence":  0.4521,
+    "best_occupation": {
+      "occupation":       "Software Developers",
+      "occupation_group": "Software and Web Developers",
+      "confidence":       0.72,
+      "skill_overlap":    8,
+      "matching_skills":  ["Python", "Docker", ...]
+    },
+    "best_job_level":      "senior",
+    "job_level_confidence": 0.82
+  },
+  "industries":        [ {industry, confidence, skill_count}, ... ],
+  "occupation_groups": [ {occupation_group, confidence, skill_count,
+                          occupations: [{occupation, confidence,
+                          skill_overlap, matching_skills}]} ],
+  "job_level": {
+    "level":           "senior",
+    "confidence":       0.82,
+    "onet_avg":         3.512,
+    "evidence_skills":  ["Python", "System Design", ...]
+  }
+}</pre>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FULL TABLE REFERENCE
+     ═══════════════════════════════════════════════════════════════ -->
+<div style="margin-top:44px">
+  <h2 style="color:var(--white);margin-bottom:16px;text-align:center">Complete Database Table Reference</h2>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>Table</th>
+        <th>Used In</th>
+        <th>Read / Write</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>taxonomy_skills</code></td>
+        <td>3A, 3B, 3C, 4, 5, 7</td>
+        <td>READ</td>
+        <td>Master skill catalog (33 112 rows). canonical_name, skill_id, onet_importance, confidence_floor, skill_type, skill_category_flags, lightcast_id</td>
+      </tr>
+      <tr>
+        <td><code>taxonomy_aliases</code></td>
+        <td>3A</td>
+        <td>READ</td>
+        <td>Alias → skill_id mapping. alias_lower, confidence_modifier. Batch lookup for n-gram matching</td>
+      </tr>
+      <tr>
+        <td><code>taxonomy_phrase_patterns</code></td>
+        <td>3B (startup)</td>
+        <td>READ</td>
+        <td>Regex patterns → skill_id. Loaded once at startup into <code>app.state.phrase_patterns</code></td>
+      </tr>
+      <tr>
+        <td><code>taxonomy_skill_cooccurrence</code></td>
+        <td>3B</td>
+        <td>READ</td>
+        <td>Pairwise co-occurrence counts. Used for +0.03 confidence boost</td>
+      </tr>
+      <tr>
+        <td><code>taxonomy_skill_embeddings</code></td>
+        <td>3C</td>
+        <td>READ</td>
+        <td>384-dim pgvector embeddings per skill. Cosine distance search</td>
+      </tr>
+      <tr>
+        <td><code>taxonomy_skill_signals</code></td>
+        <td>4</td>
+        <td>READ</td>
+        <td>BLS growth rate, CEDEFOP demand score, shortage flag. Demand signal boost</td>
+      </tr>
+      <tr>
+        <td><code>taxonomy_skill_blacklist</code></td>
+        <td>4 (startup)</td>
+        <td>READ</td>
+        <td>Noise terms to exclude. Loaded once at startup into <code>app.state.blacklist</code></td>
+      </tr>
+      <tr>
+        <td><code>taxonomy_skill_industry</code></td>
+        <td>7</td>
+        <td>READ</td>
+        <td>33 112 rows. skill_id → industry_name, career_area, occupation_group, weight. PRIMARY signal for industry + occupation aggregation</td>
+      </tr>
+      <tr>
+        <td><code>skill_occupations</code></td>
+        <td>7</td>
+        <td>READ</td>
+        <td>Lightcast skill→occupation links. ENRICHMENT for nested occupation detail + IDF breadth</td>
+      </tr>
+      <tr>
+        <td><code>occupations</code></td>
+        <td>7</td>
+        <td>READ</td>
+        <td>Lightcast occupations (id, name, isco_code). Total count for IDF denominator</td>
+      </tr>
+      <tr>
+        <td><code>sessions</code></td>
+        <td>Pipeline start/end</td>
+        <td>WRITE</td>
+        <td>Audit trail: one row per API call. pipeline_status, error_message, completed_at</td>
+      </tr>
+      <tr>
+        <td><code>stage_results</code></td>
+        <td>Finalize</td>
+        <td>WRITE</td>
+        <td>Per-stage audit. session_id (FK), stage_number, stageoutput (JSONB), execution_time_ms</td>
+      </tr>
+      <tr>
+        <td><code>skill_detections</code></td>
+        <td>6 (+ cache hit)</td>
+        <td>WRITE + READ</td>
+        <td>Final output: skills[], skill_ids[], extraction_method, skill_count. Upsert on request_id. Read on cache hit to recover skill_ids</td>
+      </tr>
+      <tr>
+        <td><code>skill_detection_trace</code></td>
+        <td>6</td>
+        <td>WRITE</td>
+        <td>Per-candidate audit: skill_id, source_stage, matched_text, confidence, accepted flag</td>
+      </tr>
+      <tr>
+        <td><code>skill_profile_detections</code></td>
+        <td>7</td>
+        <td>WRITE</td>
+        <td>Stage 7 output: industries JSONB, occupation_groups JSONB, job_level, evidence</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     REDIS REFERENCE
+     ═══════════════════════════════════════════════════════════════ -->
+<div style="margin-top:36px">
+  <h2 style="color:var(--white);margin-bottom:16px;text-align:center">Redis Cache Reference</h2>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>Key Pattern</th>
+        <th>Stage</th>
+        <th>Operations</th>
+        <th>TTL</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>skills:{content_hash}</code></td>
+        <td>1 (GET), 6 (SET)</td>
+        <td>GET on Stage 1 cache check; SET on Stage 6 persist</td>
+        <td>86 400s (24h)</td>
+        <td>JSON array: <code>["Python","SQL","Docker"]</code></td>
+      </tr>
+      <tr>
+        <td><code>llm_skills:{content_hash}</code></td>
+        <td>5 (GET+SET)</td>
+        <td>GET before LLM call; SETEX after LLM succeeds</td>
+        <td>86 400s (24h)</td>
+        <td>JSON array of LLM-extracted skill names</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-ref redis-ref" style="margin-top:12px">
+    <strong>Connection:</strong> <code>redis://localhost:6379/0</code> (from <code>REDIS_URL</code> env var)<br>
+    <strong>Client:</strong> <code>redis.asyncio.from_url()</code> — async, non-blocking<br>
+    <strong>Serializer:</strong> <code>orjson</code> (fast binary JSON)<br>
+    <strong>Graceful fallback:</strong> if Redis unavailable, cache operations silently return None (pipeline continues without caching)
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STARTUP PRE-LOADED RESOURCES
+     ═══════════════════════════════════════════════════════════════ -->
+<div style="margin-top:36px">
+  <h2 style="color:var(--white);margin-bottom:16px;text-align:center">Startup Pre-Loaded Resources (app.state)</h2>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>app.state Key</th>
+        <th>Loaded From</th>
+        <th>Used By</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>app.state.redis</code></td>
+        <td><code>redis.asyncio.from_url(REDIS_URL)</code></td>
+        <td>Stage 1, 5, 6</td>
+        <td>Shared async Redis client</td>
+      </tr>
+      <tr>
+        <td><code>app.state.encoder</code></td>
+        <td><code>SentenceTransformer("all-MiniLM-L6-v2")</code></td>
+        <td>Stage 3C</td>
+        <td>384-dim sentence encoder for semantic matching</td>
+      </tr>
+      <tr>
+        <td><code>app.state.phrase_patterns</code></td>
+        <td><code>taxonomy_phrase_patterns</code> table</td>
+        <td>Stage 3B</td>
+        <td>List of compiled PhrasePattern objects</td>
+      </tr>
+      <tr>
+        <td><code>app.state.blacklist</code></td>
+        <td><code>taxonomy_skill_blacklist</code> table</td>
+        <td>Stage 4</td>
+        <td>Set of lowered noise terms to exclude</td>
+      </tr>
+      <tr>
+        <td><code>app.state.top_skills</code></td>
+        <td><code>taxonomy_skills ORDER BY onet_importance DESC LIMIT 500</code></td>
+        <td>Stage 5</td>
+        <td>Top-500 skill names injected into LLM prompt for grounding</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FILE DEPENDENCY
+     ═══════════════════════════════════════════════════════════════ -->
+<div style="margin-top:36px;margin-bottom:40px">
+  <h2 style="color:var(--white);margin-bottom:16px;text-align:center">Source File Map</h2>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>File</th>
+        <th>Responsibility</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>app/api/routes/skill_normalizer.py</code></td><td>Route definition: <code>POST /extract-skills</code>, dependencies (conn, redis)</td></tr>
+      <tr><td><code>app/services/skill_normalizer/pipeline.py</code></td><td>Full pipeline orchestrator — calls all stages, DB persistence helpers, response assembly</td></tr>
+      <tr><td><code>app/services/skill_normalizer/stage1_ingest.py</code></td><td>Stage 1: file validation, format detection (python-magic), SHA-256 hash, Redis cache check</td></tr>
+      <tr><td><code>app/services/skill_normalizer/stage2_extract.py</code></td><td>Stage 2: document → text extraction, cleaning (ftfy), language gate (langdetect)</td></tr>
+      <tr><td><code>app/services/skill_normalizer/stage3a_exact.py</code></td><td>Stage 3A: tokenise, n-grams, batch alias lookup, exact/alias confidence scoring</td></tr>
+      <tr><td><code>app/services/skill_normalizer/stage3b_phrase.py</code></td><td>Stage 3B: regex phrase patterns, co-occurrence boost, canonical name lookup</td></tr>
+      <tr><td><code>app/services/skill_normalizer/stage3c_semantic.py</code></td><td>Stage 3C: unmatched windows, sentence-transformer encoding, pgvector NN search (cap 10)</td></tr>
+      <tr><td><code>app/services/skill_normalizer/stage4_score.py</code></td><td>Stage 4: blacklist, dedup, demand signals (ONET/BLS/CEDEFOP), floor filter, cap 30</td></tr>
+      <tr><td><code>app/services/skill_normalizer/llm_client.py</code></td><td>Stage 5: LLM prompt builder, httpx POST, JSON response parser</td></tr>
+      <tr><td><code>app/services/skill_normalizer/stage7_profile.py</code></td><td>Stage 7: industry/occupation aggregation, title detection, job level inference</td></tr>
+      <tr><td><code>app/services/skill_normalizer/redis_cache.py</code></td><td>Redis init/close/get_redis dependency, cache_get and cache_set helpers</td></tr>
+      <tr><td><code>app/services/skill_normalizer/model_singleton.py</code></td><td>Sentence-transformer encoder lifecycle (init/close/get)</td></tr>
+      <tr><td><code>app/schemas/skill_normalizer.py</code></td><td>All Pydantic models: PipelineContext, SkillCandidate, IndustryMatch, OccupationMatch, ExtractSkillsResponse, etc.</td></tr>
+      <tr><td><code>app/core/async_db.py</code></td><td>AsyncConnectionPool lifecycle (init/close/get), schema bootstrap</td></tr>
+      <tr><td><code>app/core/config.py</code></td><td>Settings: DATABASE_URL, REDIS_URL, CACHE_TTL, OPENAI_API_KEY, LLM_BASE_URL, etc.</td></tr>
+      <tr><td><code>app/main.py</code></td><td>FastAPI app + lifespan: initialises pool, Redis, encoder, patterns, blacklist, top_skills</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- .flow -->
+</body>
+</html>

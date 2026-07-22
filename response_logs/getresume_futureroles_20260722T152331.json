@@ -1,0 +1,202 @@
+{
+  "endpoint": "getresume_futureroles",
+  "session_id": null,
+  "written_at": "2026-07-22T15:23:31.946366+00:00",
+  "raw_response": {
+    "result": {
+      "best_fit_industry": "Information Technology",
+      "possible_job_titles": [
+        "IT Support",
+        "IT Support Technician",
+        "Security Officer"
+      ],
+      "core_skills": {
+        "communication skills, both written and verbal": "Communication",
+        "installation": "Technical",
+        "preventative maintenance": "Technical",
+        "networking": "Technical",
+        "security": "Compliance & Legal",
+        "troubleshooting": "Technical",
+        "typing": "Soft Skill",
+        "health and safety": "Compliance & Legal"
+      },
+      "tools_and_technologies": {
+        "Microsoft Office": "Productivity & Office",
+        "Access": "Productivity & Office",
+        "Excel": "Productivity & Office",
+        "Word": "Productivity & Office",
+        "PowerPoint": "Productivity & Office"
+      },
+      "profile_summary": "A committed and adaptable IT professional seeking an IT Support role. Eager to embrace new challenges, learn from experiences, and stay updated on the latest trends and technologies in the fast-paced IT landscape.",
+      "education": [
+        "Netcom Training \u2013 Birmingham (2023 - 2024) Networking Infrastructure & Cyber Security Technician",
+        "Sharjah University (2017- 2021) BA",
+        "9 GCSE\u2019s Grade C or above including English and Maths"
+      ],
+      "certifications": [
+        "CompTIA A+ certified",
+        "CompTIA Security+ certified",
+        "Certified Networking Infrastructure & Cyber Security Technician",
+        "Fully qualified first aider"
+      ],
+      "work_experience": [
+        {
+          "job_title": "operations",
+          "company": "Vital Rail",
+          "dates": "Nov 2022 \u2013 Present",
+          "responsibilities": [
+            "Prioritized industry-leading health and safety standards for a highly experienced workforce in P-way maintenance, track renewals, and S&C renewals.",
+            "Positioned Vital as a leader in tailored Rail Security solutions.",
+            "Recognized as Network Rail\u2019s supplier of choice for Trespass, contributing to enhanced rail security measures."
+          ]
+        },
+        {
+          "job_title": "Security Officer and SIA Door Supervisor",
+          "company": "PES Security - Manchester",
+          "dates": "Oct 2021 \u2013 Nov 2022",
+          "responsibilities": [
+            "Worked as a Security Officer and SIA Door Supervisor, managing security and crowd control."
+          ]
+        },
+        {
+          "job_title": null,
+          "company": "Sharjah Investment and Development Authority SHOROOQ - UAE",
+          "dates": "Nov 2011 \u2013 Sep 2021",
+          "responsibilities": [
+            "Supervised & supported the design team through different project phases.",
+            "Conducted periodic site inspections.",
+            "Coordinated with clients."
+          ]
+        },
+        {
+          "job_title": null,
+          "company": "Sharjah Investment and Development Authority (SHUROOQ)",
+          "dates": "Nov 2010 \u2013 Sep 2021 (October 2007 \u2013 May 2010)",
+          "responsibilities": [
+            "Maintaining and organising the company filing system",
+            "Answering incoming calls",
+            "Typing all necessary documents and correspondence as required",
+            "Printing any supplementary notes as required",
+            "Running professional errands"
+          ]
+        }
+      ],
+      "projects": [],
+      "achievements": [],
+      "inferred_seniority": "Junior",
+      "all_plausible_future_roles": [
+        "IT Support Technician",
+        "IT Support Analyst",
+        "Cyber Security Technician"
+      ],
+      "confidence_scores": {
+        "IT Support Technician": 0.82,
+        "IT Support Analyst": 0.68,
+        "Cyber Security Technician": 0.46
+      },
+      "why_suggested": {
+        "IT Support Technician": "The resume directly states that the candidate is \"seeking an IT Support role,\" which aligns closely with the market-standard title IT Support Technician. Tool evidence supports this direction through explicit proficiency in Microsoft Office, including Access, Excel, Word, and PowerPoint, which are commonly used in support environments. Skill evidence is also present through the named areas in CompTIA A+ certified, including installation, preventative maintenance, networking, security, and troubleshooting. CompTIA A+ provides relevant supporting evidence for entry-level technical support work, and the Networking Infrastructure & Cyber Security Technician credential further reinforces technical exposure. The inferred seniority is Junior because the resume shows certifications and stated interest in IT support, but does not show prior formal IT support employment. This makes IT Support Technician a realistic next-step role rather than an inflated progression.",
+        "IT Support Analyst": "The candidate\u2019s stated target of an \"IT Support role\" provides direct title alignment for IT Support Analyst as a closely related support position. The resume explicitly names Microsoft Office, Access, Excel, Word, and PowerPoint, which support day-to-day user support and office technology assistance. The strongest skill evidence comes from CompTIA A+ certified, which explicitly references installation, preventative maintenance, networking, security, and troubleshooting, all of which map well to support analysis tasks. CompTIA Security+ adds supporting knowledge in core security functions, which can strengthen suitability for support roles that involve secure user environments. The inferred seniority remains Junior because there is no explicit prior IT support job title in the work history, so this role is plausible but slightly less strongly supported than IT Support Technician. Within an Information Technology direction, it represents a realistic adjacent title with similar entry-level expectations.",
+        "Cyber Security Technician": "This role is supported by the candidate\u2019s explicit certifications and training rather than by direct prior cyber security employment, so it is included conservatively with lower confidence. The strongest evidence comes from \"CompTIA Security+ certified\" and \"Certified Networking Infrastructure & Cyber Security Technician,\" both of which directly align with security-focused technical work. Additional supporting signals include the CompTIA A+ areas of networking, security, and troubleshooting, which are relevant foundational skills for technician-level cyber security tasks. The current and past titles do not directly show cyber security job experience, although the resume does include security-related work in non-IT contexts and mentions tailored Rail Security solutions. Because the inferred seniority is Junior and the evidence is certification-and-skill led rather than experience led, Cyber Security Technician is a realistic entry-level adjacent move, not a senior or specialist leap. The role fits best as a cautious progression from IT support interest into a security-focused technician pathway."
+      }
+    },
+    "model": "gpt-5.4"
+  },
+  "parsed_output": {
+    "best_fit_industry": "Information Technology",
+    "possible_job_titles": [
+      "IT Support",
+      "IT Support Technician",
+      "Security Officer"
+    ],
+    "core_skills": {
+      "communication skills, both written and verbal": "Communication",
+      "installation": "Technical",
+      "preventative maintenance": "Technical",
+      "networking": "Technical",
+      "security": "Compliance & Legal",
+      "troubleshooting": "Technical",
+      "typing": "Soft Skill",
+      "health and safety": "Compliance & Legal"
+    },
+    "tools_and_technologies": {
+      "Microsoft Office": "Productivity & Office",
+      "Access": "Productivity & Office",
+      "Excel": "Productivity & Office",
+      "Word": "Productivity & Office",
+      "PowerPoint": "Productivity & Office"
+    },
+    "profile_summary": "A committed and adaptable IT professional seeking an IT Support role. Eager to embrace new challenges, learn from experiences, and stay updated on the latest trends and technologies in the fast-paced IT landscape.",
+    "education": [
+      "Netcom Training \u2013 Birmingham (2023 - 2024) Networking Infrastructure & Cyber Security Technician",
+      "Sharjah University (2017- 2021) BA",
+      "9 GCSE\u2019s Grade C or above including English and Maths"
+    ],
+    "certifications": [
+      "CompTIA A+ certified",
+      "CompTIA Security+ certified",
+      "Certified Networking Infrastructure & Cyber Security Technician",
+      "Fully qualified first aider"
+    ],
+    "work_experience": [
+      {
+        "job_title": "operations",
+        "company": "Vital Rail",
+        "dates": "Nov 2022 \u2013 Present",
+        "responsibilities": [
+          "Prioritized industry-leading health and safety standards for a highly experienced workforce in P-way maintenance, track renewals, and S&C renewals.",
+          "Positioned Vital as a leader in tailored Rail Security solutions.",
+          "Recognized as Network Rail\u2019s supplier of choice for Trespass, contributing to enhanced rail security measures."
+        ]
+      },
+      {
+        "job_title": "Security Officer and SIA Door Supervisor",
+        "company": "PES Security - Manchester",
+        "dates": "Oct 2021 \u2013 Nov 2022",
+        "responsibilities": [
+          "Worked as a Security Officer and SIA Door Supervisor, managing security and crowd control."
+        ]
+      },
+      {
+        "job_title": null,
+        "company": "Sharjah Investment and Development Authority SHOROOQ - UAE",
+        "dates": "Nov 2011 \u2013 Sep 2021",
+        "responsibilities": [
+          "Supervised & supported the design team through different project phases.",
+          "Conducted periodic site inspections.",
+          "Coordinated with clients."
+        ]
+      },
+      {
+        "job_title": null,
+        "company": "Sharjah Investment and Development Authority (SHUROOQ)",
+        "dates": "Nov 2010 \u2013 Sep 2021 (October 2007 \u2013 May 2010)",
+        "responsibilities": [
+          "Maintaining and organising the company filing system",
+          "Answering incoming calls",
+          "Typing all necessary documents and correspondence as required",
+          "Printing any supplementary notes as required",
+          "Running professional errands"
+        ]
+      }
+    ],
+    "projects": [],
+    "achievements": [],
+    "inferred_seniority": "Junior",
+    "all_plausible_future_roles": [
+      "IT Support Technician",
+      "IT Support Analyst",
+      "Cyber Security Technician"
+    ],
+    "confidence_scores": {
+      "IT Support Technician": 0.82,
+      "IT Support Analyst": 0.68,
+      "Cyber Security Technician": 0.46
+    },
+    "why_suggested": {
+      "IT Support Technician": "The resume directly states that the candidate is \"seeking an IT Support role,\" which aligns closely with the market-standard title IT Support Technician. Tool evidence supports this direction through explicit proficiency in Microsoft Office, including Access, Excel, Word, and PowerPoint, which are commonly used in support environments. Skill evidence is also present through the named areas in CompTIA A+ certified, including installation, preventative maintenance, networking, security, and troubleshooting. CompTIA A+ provides relevant supporting evidence for entry-level technical support work, and the Networking Infrastructure & Cyber Security Technician credential further reinforces technical exposure. The inferred seniority is Junior because the resume shows certifications and stated interest in IT support, but does not show prior formal IT support employment. This makes IT Support Technician a realistic next-step role rather than an inflated progression.",
+      "IT Support Analyst": "The candidate\u2019s stated target of an \"IT Support role\" provides direct title alignment for IT Support Analyst as a closely related support position. The resume explicitly names Microsoft Office, Access, Excel, Word, and PowerPoint, which support day-to-day user support and office technology assistance. The strongest skill evidence comes from CompTIA A+ certified, which explicitly references installation, preventative maintenance, networking, security, and troubleshooting, all of which map well to support analysis tasks. CompTIA Security+ adds supporting knowledge in core security functions, which can strengthen suitability for support roles that involve secure user environments. The inferred seniority remains Junior because there is no explicit prior IT support job title in the work history, so this role is plausible but slightly less strongly supported than IT Support Technician. Within an Information Technology direction, it represents a realistic adjacent title with similar entry-level expectations.",
+      "Cyber Security Technician": "This role is supported by the candidate\u2019s explicit certifications and training rather than by direct prior cyber security employment, so it is included conservatively with lower confidence. The strongest evidence comes from \"CompTIA Security+ certified\" and \"Certified Networking Infrastructure & Cyber Security Technician,\" both of which directly align with security-focused technical work. Additional supporting signals include the CompTIA A+ areas of networking, security, and troubleshooting, which are relevant foundational skills for technician-level cyber security tasks. The current and past titles do not directly show cyber security job experience, although the resume does include security-related work in non-IT contexts and mentions tailored Rail Security solutions. Because the inferred seniority is Junior and the evidence is certification-and-skill led rather than experience led, Cyber Security Technician is a realistic entry-level adjacent move, not a senior or specialist leap. The role fits best as a cautious progression from IT support interest into a security-focused technician pathway."
+    }
+  }
+}

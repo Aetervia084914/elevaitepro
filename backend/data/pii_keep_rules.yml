@@ -1,0 +1,270 @@
+version: "1.0"
+name: "pii_keep_rules"
+description: >-
+  Production-grade allow/retain policy for resume and CV processing pipelines.
+  This file defines which personally identifiable information (PII) may be
+  retained, transformed, masked, hashed, or dropped at different processing
+  stages.
+owner: "data-platform"
+last_updated: "2026-04-08"
+default_action: "drop"
+strict_mode: true
+notes:
+  - "Use this file together with pii_redaction_policy.yml."
+  - "If a field is not explicitly allowed here, it should not be retained in durable storage."
+  - "Resume parsing may temporarily inspect raw text in memory, but persistence should follow this policy."
+
+stages:
+  ingestion:
+    description: "Raw input receipt before sanitization"
+    allowed_fields:
+      - request_id
+      - session_id
+      - source_type
+      - source_filename
+      - received_at
+      - content_sha256
+      - input_size_bytes
+      - mime_type
+    pii_handling:
+      raw_text: "memory_only"
+      original_file_bytes: "memory_only"
+      email: "drop"
+      phone: "drop"
+      address: "drop"
+      date_of_birth: "drop"
+      nationality: "drop"
+      government_id: "drop"
+      photo: "drop"
+      linkedin_url: "drop"
+      github_url: "drop"
+      portfolio_url: "drop"
+
+  sanitization:
+    description: "Normalized text after cleanup and optional PII scan"
+    allowed_fields:
+      - request_id
+      - session_id
+      - cleaned_text
+      - redacted_text
+      - language_code
+      - normalization_flags
+      - pii_detection_summary
+    pii_handling:
+      person_name: "mask"
+      email: "mask"
+      phone: "mask"
+      address: "mask"
+      date_of_birth: "drop"
+      government_id: "drop"
+      exact_location: "mask"
+      social_links: "mask"
+
+  extraction:
+    description: "Technology/tool extraction stages"
+    allowed_fields:
+      - request_id
+      - session_id
+      - structured_sections
+      - extracted_entities
+      - technology_candidates
+      - normalized_technologies
+      - extraction_confidence
+      - evidence_spans_redacted
+    pii_handling:
+      person_name: "drop"
+      email: "drop"
+      phone: "drop"
+      address: "drop"
+      education_institution: "keep"
+      employer_name: "keep"
+      project_name: "keep_if_non_sensitive"
+      social_links: "drop"
+
+  audit_logging:
+    description: "Persistent logs for observability and debugging"
+    allowed_fields:
+      - request_id
+      - session_id
+      - stage_name
+      - stage_status
+      - execution_time_ms
+      - rule_version
+      - model_version
+      - error_code
+      - error_summary
+      - pii_counts_by_type
+    pii_handling:
+      raw_text: "drop"
+      person_name: "drop"
+      email: "drop"
+      phone: "drop"
+      address: "drop"
+      evidence_spans: "mask"
+
+  human_review:
+    description: "Low-confidence review queue"
+    allowed_fields:
+      - request_id
+      - session_id
+      - candidate_value
+      - candidate_type
+      - normalized_value
+      - review_reason
+      - minimal_context_window_redacted
+      - confidence_score
+    pii_handling:
+      person_name: "mask"
+      email: "drop"
+      phone: "drop"
+      address: "drop"
+      employer_name: "keep"
+      institution_name: "keep"
+
+field_rules:
+  person_name:
+    classification: "direct_identifier"
+    retain: false
+    transform: "mask"
+    examples:
+      - "John Smith"
+      - "Maria Fernandes"
+
+  email:
+    classification: "direct_identifier"
+    retain: false
+    transform: "mask"
+    mask_pattern: "local_part_first_char_plus_domain"
+    examples:
+      - "j***@gmail.com"
+
+  phone:
+    classification: "direct_identifier"
+    retain: false
+    transform: "mask"
+    mask_pattern: "last_2_visible"
+    examples:
+      - "******78"
+
+  address:
+    classification: "sensitive_contact"
+    retain: false
+    transform: "mask"
+
+  date_of_birth:
+    classification: "high_sensitivity"
+    retain: false
+    transform: "drop"
+
+  government_id:
+    classification: "high_sensitivity"
+    retain: false
+    transform: "drop"
+    aliases:
+      - passport_number
+      - national_id
+      - ssn
+      - aadhaar
+      - pan
+      - driving_license_number
+
+  exact_location:
+    classification: "sensitive_contact"
+    retain: false
+    transform: "mask"
+  city_region:
+    classification: "low_sensitivity_profile"
+    retain: true
+    transform: "keep"
+
+  linkedin_url:
+    classification: "profile_link"
+    retain: false
+    transform: "mask"
+  github_url:
+    classification: "profile_link"
+    retain: false
+    transform: "mask"
+  portfolio_url:
+    classification: "profile_link"
+    retain: false
+    transform: "mask"
+
+  employer_name:
+    classification: "career_signal"
+    retain: true
+    transform: "keep"
+  job_title:
+    classification: "career_signal"
+    retain: true
+    transform: "keep"
+  education_institution:
+    classification: "career_signal"
+    retain: true
+    transform: "keep"
+  certification_name:
+    classification: "career_signal"
+    retain: true
+    transform: "keep"
+  skill_name:
+    classification: "career_signal"
+    retain: true
+    transform: "keep"
+  technology_name:
+    classification: "career_signal"
+    retain: true
+    transform: "keep"
+  project_name:
+    classification: "conditional"
+    retain: true
+    transform: "keep_if_non_sensitive"
+
+conditional_rules:
+  keep_if_non_sensitive:
+    description: >-
+      Keep only if the value does not contain client secrets, internal codenames,
+      passwords, API keys, private repository names, or obvious confidential terms.
+    deny_patterns:
+      - "(?i)secret"
+      - "(?i)confidential"
+      - "(?i)internal only"
+      - "(?i)api[_ -]?key"
+      - "(?i)token"
+      - "(?i)password"
+      - "(?i)client[_ -]?name"
+
+  memory_only:
+    description: >-
+      Allowed to exist transiently during request processing, but must never be
+      written to durable storage, logs, analytics tables, or review queues.
+
+storage_profiles:
+  postgres:
+    allow_redacted_text: true
+    allow_raw_text: false
+    allow_pii_summary_only: true
+  redis:
+    allow_redacted_text: true
+    allow_raw_text: false
+    ttl_seconds: 3600
+  s3_or_blob:
+    allow_raw_upload_archive: false
+    allow_redacted_exports: true
+  logs:
+    allow_raw_text: false
+    allow_pii_values: false
+
+review_thresholds:
+  send_to_human_review_if:
+    - "project_name matched deny_patterns"
+    - "pii entity confidence < 0.70 and extraction requires local context"
+    - "new unknown identifier-like string appears repeatedly"
+
+compliance_controls:
+  require_encryption_at_rest: true
+  require_encryption_in_transit: true
+  require_access_logging: true
+  require_role_based_access_control: true
+  require_data_retention_policy: true
+  default_retention_days: 30
+  hard_delete_after_retention: true

@@ -1,0 +1,38 @@
+SELECT id, name, email, password, career_aspirations, selected_tier, last_payment_date, created_at, created_timestamp, updated_timestamp, email_verified
+	FROM public.candidates;
+	
+
+SELECT
+    c.name,u.* FROM public.user_cv_upload u INNER JOIN public.candidates c
+    ON u.candidate_id = c.id;
+
+SELECT
+    c.name,ua.* FROM public.useranalysis ua INNER JOIN public.candidates c
+    ON ua.candidate_id = c.id;
+
+
+SELECT
+    c.name,ucg.* FROM public.usercompletedgaps ucg INNER JOIN public.candidates c
+    ON ucg.user_id = c.id;
+
+
+
+SELECT
+    c.name,uj.current_stage FROM public.userjourney uj INNER JOIN public.candidates c
+    ON uj.user_id = c.id;
+
+	BEGIN;
+
+DELETE FROM public.useranalysis
+WHERE candidate_id = 'f5205a6a-d51e-47fe-be37-1bc5fe1cfed7';
+
+DELETE FROM public.usercompletedgaps
+WHERE user_id = 'f5205a6a-d51e-47fe-be37-1bc5fe1cfed7';
+
+DELETE FROM public.user_cv_upload
+WHERE candidate_id = 'f5205a6a-d51e-47fe-be37-1bc5fe1cfed7';
+
+DELETE FROM public.userjourney
+WHERE user_id = 'f5205a6a-d51e-47fe-be37-1bc5fe1cfed7';
+
+COMMIT;
