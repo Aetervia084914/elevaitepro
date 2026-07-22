@@ -33,6 +33,7 @@ from app.api.routes.payment import router as payment_router
 from app.api.routes.db_routes import router as db_routes_router
 from app.api.routes.completed_gaps import router as completed_gaps_router
 from app.api.routes.verification_code import router as verification_code_router
+from app.api.routes.clear_candidate_data import router as clear_candidate_data_router
 from app.api.role_analysis import router as role_analysis_router
 from app.api.get_summary_pdf import router as summary_pdf_router
 from app.api.generatesummarypdf import router as generate_summary_pdf_router
@@ -127,3 +128,4 @@ app.include_router(generate_resume_pdf_router)
 app.include_router(generate_resume_router)
 app.include_router(db_routes_router)
 app.include_router(completed_gaps_router)
+app.include_router(clear_candidate_data_router)

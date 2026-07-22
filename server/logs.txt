@@ -13732,3 +13732,525 @@ LINE 3:                        SET parsed_output = CAST('{"success":...
 [2026-07-22T19:53:27.580Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
 [2026-07-22T19:53:27.585Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (5ms)
 [2026-07-22T19:53:27.589Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (15ms)
+[2026-07-22T20:07:40.015Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /clear-candidate-data → http://127.0.0.1:8002/clear-candidate-data
+[2026-07-22T20:07:40.019Z] [INFO] [RESPONSE] | POST /clear-candidate-data → 404 (3ms)
+2026-07-23 01:38:05,933 | INFO | app.core.async_db | Async psycopg pool closed
+2026-07-23 01:44:28,334 | INFO | app.core.async_db | Async psycopg pool opened — localhost:5432/elevaite
+2026-07-23 01:44:28,344 | INFO | app.core.async_db | certification_schema.sql executed successfully
+2026-07-23 01:44:28,345 | INFO | app.core.async_db | tool_master_schema.sql executed successfully
+2026-07-23 01:44:28,346 | INFO | app.core.async_db | apiresponse_schema.sql executed successfully
+2026-07-23 01:44:28,351 | INFO | app.core.async_db | add_role_analyses_table.sql executed successfully
+2026-07-23 01:44:28,352 | INFO | app.core.async_db | add_email_verified_column.sql executed successfully
+2026-07-23 01:44:28,355 | INFO | app.core.async_db | create_user_cv_upload_table.sql executed successfully
+2026-07-23 01:44:28,356 | INFO | app.core.async_db | create_usercompletedgaps_table.sql executed successfully
+2026-07-23 01:44:28,381 | INFO | app.main | Support tickets schema ready
+[2026-07-22T20:14:48.818Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /clear-candidate-data → http://127.0.0.1:8002/clear-candidate-data
+2026-07-23 01:44:48,858 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Starting data deletion for email: awsrahul1981@gmail.com
+2026-07-23 01:44:48,860 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Found candidate_id: f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:44:48,862 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 2 rows from useranalysis
+2026-07-23 01:44:48,863 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 9 rows from usercompletedgaps
+2026-07-23 01:44:48,864 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from user_cv_upload
+2026-07-23 01:44:48,865 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from userjourney
+2026-07-23 01:44:48,871 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Successfully cleared all data for awsrahul1981@gmail.com
+[2026-07-22T20:14:48.932Z] [INFO] [RESPONSE] | POST /clear-candidate-data → 200 (113ms)
+[2026-07-22T20:15:12.097Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /login → http://127.0.0.1:8002/login
+[2026-07-22T20:15:12.239Z] [INFO] [RESPONSE] | POST /login → 200 (141ms)
+[2026-07-22T20:15:12.249Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /userjourney → http://127.0.0.1:8002/userjourney?userId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:15:12.256Z] [INFO] [RESPONSE] | GET /userjourney → 200 (6ms)
+[2026-07-22T20:15:12.305Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+2026-07-23 01:45:12,310 | INFO | app.api.routes.db_routes | [init-journey] Created new userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:15:12.310Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+[2026-07-22T20:15:12.312Z] [INFO] [RESPONSE] | POST /init-journey → 200 (6ms)
+2026-07-23 01:45:12,318 | INFO | app.api.routes.db_routes | [init-journey] Returning existing userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:15:12.318Z] [INFO] [RESPONSE] | POST /init-journey → 200 (7ms)
+[2026-07-22T20:15:23.601Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /uploadresume → http://127.0.0.1:8002/uploadresume
+2026-07-23 01:45:23,606 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ START ════════ session=40cf948c-78a2-4381-986a-20bfaab6673d, location=''
+2026-07-23 01:45:23,608 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1: File received — name='Cv_GianMarco_Valeri.docx', size=41562 bytes, content_type=application/vnd.openxmlformats-officedocument.wordprocessingml.document
+2026-07-23 01:45:23,608 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1b: content_hash=dd2b46e7cb4319fd, session_id=40cf948c-78a2-4381-986a-20bfaab6673d
+2026-07-23 01:45:23,619 | INFO | app.api.routes.resume_upload | [uploadresume] Step 2: Text extracted — 4174 chars in 11ms
+2026-07-23 01:45:23,634 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3: Sections detected — ['experience', 'education'] in 14ms
+2026-07-23 01:45:23,640 | INFO | app.services.resume_parser.contact_extractor | [name-extract] first 10 non-empty lines: ['GIAN MARCO VALERI', 'Manchester – valerigianmarco@gmail.com – 07534894628 – LinkedIn   GianMarco Valeri', "With over ten years of experience in the hospitality industry, I have honed invaluable skills in customer service, communication, and problem-solving. While I've cherished my time in hospitality, I'm now eagerly seeking a transition into the dynamic field of cybersecurity. I aspire to leverage my expertise to tackle new challenges and contribute meaningfully to safeguarding the digital assets and privacy of the organizations I work for. Having worked across diverse cultural environments, I bring a global perspective and adaptability to effectively collaborate with multidisciplinary teams. My unwavering commitment to continuous improvement aligns seamlessly with the fast-paced nature of cybersecurity, and I am enthusiastic about the prospect of applying my passion for excellence to this exciting field.", '•', "Excellent customer service skills; 10 years' experience", 'Knowledge on MicroS (restaurant till system)', 'Languages spoken:', 'Italian – Mother Tongue', 'English - Fluent (Advanced Level)', 'Spanish - Basic Level']
+2026-07-23 01:45:23,641 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3a: Contact extracted — name='Emma Webb', email='valerigianmarco@gmail.com', phone='07534894628' (7ms)
+2026-07-23 01:45:23,642 | INFO | app.api.routes.resume_upload | [uploadresume] Step 4: Years of experience = 21.2 (1ms)
+2026-07-23 01:45:23,642 | INFO | app.api.routes.resume_upload | [uploadresume] Step 5: Calling LLM future-role prediction (OpenAI proxy)...
+2026-07-23 01:45:23,642 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=4174 chars, location=''
+2026-07-23 01:45:23,643 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 01:45:23,643 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 17553 chars
+2026-07-23 01:45:23,643 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 01:45:24,837 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 502 Bad Gateway"
+2026-07-23 01:45:24,838 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=502, body=438 bytes (1195ms)
+2026-07-23 01:45:24,838 | ERROR | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3 ERROR — OpenAI API status=502: {"detail":"OpenAI request failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************XwkA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"}
+2026-07-23 01:45:24,838 | ERROR | app.api.routes.resume_upload | [uploadresume] Step 5 FAILED — LLM future-role prediction error after 1196ms: OpenAI proxy returned 502: {"detail":"OpenAI request failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************XwkA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"}
+2026-07-23 01:45:24,842 | INFO | app.api.routes.resume_upload | [uploadresume] Using local parser work experience — 12 entries extracted
+2026-07-23 01:45:24,843 | INFO | app.api.routes.resume_upload | [uploadresume] Step 6: CACHE WRITE queued — session=40cf948c-78a2-4381-986a-20bfaab6673d, future_roles_present=False
+2026-07-23 01:45:24,843 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ DONE ════════ session=40cf948c-78a2-4381-986a-20bfaab6673d, candidate='Emma Webb', roles=0, total=1237ms
+[2026-07-22T20:15:24.844Z] [INFO] [RESPONSE] | POST /uploadresume → 200 (1242ms)
+[2026-07-22T20:15:24.864Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /getresume_futureroles → http://127.0.0.1:8002/getresume_futureroles
+2026-07-23 01:45:24,869 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=4174 chars, location='United Kingdom'
+2026-07-23 01:45:24,869 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 01:45:24,869 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 17554 chars
+2026-07-23 01:45:24,869 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 01:45:25,004 | INFO | app.api.routes.resume_upload | [uploadresume] user_cv_upload persisted — session=40cf948c-78a2-4381-986a-20bfaab6673d, hash=dd2b46e7cb4319fd
+2026-07-23 01:45:25,005 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=40cf948c…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (0ms)
+2026-07-23 01:45:25,005 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+2026-07-23 01:45:42,889 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 01:45:42,890 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=200, body=8972 bytes (18021ms)
+2026-07-23 01:45:42,890 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 4: Response parsed — 14 top-level keys
+2026-07-23 01:45:42,890 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── DONE ──── 3 roles: ['Customer Service Representative', 'Customer Service Advisor', 'Junior Cyber Security Analyst'] (total 18022ms)
+[2026-07-22T20:15:42.893Z] [INFO] [RESPONSE] | POST /getresume_futureroles → 200 (18028ms)
+2026-07-23 01:45:42,896 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] parsed_output saved to user_cv_upload — session=40cf948c-78a2-4381-986a-20bfaab6673d
+2026-07-23 01:45:42,897 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=40cf948c…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 01:45:42,897 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+2026-07-23 01:45:42,900 | INFO | app.api.role_analysis | upsert_suggested_roles — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 roles=3
+[2026-07-22T20:15:42.915Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-future-roles → http://127.0.0.1:8002/save-future-roles
+[2026-07-22T20:15:42.922Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+[2026-07-22T20:15:42.929Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 01:45:42,934 | INFO | app.api.routes.db_routes | [save-api-response] CV data received for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:45:42,950 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Customer Service Representative" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:45:42,951 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from UPLOAD_CV to ANALYSIS (credits set to 0)
+2026-07-23 01:45:42,952 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Customer Service Advisor" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:15:42.952Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (29ms)
+2026-07-23 01:45:42,952 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Junior Cyber Security Analyst" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:15:42.955Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (25ms)
+[2026-07-22T20:15:42.959Z] [INFO] [RESPONSE] | POST /save-future-roles → 200 (44ms)
+[2026-07-22T20:17:09.544Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 01:47:09,551 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache MISS for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Customer Service Representative, region United Kingdom
+[2026-07-22T20:17:09.552Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (7ms)
+[2026-07-22T20:17:09.573Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /role-analysis → http://127.0.0.1:8002/role-analysis
+2026-07-23 01:47:09,578 | INFO | app.api.role_analysis | [role-analysis] HIT postgres_cache — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Customer Service Representative
+[2026-07-22T20:17:09.579Z] [INFO] [RESPONSE] | POST /role-analysis → 200 (5ms)
+[2026-07-22T20:17:09.594Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /GetAnalysis → http://127.0.0.1:8002/GetAnalysis
+2026-07-23 01:47:09,600 | INFO | app.api.routes.get_analysis | [GetAnalysis] Prompt built for 1 roles, length=8368
+2026-07-23 01:47:10,840 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 502 Bad Gateway"
+2026-07-23 01:47:10,841 | ERROR | app.api.routes.get_analysis | [GetAnalysis] LLM API error 502: {"detail":"OpenAI request failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************XwkA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"}
+[2026-07-22T20:17:10.842Z] [INFO] [RESPONSE] | POST /GetAnalysis → 502 (1247ms)
+[2026-07-22T20:23:48.973Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 01:53:48,980 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache MISS for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Customer Service Advisor, region United Kingdom
+[2026-07-22T20:23:48.981Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (7ms)
+[2026-07-22T20:23:49.010Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /role-analysis → http://127.0.0.1:8002/role-analysis
+2026-07-23 01:53:49,016 | INFO | app.api.routes.get_analysis | [GetAnalysis] Prompt built for 1 roles, length=7938
+2026-07-23 01:54:51,450 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 01:54:51,451 | INFO | app.api.routes.get_analysis | [GetAnalysis] Received 1 role analyses
+2026-07-23 01:54:51,453 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=40cf948c…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 01:54:51,454 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=40cf948c…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (0ms)
+2026-07-23 01:54:51,454 | INFO | app.core.candidate_cache | [Cache] cache_analysis_role OK — key=candidate:f5205a6a-d51e-47fe-be3…, role=Customer_Service_Advisor
+2026-07-23 01:54:51,462 | INFO | app.api.role_analysis | role_analyses UPSERT — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Customer Service Advisor region=United Kingdom journey_id=87d5bea3-89bf-4b38-afbb-b663936fd4a2
+2026-07-23 01:54:51,469 | INFO | app.api.role_analysis | role_analyses UPSERT — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Customer Service Advisor region=United Kingdom journey_id=87d5bea3-89bf-4b38-afbb-b663936fd4a2
+2026-07-23 01:54:51,469 | INFO | app.api.role_analysis | [role-analysis] openai_generated — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Customer Service Advisor
+[2026-07-22T20:24:51.470Z] [INFO] [RESPONSE] | POST /role-analysis → 200 (62459ms)
+[2026-07-22T20:24:51.488Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+2026-07-23 01:54:51,494 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from ANALYSIS to RESULTS
+[2026-07-22T20:24:51.497Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+[2026-07-22T20:24:51.500Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (11ms)
+2026-07-23 01:54:51,510 | INFO | app.api.routes.db_routes | [save-api-response] UserAnalysis saved for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Customer Service Advisor, triggered from hero
+[2026-07-22T20:24:51.514Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (15ms)
+[2026-07-22T20:24:51.548Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:24:51.554Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=Customer+Service+Advisor&region=United+Kingdom
+[2026-07-22T20:24:51.561Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:24:51.563Z] [INFO] [RESPONSE] | GET /get-journey → 200 (13ms)
+[2026-07-22T20:24:51.566Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (11ms)
+[2026-07-22T20:24:51.571Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (9ms)
+[2026-07-22T20:24:51.582Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=Customer+Service+Advisor&region=United+Kingdom
+[2026-07-22T20:24:51.588Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:24:51.590Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (8ms)
+[2026-07-22T20:24:51.592Z] [INFO] [RESPONSE] | GET /get-journey → 200 (4ms)
+[2026-07-22T20:24:51.599Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:24:51.602Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (2ms)
+[2026-07-22T20:25:40.938Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=40cf948c-78a2-4381-986a-20bfaab6673d | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=Customer+Service+Advisor&region=United+Kingdom
+2026-07-23 01:55:40,945 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=40cf948c…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 01:55:40,947 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:25:40.947Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (8ms)
+[2026-07-22T20:26:05.882Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /clear-candidate-data → http://127.0.0.1:8002/clear-candidate-data
+2026-07-23 01:56:05,884 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Starting data deletion for email: awsrahul1981@gmail.com
+2026-07-23 01:56:05,885 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Found candidate_id: f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:56:05,885 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from useranalysis
+2026-07-23 01:56:05,886 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 0 rows from usercompletedgaps
+2026-07-23 01:56:05,886 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from user_cv_upload
+2026-07-23 01:56:05,887 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from userjourney
+2026-07-23 01:56:05,896 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Successfully cleared all data for awsrahul1981@gmail.com
+[2026-07-22T20:26:05.897Z] [INFO] [RESPONSE] | POST /clear-candidate-data → 200 (15ms)
+[2026-07-22T20:26:21.247Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /login → http://127.0.0.1:8002/login
+[2026-07-22T20:26:21.400Z] [INFO] [RESPONSE] | POST /login → 200 (152ms)
+[2026-07-22T20:26:21.409Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /userjourney → http://127.0.0.1:8002/userjourney?userId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:26:21.414Z] [INFO] [RESPONSE] | GET /userjourney → 200 (4ms)
+[2026-07-22T20:26:21.447Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+2026-07-23 01:56:21,451 | INFO | app.api.routes.db_routes | [init-journey] Created new userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:26:21.453Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+[2026-07-22T20:26:21.455Z] [INFO] [RESPONSE] | POST /init-journey → 200 (7ms)
+2026-07-23 01:56:21,460 | INFO | app.api.routes.db_routes | [init-journey] Returning existing userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:26:21.461Z] [INFO] [RESPONSE] | POST /init-journey → 200 (7ms)
+[2026-07-22T20:26:33.784Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /uploadresume → http://127.0.0.1:8002/uploadresume
+2026-07-23 01:56:33,787 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ START ════════ session=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a, location=''
+2026-07-23 01:56:33,789 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1: File received — name='AbhiResume.pdf', size=49901 bytes, content_type=application/pdf
+2026-07-23 01:56:33,789 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1b: content_hash=84fa0ca65075a3f3, session_id=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a
+2026-07-23 01:56:33,795 | INFO | app.api.routes.resume_upload | [uploadresume] Step 2: Text extracted — 5378 chars in 7ms
+2026-07-23 01:56:33,797 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3: Sections detected — ['skills', 'experience', 'education', 'additional_information'] in 2ms
+2026-07-23 01:56:33,809 | INFO | app.services.resume_parser.contact_extractor | [name-extract] first 10 non-empty lines: ['Abhishek Gangani', 'AI Developer • gangani1223@gmail.com • +447393107626 • Linkedin - abhishek-gangani', 'Introduction', 'AI Engineer with hands-on production experience deploying and scaling agentic AI frameworks, multi-agent', 'orchestration systems, and RAG pipelines across enterprise customers in regulated verticals including', 'Automotive, Cyber Security, and DeFi. Proven track record translating technical AI capabilities into measurable', 'business value through customer-facing technical enablement, deployment leadership, and adoption program', 'management. Deep expertise with OpenAI APIs, LangChain integrations, and production AI system architecture.', 'Winner of 5 top-tier UK hackathons (OpenAI Hackathon, AI Summit, Encode Hackathon). M.Sc. in Artificial', 'Intelligence, Distinction.']
+2026-07-23 01:56:33,809 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3a: Contact extracted — name='Abhishek Gangani', email='gangani1223@gmail.com', phone='+447393107626' (12ms)
+2026-07-23 01:56:33,811 | INFO | app.api.routes.resume_upload | [uploadresume] Step 4: Years of experience = 2.1 (1ms)
+2026-07-23 01:56:33,811 | INFO | app.api.routes.resume_upload | [uploadresume] Step 5: Calling LLM future-role prediction (OpenAI proxy)...
+2026-07-23 01:56:33,811 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=5378 chars, location=''
+2026-07-23 01:56:33,812 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 01:56:33,812 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 18757 chars
+2026-07-23 01:56:33,812 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 01:56:59,756 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 01:56:59,758 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=200, body=13356 bytes (25946ms)
+2026-07-23 01:56:59,758 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 4: Response parsed — 14 top-level keys
+2026-07-23 01:56:59,758 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── DONE ──── 5 roles: ['AI Engineer', 'Machine Learning Engineer', 'Applied AI Engineer', 'AI Solutions Engineer', 'AI Agent Engineer'] (total 25947ms)
+2026-07-23 01:56:59,758 | INFO | app.api.routes.resume_upload | [uploadresume] Step 5: LLM prediction OK — 5 roles returned in 25947ms
+2026-07-23 01:56:59,758 | INFO | app.api.routes.resume_upload | [uploadresume] Using LLM work experience — 3 entries extracted
+2026-07-23 01:56:59,758 | INFO | app.api.routes.resume_upload | [uploadresume] Step 6: CACHE WRITE queued — session=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a, future_roles_present=True
+2026-07-23 01:56:59,758 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ DONE ════════ session=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a, candidate='Abhishek Gangani', roles=5, total=25972ms
+[2026-07-22T20:26:59.760Z] [INFO] [RESPONSE] | POST /uploadresume → 200 (25976ms)
+2026-07-23 01:56:59,768 | INFO | app.api.routes.resume_upload | [uploadresume] user_cv_upload persisted — session=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a, hash=84fa0ca65075a3f3
+2026-07-23 01:56:59,770 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 01:56:59,770 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+[2026-07-22T20:26:59.778Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /getresume_futureroles → http://127.0.0.1:8002/getresume_futureroles
+2026-07-23 01:56:59,780 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=5378 chars, location='United Kingdom'
+2026-07-23 01:56:59,780 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 01:56:59,780 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 18758 chars
+2026-07-23 01:56:59,780 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 01:57:23,233 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 01:57:23,234 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=200, body=11493 bytes (23453ms)
+2026-07-23 01:57:23,234 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 4: Response parsed — 14 top-level keys
+2026-07-23 01:57:23,234 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── DONE ──── 4 roles: ['AI Engineer', 'Machine Learning Engineer', 'AI Solutions Engineer', 'Applied AI Engineer'] (total 23454ms)
+[2026-07-22T20:27:23.236Z] [INFO] [RESPONSE] | POST /getresume_futureroles → 200 (23458ms)
+2026-07-23 01:57:23,240 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] parsed_output saved to user_cv_upload — session=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a
+2026-07-23 01:57:23,242 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 01:57:23,242 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+2026-07-23 01:57:23,247 | INFO | app.api.role_analysis | upsert_suggested_roles — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 roles=4
+[2026-07-22T20:27:23.261Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-future-roles → http://127.0.0.1:8002/save-future-roles
+2026-07-23 01:57:23,265 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "AI Engineer" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:57:23,266 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Machine Learning Engineer" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:57:23,266 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "AI Solutions Engineer" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:57:23,266 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Applied AI Engineer" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:27:23.267Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+[2026-07-22T20:27:23.272Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+[2026-07-22T20:27:23.274Z] [INFO] [RESPONSE] | POST /save-future-roles → 200 (12ms)
+2026-07-23 01:57:23,278 | INFO | app.api.routes.db_routes | [save-api-response] CV data received for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 01:57:23,278 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from UPLOAD_CV to ANALYSIS (credits set to 0)
+[2026-07-22T20:27:23.279Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (11ms)
+[2026-07-22T20:27:23.282Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (9ms)
+[2026-07-22T20:27:51.049Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 01:57:51,053 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache MISS for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role AI Engineer, region United Kingdom
+[2026-07-22T20:27:51.053Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (3ms)
+[2026-07-22T20:27:51.084Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /role-analysis → http://127.0.0.1:8002/role-analysis
+2026-07-23 01:57:51,087 | INFO | app.api.role_analysis | [role-analysis] HIT postgres_cache — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=AI Engineer
+[2026-07-22T20:27:51.088Z] [INFO] [RESPONSE] | POST /role-analysis → 200 (4ms)
+[2026-07-22T20:27:51.103Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /GetAnalysis → http://127.0.0.1:8002/GetAnalysis
+2026-07-23 01:57:51,106 | INFO | app.api.routes.get_analysis | [GetAnalysis] Prompt built for 1 roles, length=8834
+2026-07-23 01:58:40,208 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 01:58:40,209 | INFO | app.api.routes.get_analysis | [GetAnalysis] Received 1 role analyses
+2026-07-23 01:58:40,210 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 01:58:40,211 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (0ms)
+2026-07-23 01:58:40,211 | INFO | app.core.candidate_cache | [Cache] cache_analysis_role OK — key=candidate:f5205a6a-d51e-47fe-be3…, role=AI_Engineer
+2026-07-23 01:58:40,213 | INFO | app.api.role_analysis | role_analyses UPSERT — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=AI Engineer region=United Kingdom journey_id=91ad3534-7909-48d6-94f8-9037c736da18
+[2026-07-22T20:28:40.215Z] [INFO] [RESPONSE] | POST /GetAnalysis → 200 (49112ms)
+[2026-07-22T20:28:40.236Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+[2026-07-22T20:28:40.245Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 01:58:40,252 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from ANALYSIS to RESULTS
+2026-07-23 01:58:40,253 | INFO | app.api.routes.db_routes | [save-api-response] UserAnalysis saved for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role AI Engineer, triggered from hero
+[2026-07-22T20:28:40.253Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (16ms)
+[2026-07-22T20:28:40.256Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (10ms)
+[2026-07-22T20:28:40.306Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:28:40.313Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=AI+Engineer&region=United+Kingdom
+[2026-07-22T20:28:40.319Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:28:40.325Z] [INFO] [RESPONSE] | GET /get-journey → 200 (18ms)
+[2026-07-22T20:28:40.327Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (7ms)
+[2026-07-22T20:28:40.330Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (16ms)
+[2026-07-22T20:28:40.344Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:28:40.351Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:28:40.358Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=AI+Engineer&region=United+Kingdom
+[2026-07-22T20:28:40.359Z] [INFO] [RESPONSE] | GET /get-journey → 200 (13ms)
+[2026-07-22T20:28:40.362Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (11ms)
+[2026-07-22T20:28:40.364Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (6ms)
+[2026-07-22T20:29:35.886Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=AI+Engineer&region=United+Kingdom
+2026-07-23 01:59:35,890 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 01:59:35,892 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:29:35.893Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (6ms)
+[2026-07-22T20:29:55.905Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 01:59:55,908 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache MISS for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role AI Solutions Engineer, region United Kingdom
+[2026-07-22T20:29:55.908Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (3ms)
+[2026-07-22T20:29:55.919Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /role-analysis → http://127.0.0.1:8002/role-analysis
+2026-07-23 01:59:55,922 | INFO | app.api.role_analysis | [role-analysis] HIT postgres_cache — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=AI Solutions Engineer
+[2026-07-22T20:29:55.923Z] [INFO] [RESPONSE] | POST /role-analysis → 200 (4ms)
+[2026-07-22T20:29:55.935Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /GetAnalysis → http://127.0.0.1:8002/GetAnalysis
+2026-07-23 01:59:55,938 | INFO | app.api.routes.get_analysis | [GetAnalysis] Prompt built for 1 roles, length=7985
+2026-07-23 02:01:08,030 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:01:08,032 | INFO | app.api.routes.get_analysis | [GetAnalysis] Received 1 role analyses
+2026-07-23 02:01:08,033 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:01:08,033 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:01:08,034 | INFO | app.core.candidate_cache | [Cache] cache_analysis_role OK — key=candidate:f5205a6a-d51e-47fe-be3…, role=AI_Solutions_Engineer
+2026-07-23 02:01:08,037 | INFO | app.api.role_analysis | role_analyses UPSERT — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=AI Solutions Engineer region=United Kingdom journey_id=91ad3534-7909-48d6-94f8-9037c736da18
+[2026-07-22T20:31:08.038Z] [INFO] [RESPONSE] | POST /GetAnalysis → 200 (72102ms)
+[2026-07-22T20:31:08.059Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 02:01:08,064 | INFO | app.api.routes.db_routes | [save-api-response] UserAnalysis saved for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role AI Solutions Engineer, triggered from sidebar
+[2026-07-22T20:31:08.068Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (9ms)
+[2026-07-22T20:31:08.078Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=AI+Solutions+Engineer&region=United+Kingdom
+[2026-07-22T20:31:08.083Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:31:08.088Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (4ms)
+[2026-07-22T20:31:08.090Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (11ms)
+[2026-07-22T20:31:13.303Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=AI+Engineer&region=United+Kingdom
+2026-07-23 02:01:13,307 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:01:13,309 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:31:13.310Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (6ms)
+[2026-07-22T20:31:29.697Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=AI+Engineer&region=United+Kingdom
+2026-07-23 02:01:29,701 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:01:29,702 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:31:29.703Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (5ms)
+[2026-07-22T20:31:35.883Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 02:01:35,888 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache HIT for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role AI Engineer, region United Kingdom
+2026-07-23 02:01:35,888 | INFO | app.api.routes.db_routes | [get-cached-analysis] TIMELINE DEBUG - Has careerRoadmap: True, Keys in response: ['tabs', 'region', 'uiHints', 'atsScore', 'atsResume', 'fitSummary', 'careerRoadmap', 'adminAnalytics', 'comparisonInfo', 'careerComparison', 'timelineAnalytics', 'marketIntelligence']
+[2026-07-22T20:31:35.889Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (5ms)
+[2026-07-22T20:31:35.905Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 02:01:35,913 | INFO | app.api.routes.db_routes | [save-api-response] UserAnalysis saved for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role AI Engineer, triggered from sidebar
+[2026-07-22T20:31:35.919Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (11ms)
+[2026-07-22T20:31:35.927Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:31:35.934Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=AI+Engineer&region=United+Kingdom
+[2026-07-22T20:31:35.939Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (11ms)
+[2026-07-22T20:31:35.942Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (7ms)
+[2026-07-22T20:31:38.950Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=AI+Engineer&region=United+Kingdom
+2026-07-23 02:01:38,953 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:01:38,954 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:31:38.955Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (4ms)
+[2026-07-22T20:31:45.047Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 02:01:45,050 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache MISS for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Machine Learning Engineer, region United Kingdom
+[2026-07-22T20:31:45.051Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (4ms)
+[2026-07-22T20:31:45.065Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /role-analysis → http://127.0.0.1:8002/role-analysis
+2026-07-23 02:01:45,069 | INFO | app.api.role_analysis | [role-analysis] HIT postgres_cache — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Machine Learning Engineer
+[2026-07-22T20:31:45.070Z] [INFO] [RESPONSE] | POST /role-analysis → 200 (5ms)
+[2026-07-22T20:31:45.081Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /GetAnalysis → http://127.0.0.1:8002/GetAnalysis
+2026-07-23 02:01:45,085 | INFO | app.api.routes.get_analysis | [GetAnalysis] Prompt built for 1 roles, length=7851
+2026-07-23 02:02:46,026 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:02:46,028 | INFO | app.api.routes.get_analysis | [GetAnalysis] Received 1 role analyses
+2026-07-23 02:02:46,029 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:02:46,030 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:02:46,030 | INFO | app.core.candidate_cache | [Cache] cache_analysis_role OK — key=candidate:f5205a6a-d51e-47fe-be3…, role=Machine_Learning_Engineer
+2026-07-23 02:02:46,033 | INFO | app.api.role_analysis | role_analyses UPSERT — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Machine Learning Engineer region=United Kingdom journey_id=91ad3534-7909-48d6-94f8-9037c736da18
+[2026-07-22T20:32:46.034Z] [INFO] [RESPONSE] | POST /GetAnalysis → 200 (60952ms)
+[2026-07-22T20:32:46.053Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 02:02:46,060 | INFO | app.api.routes.db_routes | [save-api-response] UserAnalysis saved for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Machine Learning Engineer, triggered from sidebar
+[2026-07-22T20:32:46.062Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (9ms)
+[2026-07-22T20:32:46.073Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=Machine+Learning+Engineer&region=United+Kingdom
+[2026-07-22T20:32:46.080Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:32:46.085Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (5ms)
+[2026-07-22T20:32:46.088Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (15ms)
+[2026-07-22T20:32:49.476Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=a93b68ab-3a05-4891-a4f1-030c9d6b8d5a | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=AI+Engineer&region=United+Kingdom
+2026-07-23 02:02:49,479 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=a93b68ab…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:02:49,480 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:32:49.481Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (4ms)
+[2026-07-22T20:33:04.253Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /clear-candidate-data → http://127.0.0.1:8002/clear-candidate-data
+2026-07-23 02:03:04,257 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Starting data deletion for email: awsrahul1981@gmail.com
+2026-07-23 02:03:04,258 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Found candidate_id: f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:03:04,259 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 3 rows from useranalysis
+2026-07-23 02:03:04,259 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 0 rows from usercompletedgaps
+2026-07-23 02:03:04,259 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from user_cv_upload
+2026-07-23 02:03:04,260 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from userjourney
+2026-07-23 02:03:04,262 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Successfully cleared all data for awsrahul1981@gmail.com
+[2026-07-22T20:33:04.263Z] [INFO] [RESPONSE] | POST /clear-candidate-data → 200 (9ms)
+[2026-07-22T20:33:14.006Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /login → http://127.0.0.1:8002/login
+[2026-07-22T20:33:14.161Z] [INFO] [RESPONSE] | POST /login → 200 (155ms)
+[2026-07-22T20:33:14.172Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /userjourney → http://127.0.0.1:8002/userjourney?userId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:33:14.179Z] [INFO] [RESPONSE] | GET /userjourney → 200 (6ms)
+[2026-07-22T20:33:14.213Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+[2026-07-22T20:33:14.217Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+2026-07-23 02:03:14,218 | INFO | app.api.routes.db_routes | [init-journey] Created new userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:33:14.221Z] [INFO] [RESPONSE] | POST /init-journey → 200 (8ms)
+2026-07-23 02:03:14,225 | INFO | app.api.routes.db_routes | [init-journey] Returning existing userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:33:14.226Z] [INFO] [RESPONSE] | POST /init-journey → 200 (7ms)
+[2026-07-22T20:33:26.856Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /uploadresume → http://127.0.0.1:8002/uploadresume
+2026-07-23 02:03:26,860 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ START ════════ session=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b, location=''
+2026-07-23 02:03:26,862 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1: File received — name='Ghedhan Boubakr.pdf', size=73144 bytes, content_type=application/pdf
+2026-07-23 02:03:26,862 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1b: content_hash=89939c01e2bfaf09, session_id=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b
+2026-07-23 02:03:26,865 | INFO | app.api.routes.resume_upload | [uploadresume] Step 2: Text extracted — 2295 chars in 4ms
+2026-07-23 02:03:26,866 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3: Sections detected — ['experience', 'education'] in 0ms
+2026-07-23 02:03:26,873 | INFO | app.services.resume_parser.contact_extractor | [name-extract] first 10 non-empty lines: ['1', 'Curriculum Vitae', 'GHEDHAN BOUBAKR', 'Home Address:', '47 Victoria Road, Huddersfield', 'HD1 3RT']
+2026-07-23 02:03:26,873 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3a: Contact extracted — name='Ghedhan Boubakr', email='b.ghedhan@gmail.com', phone='+447810706000' (7ms)
+2026-07-23 02:03:26,874 | INFO | app.api.routes.resume_upload | [uploadresume] Step 4: Years of experience = None (0ms)
+2026-07-23 02:03:26,874 | INFO | app.api.routes.resume_upload | [uploadresume] Step 5: Calling LLM future-role prediction (OpenAI proxy)...
+2026-07-23 02:03:26,874 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=2295 chars, location=''
+2026-07-23 02:03:26,874 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 02:03:26,874 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 15674 chars
+2026-07-23 02:03:26,874 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 02:03:38,628 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:03:38,630 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=200, body=4539 bytes (11755ms)
+2026-07-23 02:03:38,630 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 4: Response parsed — 14 top-level keys
+2026-07-23 02:03:38,630 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── DONE ──── 3 roles: ['Training Coordinator', 'Administrative Officer', 'Faculty Collaborator'] (total 11756ms)
+2026-07-23 02:03:38,630 | INFO | app.api.routes.resume_upload | [uploadresume] Step 5: LLM prediction OK — 3 roles returned in 11756ms
+2026-07-23 02:03:38,631 | INFO | app.api.routes.resume_upload | [uploadresume] Using LLM work experience — 2 entries extracted
+2026-07-23 02:03:38,631 | INFO | app.api.routes.resume_upload | [uploadresume] Step 6: CACHE WRITE queued — session=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b, future_roles_present=True
+2026-07-23 02:03:38,631 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ DONE ════════ session=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b, candidate='Ghedhan Boubakr', roles=3, total=11770ms
+[2026-07-22T20:33:38.632Z] [INFO] [RESPONSE] | POST /uploadresume → 200 (11774ms)
+[2026-07-22T20:33:38.649Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /getresume_futureroles → http://127.0.0.1:8002/getresume_futureroles
+2026-07-23 02:03:38,652 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=2295 chars, location='United Kingdom'
+2026-07-23 02:03:38,652 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 02:03:38,652 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 15675 chars
+2026-07-23 02:03:38,653 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 02:03:38,807 | INFO | app.api.routes.resume_upload | [uploadresume] user_cv_upload persisted — session=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b, hash=89939c01e2bfaf09
+2026-07-23 02:03:38,809 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=4614f8d1…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:03:38,809 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+2026-07-23 02:03:48,892 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:03:48,894 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=200, body=4089 bytes (10241ms)
+2026-07-23 02:03:48,894 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 4: Response parsed — 14 top-level keys
+2026-07-23 02:03:48,894 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── DONE ──── 3 roles: ['Administrative Officer', 'Training Coordinator', 'Education Administrator'] (total 10242ms)
+[2026-07-22T20:33:48.896Z] [INFO] [RESPONSE] | POST /getresume_futureroles → 200 (10246ms)
+2026-07-23 02:03:48,899 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] parsed_output saved to user_cv_upload — session=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b
+2026-07-23 02:03:48,900 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=4614f8d1…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:03:48,900 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+2026-07-23 02:03:48,903 | INFO | app.api.role_analysis | upsert_suggested_roles — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 roles=3
+[2026-07-22T20:33:48.916Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-future-roles → http://127.0.0.1:8002/save-future-roles
+2026-07-23 02:03:48,920 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Administrative Officer" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:03:48,920 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Training Coordinator" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:03:48,921 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Education Administrator" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:33:48.924Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+[2026-07-22T20:33:48.930Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+[2026-07-22T20:33:48.931Z] [INFO] [RESPONSE] | POST /save-future-roles → 200 (14ms)
+2026-07-23 02:03:48,933 | INFO | app.api.routes.db_routes | [save-api-response] CV data received for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:03:48,935 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from UPLOAD_CV to ANALYSIS (credits set to 0)
+[2026-07-22T20:33:48.935Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (5ms)
+[2026-07-22T20:33:48.938Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (13ms)
+[2026-07-22T20:34:31.158Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 02:04:31,162 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache MISS for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Administrative Officer, region United Kingdom
+[2026-07-22T20:34:31.162Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (3ms)
+[2026-07-22T20:34:31.185Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /role-analysis → http://127.0.0.1:8002/role-analysis
+2026-07-23 02:04:31,191 | INFO | app.api.role_analysis | [role-analysis] HIT postgres_cache — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Administrative Officer
+[2026-07-22T20:34:31.191Z] [INFO] [RESPONSE] | POST /role-analysis → 200 (5ms)
+[2026-07-22T20:34:31.204Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /GetAnalysis → http://127.0.0.1:8002/GetAnalysis
+2026-07-23 02:04:31,207 | INFO | app.api.routes.get_analysis | [GetAnalysis] Prompt built for 1 roles, length=7728
+2026-07-23 02:05:31,956 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:05:31,957 | INFO | app.api.routes.get_analysis | [GetAnalysis] Received 1 role analyses
+2026-07-23 02:05:31,958 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=4614f8d1…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:05:31,959 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=4614f8d1…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:05:31,959 | INFO | app.core.candidate_cache | [Cache] cache_analysis_role OK — key=candidate:f5205a6a-d51e-47fe-be3…, role=Administrative_Officer
+2026-07-23 02:05:31,964 | INFO | app.api.role_analysis | role_analyses UPSERT — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Administrative Officer region=United Kingdom journey_id=55baf341-9bd3-47ab-adbc-0f7790f05db0
+[2026-07-22T20:35:31.965Z] [INFO] [RESPONSE] | POST /GetAnalysis → 200 (60760ms)
+[2026-07-22T20:35:31.986Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+[2026-07-22T20:35:31.992Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 02:05:32,000 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from ANALYSIS to RESULTS
+[2026-07-22T20:35:32.001Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (14ms)
+2026-07-23 02:05:32,002 | INFO | app.api.routes.db_routes | [save-api-response] UserAnalysis saved for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Administrative Officer, triggered from hero
+[2026-07-22T20:35:32.004Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (11ms)
+[2026-07-22T20:35:32.033Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=Administrative+Officer&region=United+Kingdom
+[2026-07-22T20:35:32.039Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:35:32.046Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:35:32.051Z] [INFO] [RESPONSE] | GET /get-journey → 200 (11ms)
+[2026-07-22T20:35:32.054Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (8ms)
+[2026-07-22T20:35:32.057Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (24ms)
+[2026-07-22T20:35:32.074Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:35:32.081Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:35:32.085Z] [INFO] [RESPONSE] | GET /get-journey → 200 (11ms)
+[2026-07-22T20:35:32.091Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=Administrative+Officer&region=United+Kingdom
+[2026-07-22T20:35:32.093Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (11ms)
+[2026-07-22T20:35:32.097Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (5ms)
+[2026-07-22T20:35:35.567Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=4614f8d1-5ed0-49a4-9d21-3f8aa8a9397b | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=Administrative+Officer&region=United+Kingdom
+2026-07-23 02:05:35,569 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=4614f8d1…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:05:35,571 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:35:35.572Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (5ms)
+[2026-07-22T20:35:54.083Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /clear-candidate-data → http://127.0.0.1:8002/clear-candidate-data
+2026-07-23 02:05:54,085 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Starting data deletion for email: awsrahul1981@gmail.com
+2026-07-23 02:05:54,085 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Found candidate_id: f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:05:54,086 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from useranalysis
+2026-07-23 02:05:54,086 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 0 rows from usercompletedgaps
+2026-07-23 02:05:54,086 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from user_cv_upload
+2026-07-23 02:05:54,087 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Deleted 1 rows from userjourney
+2026-07-23 02:05:54,090 | INFO | app.api.routes.clear_candidate_data | [ClearCandidateData] Successfully cleared all data for awsrahul1981@gmail.com
+[2026-07-22T20:35:54.091Z] [INFO] [RESPONSE] | POST /clear-candidate-data → 200 (8ms)
+[2026-07-22T20:36:13.158Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /login → http://127.0.0.1:8002/login
+[2026-07-22T20:36:13.306Z] [INFO] [RESPONSE] | POST /login → 200 (148ms)
+[2026-07-22T20:36:13.317Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /userjourney → http://127.0.0.1:8002/userjourney?userId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:36:13.322Z] [INFO] [RESPONSE] | GET /userjourney → 200 (4ms)
+[2026-07-22T20:36:13.358Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+2026-07-23 02:06:13,362 | INFO | app.api.routes.db_routes | [init-journey] Created new userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:36:13.368Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /init-journey → http://127.0.0.1:8002/init-journey
+[2026-07-22T20:36:13.370Z] [INFO] [RESPONSE] | POST /init-journey → 200 (11ms)
+2026-07-23 02:06:13,373 | INFO | app.api.routes.db_routes | [init-journey] Returning existing userjourney for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:36:13.374Z] [INFO] [RESPONSE] | POST /init-journey → 200 (5ms)
+[2026-07-22T20:36:28.713Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=e14fec77-ab2f-4f21-b1bc-1dada02da0a0 | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /uploadresume → http://127.0.0.1:8002/uploadresume
+2026-07-23 02:06:28,716 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ START ════════ session=e14fec77-ab2f-4f21-b1bc-1dada02da0a0, location=''
+2026-07-23 02:06:28,717 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1: File received — name='Salah_Bakari_CV.docx', size=54439 bytes, content_type=application/vnd.openxmlformats-officedocument.wordprocessingml.document
+2026-07-23 02:06:28,717 | INFO | app.api.routes.resume_upload | [uploadresume] Step 1b: content_hash=20f84776d4dcefe5, session_id=e14fec77-ab2f-4f21-b1bc-1dada02da0a0
+2026-07-23 02:06:28,727 | INFO | app.api.routes.resume_upload | [uploadresume] Step 2: Text extracted — 2153 chars in 10ms
+2026-07-23 02:06:28,728 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3: Sections detected — ['experience', 'education'] in 1ms
+2026-07-23 02:06:28,733 | INFO | app.services.resume_parser.contact_extractor | [name-extract] first 10 non-empty lines: ['SALAH BAKARI', 'Manchester – salas19@hotmail.com – +447879647312', 'linkedin.com/in/salah-bakari-91890b2a0', 'I am a conscientious and professional individual who is willing to learn and acquire new skills. I am very enthusiastic as a person, highly organised and efficient individual keen to get the task finished and move swiftly on to another task. I understand the importance of accepting guidance and instructions. I have good communication with others. I am honest, reliable and have good time keeping.', 'Good time management', 'Approachable and friendly', 'Very adaptable', 'Proficiency in all areas of Microsoft Office, including Access, Excel, Word and PowerPoint', 'Excellent communication skills, both written and verbal', 'Taxi Driver, Self Employed, Manchester City Council']
+2026-07-23 02:06:28,734 | INFO | app.api.routes.resume_upload | [uploadresume] Step 3a: Contact extracted — name='Emma Webb', email='salas19@hotmail.com', phone='+447879647312' (6ms)
+2026-07-23 02:06:28,735 | INFO | app.api.routes.resume_upload | [uploadresume] Step 4: Years of experience = 15.6 (1ms)
+2026-07-23 02:06:28,735 | INFO | app.api.routes.resume_upload | [uploadresume] Step 5: Calling LLM future-role prediction (OpenAI proxy)...
+2026-07-23 02:06:28,735 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=2153 chars, location=''
+2026-07-23 02:06:28,735 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 02:06:28,735 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 15532 chars
+2026-07-23 02:06:28,736 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 02:06:41,854 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:06:41,855 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=200, body=5660 bytes (13119ms)
+2026-07-23 02:06:41,855 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 4: Response parsed — 14 top-level keys
+2026-07-23 02:06:41,855 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── DONE ──── 3 roles: ['Delivery Driver', 'Transport Driver', 'Pharmacy Supervisor'] (total 13120ms)
+2026-07-23 02:06:41,856 | INFO | app.api.routes.resume_upload | [uploadresume] Step 5: LLM prediction OK — 3 roles returned in 13120ms
+2026-07-23 02:06:41,856 | INFO | app.api.routes.resume_upload | [uploadresume] Using LLM work experience — 3 entries extracted
+2026-07-23 02:06:41,856 | INFO | app.api.routes.resume_upload | [uploadresume] Step 6: CACHE WRITE queued — session=e14fec77-ab2f-4f21-b1bc-1dada02da0a0, future_roles_present=True
+2026-07-23 02:06:41,856 | INFO | app.api.routes.resume_upload | [uploadresume] ════════ DONE ════════ session=e14fec77-ab2f-4f21-b1bc-1dada02da0a0, candidate='Emma Webb', roles=3, total=13140ms
+[2026-07-22T20:36:41.857Z] [INFO] [RESPONSE] | POST /uploadresume → 200 (13142ms)
+2026-07-23 02:06:41,864 | INFO | app.api.routes.resume_upload | [uploadresume] user_cv_upload persisted — session=e14fec77-ab2f-4f21-b1bc-1dada02da0a0, hash=20f84776d4dcefe5
+2026-07-23 02:06:41,865 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=e14fec77…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:06:41,865 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+[2026-07-22T20:36:41.875Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=e14fec77-ab2f-4f21-b1bc-1dada02da0a0 | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /getresume_futureroles → http://127.0.0.1:8002/getresume_futureroles
+2026-07-23 02:06:41,877 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── START ──── raw_text=2153 chars, location='United Kingdom'
+2026-07-23 02:06:41,878 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 1: Prompt template loaded from futureroleprediction.txt (13339 chars)
+2026-07-23 02:06:41,878 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 2: Prompt built — 15533 chars
+2026-07-23 02:06:41,878 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: Calling OpenAI proxy at http://localhost:8005/openchat ...
+2026-07-23 02:06:54,787 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:06:54,789 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 3: OpenAI proxy responded — status=200, body=5738 bytes (12911ms)
+2026-07-23 02:06:54,789 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] Step 4: Response parsed — 14 top-level keys
+2026-07-23 02:06:54,789 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] ──── DONE ──── 3 roles: ['Delivery Driver', 'Transport Driver', 'Pharmacy Supervisor'] (total 12912ms)
+[2026-07-22T20:36:54.792Z] [INFO] [RESPONSE] | POST /getresume_futureroles → 200 (12916ms)
+2026-07-23 02:06:54,794 | INFO | app.api.routes.getresume_futureroles | [getresume_futureroles] parsed_output saved to user_cv_upload — session=e14fec77-ab2f-4f21-b1bc-1dada02da0a0
+2026-07-23 02:06:54,795 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=e14fec77…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:06:54,796 | INFO | app.core.candidate_cache | [Cache] cache_upload_result OK — key=candidate:f5205a6a-d51e-47fe-be3…
+2026-07-23 02:06:54,799 | INFO | app.api.role_analysis | upsert_suggested_roles — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 roles=3
+[2026-07-22T20:36:54.820Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-future-roles → http://127.0.0.1:8002/save-future-roles
+[2026-07-22T20:36:54.829Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+[2026-07-22T20:36:54.837Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 02:06:54,841 | INFO | app.api.routes.db_routes | [save-api-response] CV data received for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:06:54,845 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from UPLOAD_CV to ANALYSIS (credits set to 0)
+[2026-07-22T20:36:54.845Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (7ms)
+2026-07-23 02:06:54,845 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Delivery Driver" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:06:54,846 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Transport Driver" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+2026-07-23 02:06:54,847 | INFO | app.api.routes.db_routes | [save-future-roles] Inserted role "Pharmacy Supervisor" for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:36:54.848Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (19ms)
+[2026-07-22T20:36:54.852Z] [INFO] [RESPONSE] | POST /save-future-roles → 200 (31ms)
+[2026-07-22T20:37:08.563Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /get-cached-analysis → http://127.0.0.1:8002/get-cached-analysis
+2026-07-23 02:07:08,568 | INFO | app.api.routes.db_routes | [get-cached-analysis] Cache MISS for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Delivery Driver, region United Kingdom
+[2026-07-22T20:37:08.568Z] [INFO] [RESPONSE] | POST /get-cached-analysis → 200 (4ms)
+[2026-07-22T20:37:08.593Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=e14fec77-ab2f-4f21-b1bc-1dada02da0a0 | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /role-analysis → http://127.0.0.1:8002/role-analysis
+2026-07-23 02:07:08,599 | INFO | app.api.role_analysis | [role-analysis] HIT postgres_cache — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Delivery Driver
+[2026-07-22T20:37:08.600Z] [INFO] [RESPONSE] | POST /role-analysis → 200 (6ms)
+[2026-07-22T20:37:08.613Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=e14fec77-ab2f-4f21-b1bc-1dada02da0a0 | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /GetAnalysis → http://127.0.0.1:8002/GetAnalysis
+2026-07-23 02:07:08,618 | INFO | app.api.routes.get_analysis | [GetAnalysis] Prompt built for 1 roles, length=8175
+2026-07-23 02:08:01,744 | INFO | httpx | HTTP Request: POST http://localhost:8005/openchat "HTTP/1.1 200 OK"
+2026-07-23 02:08:01,746 | INFO | app.api.routes.get_analysis | [GetAnalysis] Received 1 role analyses
+2026-07-23 02:08:01,747 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=e14fec77…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:08:01,748 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=e14fec77…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (0ms)
+2026-07-23 02:08:01,748 | INFO | app.core.candidate_cache | [Cache] cache_analysis_role OK — key=candidate:f5205a6a-d51e-47fe-be3…, role=Delivery_Driver
+2026-07-23 02:08:01,753 | INFO | app.api.role_analysis | role_analyses UPSERT — candidate=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 role=Delivery Driver region=United Kingdom journey_id=4aef1ffe-df19-40ae-b204-ed2f3549a97d
+[2026-07-22T20:38:01.754Z] [INFO] [RESPONSE] | POST /GetAnalysis → 200 (53140ms)
+[2026-07-22T20:38:01.782Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /advance-journey-next → http://127.0.0.1:8002/advance-journey-next
+[2026-07-22T20:38:01.794Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | POST /save-api-response → http://127.0.0.1:8002/save-api-response
+2026-07-23 02:08:01,800 | INFO | app.api.routes.db_routes | [advance-journey] Advanced candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 from ANALYSIS to RESULTS
+[2026-07-22T20:38:01.801Z] [INFO] [RESPONSE] | POST /advance-journey-next → 200 (18ms)
+2026-07-23 02:08:01,805 | INFO | app.api.routes.db_routes | [save-api-response] UserAnalysis saved for candidate f5205a6a-d51e-47fe-be37-1bc5fe1cfed7, role Delivery Driver, triggered from hero
+[2026-07-22T20:38:01.810Z] [INFO] [RESPONSE] | POST /save-api-response → 200 (15ms)
+[2026-07-22T20:38:01.835Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:38:01.846Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:38:01.856Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=e14fec77-ab2f-4f21-b1bc-1dada02da0a0 | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=Delivery+Driver&region=United+Kingdom
+[2026-07-22T20:38:01.863Z] [INFO] [RESPONSE] | GET /get-journey → 200 (27ms)
+[2026-07-22T20:38:01.866Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (19ms)
+[2026-07-22T20:38:01.869Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (12ms)
+[2026-07-22T20:38:01.923Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-journey → http://127.0.0.1:8002/get-journey?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:38:01.926Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=none | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-candidate-roles → http://127.0.0.1:8002/get-candidate-roles?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:38:01.928Z] [INFO] [RESPONSE] | GET /get-journey → 200 (5ms)
+[2026-07-22T20:38:01.935Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=e14fec77-ab2f-4f21-b1bc-1dada02da0a0 | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /get-completed-gaps → http://127.0.0.1:8002/get-completed-gaps?candidateId=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7&targetRole=Delivery+Driver&region=United+Kingdom
+[2026-07-22T20:38:01.937Z] [INFO] [RESPONSE] | GET /get-candidate-roles → 200 (10ms)
+[2026-07-22T20:38:01.939Z] [INFO] [RESPONSE] | GET /get-completed-gaps → 200 (3ms)
+[2026-07-22T20:38:08.212Z] [INFO] [REQUEST] | clientIp=::1 | sessionId=e14fec77-ab2f-4f21-b1bc-1dada02da0a0 | userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 | GET /generate-resume-preview → http://127.0.0.1:8002/generate-resume-preview?career_goal=Delivery+Driver&region=United+Kingdom
+2026-07-23 02:08:08,215 | INFO | app.core.candidate_cache | [Cache] DB lookup usersession — token=e14fec77…, candidate_id=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7 (1ms)
+2026-07-23 02:08:08,216 | INFO | app.api.generate_resume | [generate-resume-preview] HIT PG cv_upload — cid=f5205a6a-d51e-47fe-be37-1bc5fe1cfed7
+[2026-07-22T20:38:08.217Z] [INFO] [RESPONSE] | GET /generate-resume-preview → 200 (5ms)
+2026-07-23 02:09:04,678 | INFO | app.core.async_db | Async psycopg pool closed
